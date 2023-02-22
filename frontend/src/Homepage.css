@@ -1,0 +1,282 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+html {
+  font-size: 10px;
+}
+.homepage-container {
+  background-color: #a9a908;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+.homepage-container hr {
+  border: 0.05rem solid grey;
+  width: 99%;
+  /* max-width: 1000px; */
+}
+#homepageTopId {
+  box-sizing: border-box;
+  /* margin: 0 2%; */
+  justify-content: center;
+  max-width: 1000px;
+  padding: 0 1%;
+}
+
+.homepageTop {
+  display: flex;
+  flex-direction: row;
+}
+
+.homepage-left {
+  width: 50%;
+  margin: 10rem 0 0 0;
+}
+.homepage-left h1{
+      font-weight: 500;
+}
+.homepage-right img {
+  width: 40rem;
+  height: 25rem;
+  margin: 10rem 0 0 10rem;
+  box-shadow: rgba(255, 255, 255, 0.52) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+.homepageTitle {
+  font-size: 3.7rem;
+  font-weight: 300;
+  color: #cac8c8;
+  line-height: 4rem;
+  width: 70%;
+  padding-bottom: 1rem;
+}
+.homepageDescription {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 2rem;
+}
+.homepageButton button {
+  background: #000;
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(255, 255, 255, 0.52) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 2rem 2rem 5rem 0;
+  cursor: pointer;
+}
+.homepageButton button:hover {
+  box-shadow: rgba(18, 118, 171, 0.12) 0px 2px 4px 0px,
+    rgba(16, 124, 157, 0.32) 0px 1px 12px 0px;
+  /* box-shadow: 1px 0.5px 2px 1px #095a94; */
+  text-decoration: none;
+}
+#homepageBottomId {
+  box-sizing: border-box;
+  max-width: 1000px;
+  /* margin: 0 2%; */
+  padding: 0 1%;
+}
+
+.homepageBottom {
+  display: flex;
+  flex-direction: column;
+}
+.homepageBottom h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.homepageJobs-container {
+  display: grid;
+  grid-template-columns: minmax(auto, 333px) minmax(auto, 333px) minmax(
+      auto,
+      333px
+    );
+  gap: 2rem;
+}
+.homepageJobs {
+  color: #ffffff;
+  margin: 5rem 0 0 0;
+}
+.homepageJobsCard {
+  background: #000;
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.52) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 2rem;
+  text-decoration: none;
+  margin-top: 2rem;
+  /* margin: 20px 25px 20px 0; */
+  cursor: pointer;
+}
+.homepageCard-Title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.homepageJobsCardLeft-Top {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0 1rem 0;
+}
+.homepageJobsCardLeft-Top p {
+  padding-left: 0.5rem;
+}
+.homepageJobsCardRight-Top {
+  display: flex;
+  justify-content: end;
+}
+.homepageJobsCardLeft-Bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.homepageJobsCard-timeDiv,
+.homepageJobsCard-locationDiv,
+.homepageJobsCard-amountDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 100;
+}
+.homepageJobsCardLeft-Bottom p {
+  padding-left: 0.5rem;
+  font-weight: 100;
+}
+.homepageTalent-container {
+  display: grid;
+  grid-template-columns: minmax(auto, 333px) minmax(auto, 333px) minmax(
+      auto,
+      333px
+    );
+  gap: 2rem;
+}
+.homepageTalent {
+  color: #ffffff;
+  margin: 5rem 0;
+}
+.homepageTalentCard {
+  background: #000;
+  border-radius: 5px;
+  box-shadow: rgba(255, 255, 255, 0.52) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem;
+  text-decoration: none;
+  margin-top: 2rem;
+  /* margin: 20px 25px 20px 0; */
+  gap: 2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.homepageTalent-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.homepageTalent-detail {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  line-height: 1.5rem;
+  justify-content: start;
+}
+.homepageTalent-detail p {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  letter-spacing: 0.09rem;
+  font-weight: 500;
+}
+.homepageTalent-skill {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 930px) {
+      html{
+            font-size: 62.5%;
+      }
+  .homepage-right {
+    display: none;
+  }
+  .homepage-left {
+  display: flex;
+  flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+  }
+  .homepage-left h1{
+      text-align: center;
+      font-weight: 500;
+  }
+  .homepage-left p{
+      text-align: center;
+  }
+  .homepageTitle {
+    width: 100%;
+      }
+      .homepageButton{
+            display: flex;
+            margin: auto;
+      }
+      .homepageButton button{
+            padding: 1.2rem;
+      }
+}
+@media (max-width: 780px) {
+      .homepageJobs-container {
+            grid-template-columns: 48% 48%;
+      }
+  .homepageTalent-container {
+  grid-template-columns: 48% 48%
+}
+}
+@media (max-width: 580px) {
+      .homepageJobs-container {
+            grid-template-columns: auto;
+      }
+  .homepageTalent-container {
+  grid-template-columns: auto
+}
+}
+@media (max-width: 400px) {
+      .homepage-left {
+    width: 90%;
+    margin: 5rem 0 0 0;
+      }
+      .homepageButton{
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+      }
+      .homepageButton button{
+            margin: 10% auto;
+            padding: 1.2rem 5rem;
+            width: 100%;
+      }
+}
