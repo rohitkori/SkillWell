@@ -23,24 +23,22 @@ const Navbar = () => {
             <FiMenu />
           </div>
           <div className="nav-left">
-              <Link to="/" style={{ textDecoration: "none" }}>
-              {/* <div className="nav-logo">
-                <img src={logo} alt="" />
-            </div> */}
-              </Link>
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <div className="nav-logo">
+                {/* <img src={logo} alt="" /> */}
+                SKILL WELL
+              </div>
+            </Link>
             <div className="nav-links" onClick={showNavbar}>
               <ul>
                 <Link to="/jobs" style={{ textDecoration: "none" }}>
                   <li>Jobs</li>
                 </Link>
                 <Link to="/talent" style={{ textDecoration: "none" }}>
-                  <li>Talent</li>
+                  <li>Freelancer</li>
                 </Link>
                 <Link to="/jobs/signup" style={{ textDecoration: "none" }}>
-                  <li>Post a Job</li>
-                </Link>
-                <Link to="/talent/signup" style={{ textDecoration: "none" }}>
-                  <li>Join as Talent</li>
+                  <li>Post a Work</li>
                 </Link>
               </ul>
             </div>

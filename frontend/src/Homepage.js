@@ -12,7 +12,7 @@ import {
   MdOutlinePalette,
   MdLocationOn,
 } from "react-icons/md";
-// import RightImg from "./assets/homepage/homepageTop.jpg"
+import RightImg from "./assets/camelBG.jpg";
 import "./Homepage.css";
 
 const Homepage = () => {
@@ -20,32 +20,32 @@ const Homepage = () => {
     <div className="homepage-container">
       <div className="homepageTop" id="homepageTopId">
         <div className="homepage-left">
-          <h1 className="homepageTitle">Find prime YouTube Talent</h1>
+          <h1 className="homepageTitle">Find prime Skills in Campus</h1>
           <p className="homepageDescription">
-            India's largest platform to connect YouTubers with the best-in-class
-            Creative Professionals.
+            Platform to connect You with the best-in-campus
+            Creative Talent.
             <br />
-            <br /> No more looking for talent. No more exploitation of talent.
+            <br /> No more looking for chances. No more wasting of talent.
           </p>
           <div className="homepageButton">
             <Link to="/talent/signup">
-              <button className="homepageButton-talent">Join as Talent</button>
+              <button className="homepageButton-talent">Freelancer</button>
             </Link>
             <Link to="/jobs/signup">
-              <button className="homepageButton-job">Post a Job</button>
+              <button className="homepageButton-job">Post a Work</button>
             </Link>
           </div>
         </div>
-        {/* <div className="homepage-right">
+        <div className="homepage-right">
           <img src={RightImg} alt="" />
-        </div> */}
+        </div>
       </div>
       <hr />
       <div className="homepageBottom" id="homepageBottomId">
         <div className="homepageJobs">
-          <h2 className="homepageJobsTitle">Featured Jobs</h2>
+          <h2 className="homepageJobsTitle">Featured Works</h2>
           <div className="homepageJobs-container">
-            <Link to="/jobsDetails" className="jobsCard-link">
+            <Link to="/jobsDetails" className="jobsCard-link" style={{ textDecoration: "none" }}>
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
@@ -75,7 +75,7 @@ const Homepage = () => {
                 </div>
               </div>
             </Link>
-            <Link to="/jobsDetails" className="jobsCard-link">
+            <Link to="/jobsDetails" className="jobsCard-link" style={{ textDecoration: "none" }}>
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
@@ -105,7 +105,7 @@ const Homepage = () => {
                 </div>
               </div>
             </Link>
-            <Link to="/jobsDetails" className="jobsCard-link">
+            <Link to="/jobsDetails" className="jobsCard-link" style={{ textDecoration: "none" }}>
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
@@ -135,47 +135,6 @@ const Homepage = () => {
                 </div>
               </div>
             </Link>
-          </div>
-        </div>
-        <div className="homepageTalent">
-          <h2 className="homepageTalentTitle">Featured Talent</h2>
-          <div className="homepageTalent-container">
-            <div className="homepageTalentCard">
-              <div className="homepageTalent-left">
-                <FaUserAlt size={25} />
-                <div className="homepageTalent-detail">
-                  <p className="homepageTalent-name">Yuvraj Rathva</p>
-                  <p className="homepageTalent-skill">Video Editor</p>
-                </div>
-              </div>
-              <div className="homepageTalent-right">
-                <FaChevronRight />
-              </div>
-            </div>
-            <div className="homepageTalentCard">
-              <div className="homepageTalent-left">
-                <FaUserAlt size={25} />
-                <div className="homepageTalent-detail">
-                  <p className="homepageTalent-name">Rishav Aich</p>
-                  <p className="homepageTalent-skill">Digital Design</p>
-                </div>
-              </div>
-              <div className="homepageTalent-right">
-                <FaChevronRight />
-              </div>
-            </div>
-            <div className="homepageTalentCard">
-              <div className="homepageTalent-left">
-                <FaUserAlt size={25} />
-                <div className="homepageTalent-detail">
-                  <p className="homepageTalent-name">Rohit Kumar Kori</p>
-                  <p className="homepageTalent-skill">Web Developer</p>
-                </div>
-              </div>
-              <div className="homepageTalent-right">
-                <FaChevronRight />
-              </div>
-            </div>
           </div>
         </div>
       </div>
