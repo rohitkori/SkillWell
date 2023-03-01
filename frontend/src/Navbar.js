@@ -26,7 +26,7 @@ const Navbar = () => {
             <Link to="/" style={{ textDecoration: "none" }}>
               <div className="nav-logo">
                 {/* <img src={logo} alt="" /> */}
-                SKILL WELL
+                SKILLWELL
               </div>
             </Link>
             <div className="nav-links" onClick={showNavbar}>
