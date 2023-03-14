@@ -45,7 +45,7 @@ const Homepage = () => {
         <div className="homepageJobs">
           <h2 className="homepageJobsTitle">Featured Works</h2>
           <div className="homepageJobs-container">
-            <Link to="/jobsDetails" className="jobsCard-link" style={{ textDecoration: "none" }}>
+            <Link to="/jobsDetail" className="jobsCard-link" style={{ textDecoration: "none" }}>
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">

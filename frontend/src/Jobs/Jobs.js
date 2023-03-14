@@ -47,7 +47,7 @@ const icons = [
   },
   {
     id: 5,
-    name: "YouTube Strategist",
+    name: "Figma Developer",
     icon: <MdOutlineNoteAlt size={30} />,
   },
   {
@@ -70,7 +70,7 @@ const Jobs = () => {
   return (
     <div className="jobs-container">
       <div className="jobs-title" id="jobs-titleId">
-        <h1 className="jobs-title-h1">Jobs</h1>
+        <h1 className="jobs-title-h1">Works</h1>
         <div className="jobs-search">
           <input
             type="search"
@@ -85,7 +85,7 @@ const Jobs = () => {
         {jobsInfo
           .map((job, index) => {
             return (
-              <Link className="jobsCard-link">
+              <Link to="/jobsDetail" className="jobsCard-link">
                 <div className="jobsCard" key={index}>
                   <div className="jobsCard-Title">
                     <div className="jobsCardLeft-Top">

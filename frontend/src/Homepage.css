@@ -33,17 +33,17 @@ html {
 
 .homepage-left {
   width: 50%;
-    margin: 10rem 0 0 0;
+  margin: 10rem 0 0 0;
 }
-.homepage-left h1{
-      font-weight: 500;
+.homepage-left h1 {
+  font-weight: 500;
 }
 .homepage-right img {
   width: 40rem;
   height: 25rem;
   margin: 10rem 0 0 10rem;
-  box-shadow: rgba(255, 255, 255, 0.52) 0px 2px 10px 0px,
-    rgba(255, 255, 255, 0.52) 0px 1px 20px 0px;
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 10px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 20px 0px;
   border: 1px solid #ffffff;
   border-radius: 5px;
 }
@@ -63,14 +63,14 @@ html {
   line-height: 2rem;
 }
 .homepageButton button {
-  background: #000;
+  background: #fff;
   border-radius: 5px;
   /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
-  box-shadow: rgba(255, 255, 255, 0.52) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.52) 0px 1px 12px 0px;
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
   border: 1px solid #ffffff;
   font-family: Arial;
-  color: #ffffff;
+  color: #000;
   font-size: 1.5rem;
   font-weight: 600;
   padding: 1.2rem 2.2rem;
@@ -115,8 +115,8 @@ html {
 .homepageJobsCard {
   background: #0b5458;
   border-radius: 10px;
-  box-shadow: rgba(255, 255, 255, 0.52) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.52) 0px 1px 12px 0px;
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
   border: 5px solid #ffffff;
   color: #ffffff;
   font-size: 1.5rem;
@@ -187,8 +187,8 @@ html {
 .homepageTalentCard {
   background: #000;
   border-radius: 5px;
-  box-shadow: rgba(255, 255, 255, 0.52) 0px 2px 4px 0px,
-    rgba(255, 255, 255, 0.52) 0px 1px 12px 0px;
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
   border: 1px solid #ffffff;
   color: #ffffff;
   font-size: 1.5rem;
@@ -228,66 +228,66 @@ html {
 }
 
 @media (max-width: 930px) {
-      html{
-            font-size: 62.5%;
-      }
+  html {
+    font-size: 62.5%;
+  }
   .homepage-right {
     display: none;
   }
   .homepage-left {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
     width: 70%;
     justify-content: center;
     align-items: center;
   }
-  .homepage-left h1{
-      text-align: center;
-      font-weight: 500;
+  .homepage-left h1 {
+    text-align: center;
+    font-weight: 500;
   }
-  .homepage-left p{
-      text-align: center;
+  .homepage-left p {
+    text-align: center;
   }
   .homepageTitle {
     width: 100%;
-      }
-      .homepageButton{
-            display: flex;
-            margin: auto;
-      }
-      .homepageButton button{
-            padding: 1.2rem;
-      }
+  }
+  .homepageButton {
+    display: flex;
+    margin: auto;
+  }
+  .homepageButton button {
+    padding: 1.2rem;
+  }
 }
 @media (max-width: 780px) {
-      .homepageJobs-container {
-            grid-template-columns: 48% 48%;
-      }
+  .homepageJobs-container {
+    grid-template-columns: 48% 48%;
+  }
   .homepageTalent-container {
-  grid-template-columns: 48% 48%
-}
+    grid-template-columns: 48% 48%;
+  }
 }
 @media (max-width: 580px) {
-      .homepageJobs-container {
-            grid-template-columns: auto;
-      }
+  .homepageJobs-container {
+    grid-template-columns: auto;
+  }
   .homepageTalent-container {
-  grid-template-columns: auto
-}
+    grid-template-columns: auto;
+  }
 }
 @media (max-width: 400px) {
-      .homepage-left {
+  .homepage-left {
     width: 90%;
     margin: 5rem 0 0 0;
-      }
-      .homepageButton{
-            display: flex;
-            flex-direction: column;
-            margin: auto;
-      }
-      .homepageButton button{
-            margin: 10% auto;
-            padding: 1.2rem 5rem;
-            width: 100%;
-      }
+  }
+  .homepageButton {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  .homepageButton button {
+    margin: 10% auto;
+    padding: 1.2rem 5rem;
+    width: 100%;
+  }
 }

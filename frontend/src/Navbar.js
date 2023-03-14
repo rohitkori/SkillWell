@@ -32,12 +32,12 @@ const Navbar = () => {
             <div className="nav-links" onClick={showNavbar}>
               <ul>
                 <Link to="/jobs" style={{ textDecoration: "none" }}>
-                  <li>Jobs</li>
+                  <li>Works</li>
                 </Link>
-                <Link to="/talent" style={{ textDecoration: "none" }}>
+                {/* <Link to="/*" style={{ textDecoration: "none" }}>
                   <li>Freelancer</li>
-                </Link>
-                <Link to="/jobs/signup" style={{ textDecoration: "none" }}>
+                </Link> */}
+                <Link to="/*" style={{ textDecoration: "none" }}>
                   <li>Post a Work</li>
                 </Link>
               </ul>

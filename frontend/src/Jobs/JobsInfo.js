@@ -20,7 +20,7 @@ const JobsInfo = [
   {
     id: 2,
     image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-    jobTitle: "YouTube Strategist",
+    jobTitle: "Figma Developer",
     jobTime: "Full-time",
     jobLocation: "Remote",
     jobAmout: "60,000 - 70,000",

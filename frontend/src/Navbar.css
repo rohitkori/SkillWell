@@ -35,7 +35,7 @@
 .nav-logo {
   color: #fff;
   font-size: 20px;
-  padding: 1rem 0;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,12 +91,7 @@
   padding-right: 20px;
   color: #FFFFFF;
 }
-.nav > .nav-left > .nav-links > ul li:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-.nav > .nav-right > .nav-links > ul li:hover {
-  background-color: rgba(0, 0, 0, 0.3);
-}
+
 /* .nav .nav-right{
     display: flex;
     justify-content: space-between;
