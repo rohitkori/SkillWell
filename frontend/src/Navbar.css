@@ -34,7 +34,7 @@
 }
 .nav-logo {
   color: #fff;
-  font-size: 20px;
+  /* font-size: 20px; */
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -45,7 +45,7 @@
   /* width: 15%; */
   /* width: 5vw; */
   width: 10rem;
-  height: 5vh;
+  /* height: 5vh; */
   object-fit: cover;
 }
 
