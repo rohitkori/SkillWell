@@ -12,7 +12,7 @@ import {
   MdOutlinePalette,
   MdLocationOn,
 } from "react-icons/md";
-import RightImg from "./assets/camelBG.jpg";
+import RightImg from "./assets/homepage-img.jpg";
 import "./Homepage.css";
 
 const Homepage = () => {
@@ -75,7 +75,7 @@ const Homepage = () => {
                 </div>
               </div>
             </Link>
-            <Link to="/jobsDetails" className="jobsCard-link" style={{ textDecoration: "none" }}>
+            <Link to="/jobsDetail" className="jobsCard-link" style={{ textDecoration: "none" }}>
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
@@ -105,7 +105,7 @@ const Homepage = () => {
                 </div>
               </div>
             </Link>
-            <Link to="/jobsDetails" className="jobsCard-link" style={{ textDecoration: "none" }}>
+            <Link to="/jobsDetail" className="jobsCard-link" style={{ textDecoration: "none" }}>
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
