@@ -49,7 +49,7 @@ class User(AbstractUser):
     github = models.URLField(max_length=250, null=True, blank=True)
     twitter = models.URLField(max_length=250, null=True, blank=True)
     youtube = models.URLField(max_length=250, null=True, blank=True)
-    other_links = models.URLField(max_length=250, null=True, blank=True)
+    other_link = models.URLField(max_length=250, null=True, blank=True)
     portfolio_link = models.URLField(max_length=250, null=True, blank=True)
     isFreelancer = models.BooleanField(default=False)
     isRecruiter = models.BooleanField(default=False)
