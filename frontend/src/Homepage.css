@@ -77,16 +77,17 @@ html {
   text-decoration: none;
   margin: 2rem 2rem 5rem 0;
   cursor: pointer;
+    transition: background-color .5s ease-out;
 }
 .homepageButton button:hover {
-  /* box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px 0px,
-    rgba(0, 0, 0, 0.32) 0px 1px 12px 0px; */
   text-decoration: none;
-  background-color: gray;
+  background-color: rgba(128, 128, 128, 0.499);
+    transition: background-color .5s ease-out;
 }
 #homepageBottomId {
   box-sizing: border-box;
   max-width: 1000px;
+  width: 100%;
   margin: 0 0 5rem 0;
   padding: 0 1%;
 }
@@ -102,10 +103,11 @@ html {
 }
 .homepageJobs-container {
   display: grid;
-  grid-template-columns: minmax(auto, 333px) minmax(auto, 333px) minmax(
+  /* grid-template-columns: minmax(auto, 333px) minmax(auto, 333px) minmax(
       auto,
       333px
-    );
+    ); */
+    grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 .homepageJobs {
@@ -113,11 +115,12 @@ html {
   margin: 5rem 0 0 0;
 }
 .homepageJobsCard {
-  background: #020613;
+  background: transparent;
+  backdrop-filter: blur(10px);
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
-    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
-  border: 1px solid #000;
+  box-shadow: rgba(0, 0, 0) 0px 2px 5px 0px,
+    rgba(0, 0, 0) 0px 1px 12px 0px;
+  border: 1px inset;
   color: #ffffff;
   font-size: 1.5rem;
   font-weight: 600;
@@ -126,6 +129,11 @@ html {
   margin-top: 2rem;
   /* margin: 20px 25px 20px 0; */
   cursor: pointer;
+    transition: backdrop-filter .5s ease-out;
+}
+.homepageJobsCard:hover {
+    backdrop-filter: blur(2px);
+    transition: backdrop-filter .5s ease-in;
 }
 .homepageCard-Title {
   display: flex;

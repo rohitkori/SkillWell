@@ -50,36 +50,6 @@ const Homepage = () => {
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
                     <MdOutlineMovieFilter size={35} />
-                    <p>YouTube Producer</p>
-                  </div>
-                  <div className="homepageJobsCardRight-Top">
-                    <FaChevronRight size={20} />
-                  </div>
-                </div>
-                <div className="homepageCard-Description">
-                  <div className="homepageJobsCardLeft-Bottom">
-                    <div className="homepageJobsCard-timeDiv">
-                      <FaClock size={12} />
-                      <p className="homepageJobsCard-time">Full-time</p>
-                    </div>
-                    <div className="homepageJobsCard-locationDiv">
-                      <MdLocationOn size={13} />
-                      <p className="homepageJobsCard-location">Remote</p>
-                    </div>
-                    <div className="homepageJobsCard-amountDiv">
-                      <FaRupeeSign size={12} />
-                      <p className="homepageJobsCard-amount">75,000 - 90,000</p>
-                    </div>
-                  </div>
-                  <div className="homepageJobsCardRight-Bottom"></div>
-                </div>
-              </div>
-            </Link>
-            <Link to="/jobsDetail" className="jobsCard-link" style={{ textDecoration: "none" }}>
-              <div className="homepageJobsCard">
-                <div className="homepageCard-Title">
-                  <div className="homepageJobsCardLeft-Top">
-                    <MdOutlineSwitchVideo size={35} />
                     <p>Video Editor</p>
                   </div>
                   <div className="homepageJobsCardRight-Top">
@@ -109,8 +79,38 @@ const Homepage = () => {
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
+                    <MdOutlineSwitchVideo size={35} />
+                    <p>Web Developer</p>
+                  </div>
+                  <div className="homepageJobsCardRight-Top">
+                    <FaChevronRight size={20} />
+                  </div>
+                </div>
+                <div className="homepageCard-Description">
+                  <div className="homepageJobsCardLeft-Bottom">
+                    <div className="homepageJobsCard-timeDiv">
+                      <FaClock size={12} />
+                      <p className="homepageJobsCard-time">Full-time</p>
+                    </div>
+                    <div className="homepageJobsCard-locationDiv">
+                      <MdLocationOn size={13} />
+                      <p className="homepageJobsCard-location">Remote</p>
+                    </div>
+                    <div className="homepageJobsCard-amountDiv">
+                      <FaRupeeSign size={12} />
+                      <p className="homepageJobsCard-amount">75,000 - 90,000</p>
+                    </div>
+                  </div>
+                  <div className="homepageJobsCardRight-Bottom"></div>
+                </div>
+              </div>
+            </Link>
+            <Link to="/jobsDetail" className="jobsCard-link" style={{ textDecoration: "none" }}>
+              <div className="homepageJobsCard">
+                <div className="homepageCard-Title">
+                  <div className="homepageJobsCardLeft-Top">
                     <MdOutlinePalette size={35} />
-                    <p>Thumbnail Designer</p>
+                    <p>Digital Designer</p>
                   </div>
                   <div className="homepageJobsCardRight-Top">
                     <FaChevronRight size={20} />
