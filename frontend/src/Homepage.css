@@ -4,7 +4,8 @@ html {
   font-size: 10px;
 }
 .homepage-container {
-  background-color: #14948f;
+  background: url(https://images.unsplash.com/photo-1634632109601-bcfd0a649a07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80) no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -13,11 +14,10 @@ html {
   align-items: center;
   font-family: "Poppins", sans-serif;
 }
-.homepage-container hr {
+/* .homepage-container hr {
   border: 0.05rem solid black;
   width: 99%;
-  /* max-width: 1000px; */
-}
+} */
 #homepageTopId {
   box-sizing: border-box;
   /* margin: 0 2%; */
@@ -44,7 +44,7 @@ html {
   margin: 10rem 0 0 10rem;
   box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 10px 0px,
     rgba(0, 0, 0, 0.52) 0px 1px 20px 0px;
-  border: 1px solid #ffffff;
+  border: 1px solid black;
   border-radius: 5px;
 }
 .homepageTitle {
@@ -63,14 +63,14 @@ html {
   line-height: 2rem;
 }
 .homepageButton button {
-  background: #fff;
+  background: transparent;
   border-radius: 5px;
   /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
   box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
     rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
   border: 1px solid #ffffff;
   font-family: Arial;
-  color: #000;
+  color: #fff;
   font-size: 1.5rem;
   font-weight: 600;
   padding: 1.2rem 2.2rem;
@@ -79,10 +79,10 @@ html {
   cursor: pointer;
 }
 .homepageButton button:hover {
-  box-shadow: rgba(18, 118, 171, 0.12) 0px 2px 4px 0px,
-    rgba(16, 124, 157, 0.32) 0px 1px 12px 0px;
-  /* box-shadow: 1px 0.5px 2px 1px #095a94; */
+  /* box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.32) 0px 1px 12px 0px; */
   text-decoration: none;
+  background-color: gray;
 }
 #homepageBottomId {
   box-sizing: border-box;
@@ -113,11 +113,11 @@ html {
   margin: 5rem 0 0 0;
 }
 .homepageJobsCard {
-  background: #0b5458;
+  background: #020613;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
     rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
-  border: 5px solid #ffffff;
+  border: 1px solid #000;
   color: #ffffff;
   font-size: 1.5rem;
   font-weight: 600;
@@ -136,7 +136,7 @@ html {
 .homepageJobsCardLeft-Top {
   display: flex;
   align-items: center;
-  margin: 0.5rem 0 1rem 0;
+  /* margin: 0.5rem 0 1rem 0; */
 }
 .homepageJobsCardLeft-Top p {
   padding-left: 0.5rem;

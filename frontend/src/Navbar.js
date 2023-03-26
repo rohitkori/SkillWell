@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-// import logo from "../src/assets/logo/logo.png";
+import logo from "./assets/logo5.png";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -25,8 +25,8 @@ const Navbar = () => {
           <div className="nav-left">
             <Link to="/" style={{ textDecoration: "none" }}>
               <div className="nav-logo">
-                {/* <img src={logo} alt="" /> */}
-                SKILLWELL
+                <img src={logo} alt="" />
+                {/* SKILLWELL */}
               </div>
             </Link>
             <div className="nav-links" onClick={showNavbar}>
