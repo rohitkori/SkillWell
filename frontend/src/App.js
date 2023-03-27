@@ -7,6 +7,7 @@ import Navbar from "./Navbar.js";
 import Jobs from './Jobs/Jobs';
 import JobsDetail from './Jobs/JobsDetail';
 import Error from "./404";
+import Signup from './pages/Signup';
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/jobsDetail" element={<JobsDetail />} />
             <Route path="/*" element={<Error />} />

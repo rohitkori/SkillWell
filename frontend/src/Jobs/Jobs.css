@@ -4,7 +4,9 @@ html {
   font-size: 10px;
 }
 .jobs-container {
-  background-color: #1F8A70;
+  background: url(../assets/works-bg3.jpg);
+  background-size: cover;
+  /* background: url(../assets/works-bg2.jpg) no-repeat center center fixed; */
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
@@ -42,7 +44,7 @@ html {
 .jobs-search input {
   background-color: transparent;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid #fff;
   width: 100%;
   color: #ffffff;
   letter-spacing: 0.15rem;
@@ -52,7 +54,7 @@ html {
   right: 10px;
 }
 .jobs-search input::placeholder {
-  color: black;
+  color: #fff;
   letter-spacing: 0.2rem;
   opacity: 0.8;
 }
@@ -89,11 +91,12 @@ html {
   text-decoration: none;
 }
 .jobsCard {
-  background: #0b5458;
+   background: transparent;
+  backdrop-filter: blur(5px);
   border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
-    rgba(0, 0, 0, 0.52) 0px 1px 6px 0px;
-  border: 5px solid #ffffff;
+  box-shadow: rgba(0, 0, 0) 0px 2px 4px 0px,
+    rgba(0, 0, 0) 0px 1px 6px 0px;
+  border: 1px solid #ffffff;
   color: #ffffff;
   font-size: 1.5rem;
   font-weight: 600;
@@ -103,6 +106,10 @@ html {
   /* margin: 20px 25px 20px 0; */
   cursor: pointer;
   height: fit-content;
+}
+.jobsCard:hover {
+    backdrop-filter: blur(2px);
+    transition: backdrop-filter .5s ease-in;
 }
 .jobsCard-Title {
   display: flex;
