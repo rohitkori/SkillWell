@@ -21,3 +21,13 @@ class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         exclude = ['password',]
+
+class FreelancerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Freelancer
+        fields = '__all__'
+
+class RecruiterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recruiter
+        fields = '__all__'
