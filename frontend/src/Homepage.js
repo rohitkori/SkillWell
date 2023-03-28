@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from "react-router-dom"; 
+import { useContext, React } from "react";
+import { Link } from "react-router-dom";
 import {
   FaChevronRight,
   FaClock,
@@ -14,16 +14,18 @@ import {
 } from "react-icons/md";
 import RightImg from "./assets/homepage-img.jpg";
 import "./Homepage.css";
+import AuthContext from "./contexts/AuthContext";
 
 const Homepage = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="homepage-container">
       <div className="homepageTop" id="homepageTopId">
         <div className="homepage-left">
           <h1 className="homepageTitle">Find prime Skills in Campus</h1>
           <p className="homepageDescription">
-            Platform to connect You with the best-in-campus
-            Creative Talent.
+            Platform to connect You with the best-in-campus Creative Talent.
             <br />
             <br /> No more looking for chances. No more wasting of talent.
           </p>
@@ -45,7 +47,11 @@ const Homepage = () => {
         <div className="homepageJobs">
           <h2 className="homepageJobsTitle">Featured Works</h2>
           <div className="homepageJobs-container">
-            <Link to="/jobsDetail" className="jobsCard-link" style={{ textDecoration: "none" }}>
+            <Link
+              to="/jobsDetail"
+              className="jobsCard-link"
+              style={{ textDecoration: "none" }}
+            >
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
@@ -75,7 +81,11 @@ const Homepage = () => {
                 </div>
               </div>
             </Link>
-            <Link to="/jobsDetail" className="jobsCard-link" style={{ textDecoration: "none" }}>
+            <Link
+              to="/jobsDetail"
+              className="jobsCard-link"
+              style={{ textDecoration: "none" }}
+            >
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
@@ -105,7 +115,11 @@ const Homepage = () => {
                 </div>
               </div>
             </Link>
-            <Link to="/jobsDetail" className="jobsCard-link" style={{ textDecoration: "none" }}>
+            <Link
+              to="/jobsDetail"
+              className="jobsCard-link"
+              style={{ textDecoration: "none" }}
+            >
               <div className="homepageJobsCard">
                 <div className="homepageCard-Title">
                   <div className="homepageJobsCardLeft-Top">
@@ -140,6 +154,6 @@ const Homepage = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Homepage;

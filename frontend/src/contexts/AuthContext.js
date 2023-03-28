@@ -25,14 +25,14 @@ export const AuthProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  const loginUser = async (username, password) => {
+  const loginUser = async (email, password) => {
     const response = await fetch(baseURL + '/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username,
+        email,
         password,
       }),
     });
@@ -49,21 +49,23 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const registerUser = async (username, password, password2) => {
-    const response = await fetch(baseURL + '/register/', {
+  const registerUser = async (email, username, contact, password, password2) => {
+    const response = await fetch(baseURL + '/users/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        email,
         username,
+        contact,
         password,
         password2,
       }),
     });
     const data = await response.json();
 
-    if (response.status === 201) {
+    if (response.status === 200) {
       navigate('/login');
       toast.success('Registration Successful');
     } else {
