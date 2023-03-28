@@ -26,26 +26,13 @@ const Signup = () => {
       e.target.confirm_password.value,
       e.target.contact.value
     );
-    if (e.target.password.value === e.target.confirm_password.value) {
-      const data = {
-        email: e.target.email.value,
-        username: e.target.username.value,
-        password: e.target.password.value,
-        contact: e.target.contact.value,
-      };
-      const response = await axios.post(baseURL + "/users/", data);
-      if (response.status === 200) {
-        navigate("/login");
-      }
-    } else {
-      toast.error("something went wrong");
-    }
-    // registerUser(
-    //   e.target.email.value,
-    //   e.target.username.value,
-    //   e.target.password.value,
-    //   e.target.password2.value
-    // );
+    registerUser(
+      e.target.email.value,
+      e.target.username.value,
+      e.target.contact.value,
+      e.target.password.value,
+      e.target.confirm_password.value,
+    );
   };
 
   // window.addEventListener("load", function () {

@@ -49,8 +49,8 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const registerUser = async (email, username, password, password2) => {
-    const response = await fetch(baseURL + '/register/', {
+  const registerUser = async (email, username, contact, password, password2) => {
+    const response = await fetch(baseURL + '/users/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -58,13 +58,14 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify({
         email,
         username,
+        contact,
         password,
         password2,
       }),
     });
     const data = await response.json();
 
-    if (response.status === 201) {
+    if (response.status === 200) {
       navigate('/login');
       toast.success('Registration Successful');
     } else {
