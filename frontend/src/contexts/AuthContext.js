@@ -25,14 +25,14 @@ export const AuthProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  const loginUser = async (username, password) => {
+  const loginUser = async (email, password) => {
     const response = await fetch(baseURL + '/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username,
+        email,
         password,
       }),
     });
@@ -49,13 +49,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const registerUser = async (username, password, password2) => {
+  const registerUser = async (email, username, password, password2) => {
     const response = await fetch(baseURL + '/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        email,
         username,
         password,
         password2,
