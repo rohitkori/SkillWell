@@ -7,6 +7,7 @@ import Navbar from "./Navbar.js";
 import Jobs from './Jobs/Jobs';
 import JobsDetail from './Jobs/JobsDetail';
 import Error from "./404";
+import Dashboard from "./Dashboard";
 import Signup from './pages/Signup';
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/jobsDetail" element={<JobsDetail />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/*" element={<Error />} />
           </Routes>
         </div>

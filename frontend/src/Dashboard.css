@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+html {
+  font-size: 10px;
+}
+.dashboard-container{
+          background-color: #000000;
+      margin: 0;
+      padding: 0;
+  font-family: "Poppins", sans-serif;
+          min-height: 100vh;
+  display:flex; 
+  flex-direction:column; 
+  justify-content:space-between;
+    color: #FFFFFF;
+}
+
+.dashboard-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2%;
+}
+.dashboard-titleLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: start;
+    font-size: 2rem;
+    margin: 0 0 0 2rem;
+}
+.dashboard-titleLeft p{
+  margin: 0;
+}
+.dashboard-titleLeft span{
+  margin: 0;
+  font-weight: 200;
+  color: grey;
+}
+.social-media{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    margin: 1rem 0 0;
+    gap: 2rem;
+}
+.dashboard-titleRight{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:center;
+    align-items: center;
+    font-size: 2rem;
+    margin: 0 2rem 0 0;
+}
+.dashboard-img img{
+  display: flex;
+  margin: 5rem 0;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px dotted #ffffff;
+  cursor: pointer;
+}
+.dashboard-intro{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin: 5rem auto;
+    justify-content: center;
+    padding: 0 2rem;
+}
+.dashboard-intro h1{
+    font-weight: 900;
+    letter-spacing: .1rem;
+    margin: 0;
+}
+.dashboard-intro p{
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: grey;
+    margin: 0;
+}
+.dashboard-titleRight{
+    margin: auto 0;
+}
+.dashboard-container hr{
+    border: 1px solid grey;
+    opacity: .5;
+}
+.dashboard-details{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2%;
+  justify-content: space-between;
+}
+.dashboard-detailsLeft{
+    display: flex;
+    flex-direction: column;
+width: 40%;
+  margin: 3rem 0;
+  justify-content: start;
+  gap: 2rem;
+}
+.dashboard-freelancer{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2%;
+}
+.dashboard-freelancerTop{
+  width: 100% ;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: 5rem 0;
+  padding: 5rem 0;
+  background-color: rgb(38, 38, 38);
+}
+.dashboard-freelancerTop .freelancer-skill{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  margin: 0 0 0 2rem;
+}
+.dashboard-freelancerTop .freelancer-skill .freelancer-skillName{
+  margin: 0;
+  font-size: 2rem;
+}
+.talentProfile-currentRole p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: grey;
+}
+.talentProfile-about p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: grey;
+    text-align: justify;
+}
+.talentProfile-experience p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: grey;
+
+}
+.talentProfile-detailsRight {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 5px 1px rgba(255, 255, 255, 0.66);
+  background: linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.5) 90%,
+    transparent 100%
+  );
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+  /* background-image: url(../assets/talent/videos6\ bg.png); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 3rem 0;
+  width: 58%;
+}
+.talentProfile-videoContainer-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.talentProfile-videoContainer-title button{
+  padding: .8rem 2rem;
+  margin: auto 2rem;
+  background:transparent;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  cursor: pointer;
+}
+.talentProfile-videoContainer-title button:hover {
+  box-shadow: rgba(18, 118, 171, 0.12) 0px 4px 4px 0px,
+    rgba(16, 124, 157, 0.32) 0px 2px 12px 0px;
+}
+.talent-logout{
+  cursor: pointer;
+  color: red;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.talentProfile-videoContainer-title h1 {
+  font-size: 3rem;
+  text-align: center;
+  margin: 1rem;
+  font-weight: 900;
+  /* letter-spacing: .1rem; */
+}
+.talentProfile-videoContainer-videoLink {
+  display: flex;
+  flex-direction: row;
+}
+.talentProfile-videoContainer-videoLink input::placeholder {
+  color: grey;
+  opacity: 0.8;
+}
+#video-link {
+  width: 100%;
+  padding: 1rem;
+  margin: auto 1rem;
+}
+/* .talentProfile-videoContainer-videos iframe{
+    height: 30rem;
+} */
+.talentProfile-videoContainer-videos {
+  margin: 2rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2rem;
+}
+.talentProfile-videoContainer-videos iframe {
+  width: 100%;
+  /* height: 30vh; */
+}
+.talentProfile-videoContainer-videos div p{
+  text-align: center;
+  font-weight: 900;
+  background-color: #000000;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.talentProfile-videoContainer-videos div p:Hover{
+  text-align: center;
+  color: Red;
+}
+.videoMain{
+  grid-area: 1 / 1 / 2 / 4;
+  height: 50vh;
+}
+@media (max-width:980px){
+  .profileEdit-mobile{
+  display: flex;
+  background: transparent;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+  /* font-family: Arial; */
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.profileEdit {
+  display: none;
+}
+.talentProfile-img img {
+    margin: 5rem 0 2rem 0;
+    width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px dotted #ffffff;
+  cursor: pointer;
+}
+.talentProfile-details {
+    display: flex;
+    flex-direction: column;
+}
+.talentProfile-detailsLeft {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+        /* padding: 0 5%; */
+}
+.talentProfile-detailsRight {
+    width: 100%;
+    /* padding: 0 5%; */
+}
+.talentProfile-videoContainer-videos iframe {
+    width: 100%;
+    height: 30vh;
+}
+}
+@media (max-width:580px){
+  .talentProfile-titleRight {
+    margin: 1rem auto;
+}
+  .talentProfile-title {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2%;
+}
+}
