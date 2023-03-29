@@ -9,6 +9,8 @@ html {
       padding: 0;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
+  background-color: #000;
+  color: #fff;
 }
 .signup-container{
         box-sizing: border-box;
@@ -23,7 +25,7 @@ html {
 .signup-form{
     box-sizing: border-box;
   margin: auto;
-  color:#000;
+  color:#fff;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -35,10 +37,18 @@ html {
 
 .signup-form form label{
     margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .signup-form form label input, .signup-form form label select{
-    margin: 0 1rem;
+    width: 100%;
+    max-width: 500px;
+    padding: 0 0 2rem 0;
+    background-color: transparent;
+    border: none;
+border-bottom: 2px solid grey;
+  color: #FFFFFF;
 }
 #recruiter-form, #freelacer-form{
   display: none;
@@ -47,6 +57,20 @@ html {
   display: flex;
   margin: 1rem 0;
 }
-.signup-submit{
+.signup-submit input{
   margin: 1rem 0 5rem;
+    background: transparent;
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 2rem 2rem 5rem 0;
+  cursor: pointer;
 }
