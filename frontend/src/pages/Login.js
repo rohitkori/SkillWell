@@ -2,52 +2,44 @@ import React from "react";
 import { useState,useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-// import { ToastContainer, toast } from "react-toastify";
-// import { backendURL } from "../backendURL";
-// import jwt_decode from "jwt-decode";
-// import AuthContext from "../context/AuthContext.js";
+import AuthContext from "../contexts/AuthContext";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
-  // const { loginUser,userCheck, talentUser } = useContext(AuthContext);
+  const { loginUser, logoutUser} = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
    
-    // const myPromise = new Promise((resolve, reject) => {
+    const myPromise = new Promise((resolve, reject) => {
                   
-    //     loginUser(email, password)
+        loginUser(email, password)
         
-    //         .then((res)=>{
-    //           userCheck(email)
-    //             resolve(res)
-    //         })
-    //         .catch((err)=>{
-    //             // console.log(err)
-    //             reject(err)
-    //         })
+            .catch((err)=>{
+                reject(err)
+            })
           
           
-    // })                    
+    })                    
     
-    // toast.promise(myPromise,
-    //     {
-    //         pending: 'Logging you in...',
-    //         success: 'Logged in successfully!',
-    //         error: {
-    //             render: ({ data }) => {
-    //                 if (data == "Unauthorized") {
-    //                     return "Invalid Credentials!"
-    //                 }
-    //                 return "Something went wrong!"
-    //             }
-    //         },
-    //     }
-    // )
+    toast.promise(myPromise,
+        {
+            pending: 'Logging you in...',
+            success: 'Logged in successfully!',
+            error: {
+                render: ({ data }) => {
+                    if (data == "Unauthorized") {
+                        return "Invalid Credentials!"
+                    }
+                    return "Something went wrong!"
+                }
+            },
+        }
+    )
 };
 
 
@@ -86,6 +78,7 @@ const Login = () => {
           <Link to="/jobs/signup" style={{ color: "#000" }}>I want to hire</Link>
         </div>
       </div>
+      <div onClick={logoutUser}>Logout</div>
       {/* <ToastContainer /> */}
     </div>
   );
