@@ -4,11 +4,11 @@ from rest_framework.mixins import ListModelMixin, CreateModelMixin
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.viewsets import GenericViewSet
 from rest_framework.response import Response # Import this for Response
-from rest_framework import status # Import this for Status
+from rest_framework import status, viewsets # Import this for Status
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from users.models import User, Freelancer, Recruiter
-from .serializers import MyTokenObtainPairSerializer ,UserSerializer, UserDetailSerializer, FreelancerSerializer, RecruiterSerializer
+from users.models import User, Freelancer, Recruiter, Job, Applicant
+from .serializers import MyTokenObtainPairSerializer ,UserSerializer, UserDetailSerializer, FreelancerSerializer, RecruiterSerializer, JobSerializer, ApplicantSerializer
 
 # Create your views here.
 
@@ -152,3 +152,11 @@ class RecruiterViewSet(CreateModelMixin, GenericViewSet):
             )
         else :     
             return Response(data, status=status.HTTP_200_OK)
+        
+class JobViewSet(viewsets.ModelViewSet):
+    serializer_class = JobSerializer
+    queryset = Job.objects.all()
+
+class ApplicantViewSet(viewsets.ModelViewSet):
+    serializer_class = ApplicantSerializer
+    queryset = Applicant.objects.all()

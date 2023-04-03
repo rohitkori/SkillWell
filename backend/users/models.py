@@ -80,8 +80,32 @@ class Freelancer(models.Model):
     skill3 = models.CharField(max_length=250, choices=SKILL_CHOICES , null=True, blank=True)
     is_verified = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.user.email
+
 
 class Recruiter(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     about_me = models.TextField(max_length=500, null=True, blank=True)
     is_approved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.email
+
+class Job(models.Model):
+    recruiter = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=250)
+    description = models.TextField(max_length=500,null=True, blank=True)
+    link = models.URLField(max_length=250, null=True, blank=True)
+    applicants = models.ManyToManyField(Freelancer, blank=True)
+
+    def __str__(self):
+        return self.title
+
+class Applicant(models.Model):
+    job = models.ForeignKey(Job, on_delete=models.CASCADE)
+    freelancer = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_selected = models.BooleanField(default=False)
+    link = models.URLField(max_length=250, null=True, blank=True)
+    description = models.TextField(max_length=500,null=True, blank=True)
+
