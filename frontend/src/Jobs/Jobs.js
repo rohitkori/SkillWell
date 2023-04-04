@@ -17,7 +17,9 @@ import {
   MdOutlineSearch,
 } from "react-icons/md";
 import { CgNotes } from "react-icons/cg";
-import jobsInfo from "./JobsInfo.js";
+// import jobsInfo from "./JobsInfo.js";
+import { API_BASE_URL } from "../config";
+import axios from "axios";
 import "./Jobs.css";
 const icons = [
   {
@@ -57,14 +59,22 @@ const icons = [
   },
 ];
 
+
 const Jobs = () => {
   const [query, setQuery] = useState("");
-
-  // console.log(jobsInfo.filter(job => job.jobTitle.toLowerCase().includes(query)))
-//   const [jobsInfo, setJobsInfo] = useState([]);
   const [jobs, setJobs] = useState([]);
   const [channelSubscriber, setChannelSubscriber] = useState("");
   const [channelName, setChannelName] = useState("");
+
+  useEffect(() => {
+    const getJobs = async () => {
+      const { data } = await axios.get(API_BASE_URL+"/alljobs/");
+      setJobs(data);
+    };
+    getJobs();
+
+
+  }, []);
 
 
   return (
@@ -82,18 +92,18 @@ const Jobs = () => {
         </div>
       </div>
       <div className="jobsCard-container" id="jobsCard-containerId">
-        {jobsInfo
+        {jobs
           .map((job, index) => {
             return (
               <Link to="/jobsDetail" className="jobsCard-link">
                 <div className="jobsCard" key={index}>
                   <div className="jobsCard-Title">
                     <div className="jobsCardLeft-Top">
-                      {icons.map((icons, index) => {
-                        return icons.name === job.jobTitle ? icons.icon : "";
-                      })}
+                      {/* {icons.map((icons, index) => {
+                        return icons.name === job.title ? icons.icon : "";
+                      })} */}
                       {/* {job.jobIcon} */}
-                      <p>{job.jobTitle}</p>
+                      <p>{job.title}</p>
                     </div>
                     <div className="jobsCardRight-Top">
                       <FaChevronRight size={20} />

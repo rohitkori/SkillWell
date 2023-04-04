@@ -18,26 +18,40 @@ import {
   FaPaintBrush,
 } from "react-icons/fa";
 import "./Dashboard.css";
-// import AuthContext from "../context/AuthContext";
-// import useAxios from "../context/context_useAxios";
+import AuthContext from "./contexts/AuthContext";
+import useAxios from "./utils/useAxios";
 
 import { MdNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 // import { backendURL, imageLoadURL } from "../backendURL";
 
 const Dashboard = () => {
+  const { user } = useContext(AuthContext);
+  const api = useAxios();  
+  const [userData, setUserData] = useState({});
+  
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data } = await api.get("/users/me/");
+      setUserData(data);
+      console.log(data);
+    };
+    fetchUser();
+    console.log(userData);
+  }, []);
+  
   return (
     <div className="dashboard-container">
       <div>
         <div className="dashboard-title">
           <div className="dashboard-titleLeft">
             <p>
-              Contact : <span>+91 9510071874</span>
+              Contact : <span>{userData.contact}</span>
             </p>
             <p>
-              Email Address : <span>rathva.1@iitj.ac.in</span>
+              Email Address : <span>{userData.email}</span>
             </p>
             <p>
-              Course Register : <span>B.Tech</span>
+              Course Register : <span>{ userData.course_enrolled}</span>
             </p>
             <div className="social-media">
               <a href="https://www.facebook.com/" target="_blank">
@@ -72,15 +86,16 @@ const Dashboard = () => {
                   src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
                   alt=""
                 />
-                {/* {userData.profile_pic} */}
+                {userData.profile_pic}
               </label>
             </div>
             <div className="dashboard-intro">
               <h1>
-                {/* {userData.first_name} {userData.last_name} */}
-                Alex Hipp
+                {userData.first_name} {userData.last_name}
+                {/* Alex Hipp */}
               </h1>
-              <p>alexanderhipp2003</p>
+              <p>{ userData.username}</p>
+              {/* <p>alexanderhipp2003</p> */}
             </div>
           </div>
         </div>
@@ -107,7 +122,9 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="dashboard-recruiter"></div>
+        <div className="dashboard-recruiter">
+          
+        </div>
       </div>
     </div>
   );
