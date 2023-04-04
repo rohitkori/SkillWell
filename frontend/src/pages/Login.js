@@ -44,45 +44,49 @@ const Login = () => {
 
 
   return (
+    <div className="login-mainContainer">
     <div className="login-container">
-      <div className="login-heading">
-        <h1 className="">Login</h1>
-      </div>
-      <form onSubmit={handleSubmit} className="login-form">
-        <div className="login-email">
-          <h1 className="">Email</h1>
+      <div className="login-formContainer">
+        <div className="login-heading">
+          <h1 className="">Login</h1>
+        </div>
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="login-email">
+            <h1 className="">Email</h1>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="e.g. example@gmail.com"
+              onChange={(e) => setEmail(e.target.value)}
+            ></input>
+          </div>
+          <div className="login-password">
+            <h1 className="">Password</h1>
+            <input type="password" id="password" name="password"></input>
+          </div>
           <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="e.g. example@gmail.com"
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
-        </div>
-        <div className="login-password">
-          <h1 className="">Password</h1>
-          <input type="password" id="password" name="password"></input>
-        </div>
-        <input
-          type="submit"
-          className="form-submit"
-          // onClick={userCheck}
-          value="Login"
-        />
-      </form>
-      <div className="login-notMemeber">
-        <h1>Not a member?</h1>
-        <div className="login-notMemberLink">
-          <Link to="/talent/signup" style={{ color: "#000" }}>
-            I want a work
-          </Link>
-          <p> | </p>
-          <Link to="/jobs/signup" style={{ color: "#000" }}>
-            I want to hire
-          </Link>
+            type="submit"
+            className="form-submit"
+            // onClick={userCheck}
+            value="Login"
+          />
+        </form>
+        <div className="login-notMemeber">
+          <h1>Not a member?</h1>
+          <div className="login-notMemberLink">
+            <Link to="/talent/signup" style={{ color: "#fff" }}>
+              I want a work
+            </Link>
+            <p> | </p>
+            <Link to="/jobs/signup" style={{ color: "#fff" }}>
+              I want to hire
+            </Link>
+          </div>
         </div>
       </div>
       {/* <ToastContainer /> */}
+      </div>
     </div>
   );
 };

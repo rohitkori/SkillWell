@@ -6,7 +6,6 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { IconContext } from "react-icons";
-
 import {
   FaFacebookSquare,
   FaInstagram,
@@ -16,17 +15,58 @@ import {
   FaReact,
   FaPhotoVideo,
   FaPaintBrush,
+  FaFigma,
 } from "react-icons/fa";
 import "./Dashboard.css";
 import AuthContext from "./contexts/AuthContext";
 import useAxios from "./utils/useAxios";
+import { MdOutlineSwitchVideo } from "react-icons/md";
+import { GiArtificialIntelligence } from "react-icons/gi";
+import { SiFlutter } from "react-icons/si";
+import jobsInfo from "./Jobs/JobsInfo.js";
 import Button from '@mui/material/Button';
 
-import { MdNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 // import { backendURL, imageLoadURL } from "../backendURL";
 
 const Dashboard = () => {
-  const { user, logoutUser } = useContext(AuthContext);
+  const icons = [
+    {
+      id: 0,
+      name: "Web Development",
+      icon: <FaReact size={100} />,
+    },
+    {
+      id: 1,
+      name: "Video Editing",
+      icon: <MdOutlineSwitchVideo size={100} />,
+    },
+    {
+      id: 2,
+      name: "App Development",
+      icon: <SiFlutter size={100} />,
+    },
+    {
+      id: 3,
+      name: "Machine Learning",
+      icon: <GiArtificialIntelligence size={100} />,
+    },
+    {
+      id: 4,
+      name: "Poster Design",
+      icon: <FaPaintBrush size={100} />,
+    },
+    {
+      id: 5,
+      name: "Graphic Design",
+      icon: <FaFigma size={100} />,
+    },
+    {
+      id: 6,
+      name: "Photography",
+      icon: <FaReact size={100} />,
+    },
+  ];
+  const { user } = useContext(AuthContext);
   const api = useAxios();  
   const [userData, setUserData] = useState({});
   
@@ -52,7 +92,7 @@ const Dashboard = () => {
               Email Address : <span>{userData.email}</span>
             </p>
             <p>
-              Course Register : <span>{ userData.course_enrolled}</span>
+              Course Register : <span>{userData.course_enrolled}</span>
             </p>
             <div className="social-media">
               <a href="https://www.facebook.com/" target="_blank">
@@ -95,8 +135,11 @@ const Dashboard = () => {
                 {userData.first_name} {userData.last_name}
                 {/* Alex Hipp */}
               </h1>
-              <p>{ userData.username}</p>
+              <p>{userData.username}</p>
               {/* <p>alexanderhipp2003</p> */}
+              <Link style={{ textDecoration: "none" }}>
+                <p style={{ color: "red" }}>Logout</p>
+              </Link>
             </div>
           </div>
         </div>

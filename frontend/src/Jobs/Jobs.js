@@ -88,7 +88,6 @@ const Jobs = () => {
                     {icons.map((icons, index) => {
                         return icons.name === job.title ? icons.icon : "";
                       })}
-                    {/* {job.jobIcon} */}
                   </div>
                 </div>
                 <div className="jobCard-Description">
