@@ -131,6 +131,16 @@ border-bottom: 2px solid black;
     align-items: start;
     justify-content: start;
 }
+.login-logout{
+  box-sizing: border-box;
+  max-width: 700px;
+  margin: auto;
+    color: red;
+    font-size: 1.5rem;
+  padding: 0 2%;
+  cursor: pointer;
+}
+
 .login-notMemberLink p{
     color: grey;
     opacity: 1;
