@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAxios from "./../utils/useAxios";
 // import axios from "axios";
 import AuthContext from "./../contexts/AuthContext";
+import "./CreateJob.css";
 
 const CreateJob = () => {
   const [title, settitle] = useState("");
@@ -37,7 +38,7 @@ const CreateJob = () => {
         <div className="create-job-form">
           <form onSubmit={handleSubmit}>
             <label>
-              title:
+              Title:
               <input
                 type="text"
                 name="title"
@@ -46,7 +47,7 @@ const CreateJob = () => {
               />
             </label>
             <label>
-              description:
+              Description:
               <input
                 type="text"
                 name="description"
@@ -55,7 +56,7 @@ const CreateJob = () => {
               />
             </label>
             <label>
-              link:
+              Link:
               <input
                 type="url"
                 name="link"

@@ -78,7 +78,6 @@ const Login = () => {
           <Link to="/jobs/signup" style={{ color: "#000" }}>I want to hire</Link>
         </div>
       </div>
-      <div onClick={logoutUser}>Logout</div>
       {/* <ToastContainer /> */}
     </div>
   );
