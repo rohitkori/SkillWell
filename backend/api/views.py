@@ -3,10 +3,11 @@ from rest_framework.decorators import action # Import this for the action decora
 from rest_framework.mixins import ListModelMixin, CreateModelMixin
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.viewsets import GenericViewSet
+from rest_framework.views import APIView
 from rest_framework.response import Response # Import this for Response
 from rest_framework import status, viewsets # Import this for Status
 from rest_framework_simplejwt.views import TokenObtainPairView
-
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from users.models import User, Freelancer, Recruiter, Job, Applicant
 from .serializers import MyTokenObtainPairSerializer ,UserSerializer, UserDetailSerializer, FreelancerSerializer, RecruiterSerializer, JobSerializer, ApplicantSerializer
 
@@ -156,7 +157,20 @@ class RecruiterViewSet(CreateModelMixin, GenericViewSet):
 class JobViewSet(viewsets.ModelViewSet):
     serializer_class = JobSerializer
     queryset = Job.objects.all()
+    permission_classes = [IsAuthenticated,]
+    
 
 class ApplicantViewSet(viewsets.ModelViewSet):
     serializer_class = ApplicantSerializer
     queryset = Applicant.objects.all()
+    permission_classes = [IsAuthenticated,]
+
+class AllJobsViewSet(APIView):
+    serializer_class = JobSerializer
+    queryset = Job.objects.all()
+    permission_classes = [AllowAny,]
+
+    def get(self, request):
+        jobs = Job.objects.all()
+        serializer = JobSerializer(jobs, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
