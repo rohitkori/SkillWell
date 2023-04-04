@@ -12,7 +12,7 @@ import {
   MdOutlinePalette,
   MdLocationOn,
 } from "react-icons/md";
-import RightImg from "./assets/undraw_career_progress_ivdb.svg";
+import RightImg from "./assets/undraw_taken_re_yn20.svg";
 import "./Homepage.css";
 import AuthContext from "./contexts/AuthContext";
 
@@ -25,7 +25,9 @@ const Homepage = () => {
         <div className="homepage-left">
           <h1 className="homepageTitle">Find prime Skills in Campus</h1>
           <p className="homepageDescription">
-            Platform to connect You with the best-in-campus Creative Talent.
+            The best creative talent on campus is just a click away with our
+            platform. Connect with top students and start collaborating on your
+            next big project today.
             <br />
             <br /> No more looking for chances. No more wasting of talent.
           </p>
