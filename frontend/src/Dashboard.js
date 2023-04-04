@@ -24,7 +24,6 @@ import { MdOutlineSwitchVideo } from "react-icons/md";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiFlutter } from "react-icons/si";
 import jobsInfo from "./Jobs/JobsInfo.js";
-import Button from '@mui/material/Button';
 
 // import { backendURL, imageLoadURL } from "../backendURL";
 
@@ -166,7 +165,35 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="dashboard-recruiter">      
+        <div className="dashboard-recruiter">
+          <div className="dashboard-recruiter-cards">
+          {jobsInfo.map((job, index) => {
+            return (
+              <Link to="/jobsDetail" className="dashboard-jobsCard-link">
+                <div className="dashboard-jobsCard" key={job.id}>
+                  <div className="dashboard-jobsCard-Title">
+                    <div className="dashboard-jobsCard-Top">
+                      {icons.map((icons, index) => {
+                        return icons.name === job.title ? icons.icon : "";
+                      })}
+                    </div>
+                  </div>
+                  <div className="dashboard-jobsCard-Description">
+                    <div className="dashboard-jobsCard-Bottom">
+                      <div className="dashboard-jobsCard-title">
+                        <h1>{job.title}</h1>
+                      </div>
+                      <div className="dashboard-jobsCard-creator">
+                        <p>Show participants list</p>
+                          <span>Delete</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+          </div>
         </div>
       </div>
     </div>

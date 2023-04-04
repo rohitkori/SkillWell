@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./EditProfile.css";
 import useAxios from "../utils/useAxios";
 import AuthContext from "../contexts/AuthContext";
-import Button from "@mui/material/Button";
 
 const EditProfile = () => {
   const { user } = useContext(AuthContext);

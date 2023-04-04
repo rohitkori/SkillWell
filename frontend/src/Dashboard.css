@@ -210,7 +210,7 @@ html {
   font-size: 1.5rem;
   font-weight: 400;
   margin: 0;
-  color: gray;
+  color: red;
 }
 @media (max-width: 980px) {
   .profileEdit-mobile {
