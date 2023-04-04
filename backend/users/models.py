@@ -94,6 +94,7 @@ class Recruiter(models.Model):
 
 class Job(models.Model):
     recruiter = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.CharField(max_length=250, choices=SKILL_CHOICES, default='Other')
     title = models.CharField(max_length=250)
     description = models.TextField(max_length=500,null=True, blank=True)
     link = models.URLField(max_length=250, null=True, blank=True)

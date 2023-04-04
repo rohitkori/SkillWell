@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 from django.utils.translation import gettext_lazy as _
 from import_export.admin import ImportExportModelAdmin
-from .models import User, Freelancer, Recruiter
+from .models import User, Freelancer, Recruiter, Job, Applicant
 
 # Register your models here.
 
@@ -53,4 +53,26 @@ class RecruiterAdmin(ImportExportModelAdmin, admin.ModelAdmin):
 
     class Meta:
         model = Recruiter
+        fields = '__all__'
+
+@admin.register(Job)
+class JobAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    list_display = ('category', 'recruiter','title')
+    list_filter = ('recruiter', 'category')
+    search_fields = ['title',]
+    ordering = ('title',)
+
+    class Meta:
+        model = Job
+        fields = '__all__'
+
+@admin.register(Applicant)
+class ApplicantAdmin(ImportExportModelAdmin, admin.ModelAdmin):
+    list_display = ('job', 'freelancer','is_selected')
+    list_filter = ('job', 'freelancer','is_selected')
+    search_fields = ['job','freelancer',]
+    ordering = ('job',)
+
+    class Meta:
+        model = Applicant
         fields = '__all__'
