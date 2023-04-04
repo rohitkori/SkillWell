@@ -20,12 +20,13 @@ import {
 import "./Dashboard.css";
 import AuthContext from "./contexts/AuthContext";
 import useAxios from "./utils/useAxios";
+import Button from '@mui/material/Button';
 
 import { MdNavigateBefore, MdOutlineNavigateNext } from "react-icons/md";
 // import { backendURL, imageLoadURL } from "../backendURL";
 
 const Dashboard = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logoutUser } = useContext(AuthContext);
   const api = useAxios();  
   const [userData, setUserData] = useState({});
   
@@ -122,8 +123,12 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="dashboard-recruiter">
-          
+        <div className="dashboard-recruiter">      
+        </div>
+        <div className="user-logout" onClick={logoutUser}>
+        <Button disabled={false} variant="elevated" >
+            LOGOUT
+          </Button>
         </div>
       </div>
     </div>
