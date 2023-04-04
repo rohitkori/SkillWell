@@ -5,7 +5,7 @@ const JobsInfo = [
     title: "Web Development",
     jobTime: "Full-time",
     jobLocation: "Remote",
-    rollNo: "75,000 - 90,000",
+    rollNo: "M22YT020",
     creator: "Tanmay Bhat",
   },
   {
@@ -14,7 +14,7 @@ const JobsInfo = [
     title: "Video Editing",
     jobTime: "Part-time",
     jobLocation: "Remote",
-    rollNo: "55,000 - 70,000",
+    rollNo: "B21CS001",
     creator: "Samay Raina",
   },
   {
@@ -23,7 +23,7 @@ const JobsInfo = [
     title: "App Development",
     jobTime: "Full-time",
     jobLocation: "Remote",
-    rollNo: "60,000 - 70,000",
+    rollNo: "P22EE054",
     creator: "Samay Raina",
   },
   // {

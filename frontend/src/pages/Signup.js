@@ -61,6 +61,7 @@ const Signup = () => {
   return (
     <div className="signup-mainContainer">
       <div className="signup-container">
+      <div className="signup-formContainer">
         <div className="signup-header">
           <h1>Sign Up</h1>
         </div>
@@ -193,6 +194,7 @@ const Signup = () => {
               <input type="submit" />
             </div>
           </form>
+        </div>
         </div>
       </div>
     </div>

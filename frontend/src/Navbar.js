@@ -41,7 +41,7 @@ const Navbar = () => {
                 {/* <Link to="/*" style={{ textDecoration: "none" }}>
                   <li>Freelancer</li>
                 </Link> */}
-                <Link to="/*" style={{ textDecoration: "none" }}>
+                <Link to="/createJob" style={{ textDecoration: "none" }}>
                   <li>Post a Work</li>
                 </Link>
               </ul>
