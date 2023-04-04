@@ -1,10 +1,14 @@
-import React from "react";
+import {React, useContext} from "react";
 import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 import logo from "./assets/logo5.png";
 import "./Navbar.css";
+import  AuthContext  from "./contexts/AuthContext";
+
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   function showNavbar() {
     var x = document.getElementById("nav-btnId");
     // console.log(x);
@@ -46,9 +50,11 @@ const Navbar = () => {
           <div className="nav-right">
             <div className="nav-links" onClick={showNavbar}>
               <ul>
-                <Link to="/login" style={{ textDecoration: "none" }}>
+                {user ? (<Link to="/dashboard" style={{ textDecoration: "none" }}>
+                  <li>Dashboard</li>
+                </Link>):(<Link to="/login" style={{ textDecoration: "none" }}>
                   <li>Login</li>
-                </Link>
+                </Link>)}            
               </ul>
             </div>
           </div>
