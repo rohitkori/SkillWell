@@ -82,9 +82,6 @@ const Login = () => {
           </Link>
         </div>
       </div>
-      <div className="login-logout" onClick={logoutUser}>
-        <p>Logout</p>
-      </div>
       {/* <ToastContainer /> */}
     </div>
   );
