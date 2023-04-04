@@ -1,61 +1,50 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  FaChevronRight,
-  FaClock,
-  FaRupeeSign,
-  FaVideo,
-  FaUserCog,
-} from "react-icons/fa";
-import {
-  MdOutlineMovieFilter,
-  MdOutlineSwitchVideo,
-  MdOutlinePalette,
-  MdOutlineNoteAlt,
-  MdLocationOn,
-  MdOutlineSearch,
-} from "react-icons/md";
+import { FaReact, FaPaintBrush, FaFigma } from "react-icons/fa";
+import { MdOutlineSearch, MdOutlineSwitchVideo, } from "react-icons/md";
+import { GiArtificialIntelligence } from "react-icons/gi";
+import { SiFlutter } from "react-icons/si";
 import { CgNotes } from "react-icons/cg";
-// import jobsInfo from "./JobsInfo.js";
+import jobsInfo from "./JobsInfo.js";
 import { API_BASE_URL } from "../config";
 import axios from "axios";
 import "./Jobs.css";
 const icons = [
   {
     id: 0,
-    name: "YouTube Producer",
-    icon: <MdOutlineMovieFilter size={30} />,
+    name: "Web Development",
+    icon: <FaReact size={100} />,
   },
   {
     id: 1,
-    name: "Video Editor",
-    icon: <MdOutlineSwitchVideo size={30} />,
+    name: "Video Editing",
+    icon: <MdOutlineSwitchVideo size={100} />,
   },
   {
     id: 2,
-    name: "Thumbnail Designer",
-    icon: <MdOutlinePalette size={30} />,
+    name: "App Development",
+    icon: <SiFlutter size={100} />,
   },
   {
     id: 3,
-    name: "Creative Director",
-    icon: <FaVideo size={30} />,
+    name: "Machine Learning",
+    icon: <GiArtificialIntelligence size={100} />,
   },
   {
     id: 4,
-    name: "Channel Manager",
-    icon: <FaUserCog size={30} />,
+    name: "Poster Design",
+    icon: <FaPaintBrush size={100} />,
   },
   {
     id: 5,
-    name: "Figma Developer",
-    icon: <MdOutlineNoteAlt size={30} />,
+    name: "Graphic Design",
+    icon: <FaFigma size={100} />,
   },
   {
     id: 6,
-    name: "Script Writer",
-    icon: <CgNotes size={30} />,
+    name: "Photography",
+    icon: <FaReact size={100} />,
   },
 ];
 
@@ -63,19 +52,17 @@ const icons = [
 const Jobs = () => {
   const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState([]);
-  const [channelSubscriber, setChannelSubscriber] = useState("");
-  const [channelName, setChannelName] = useState("");
-
-  useEffect(() => {
-    const getJobs = async () => {
-      const { data } = await axios.get(API_BASE_URL+"/alljobs/");
-      setJobs(data);
-    };
-    getJobs();
 
 
-  }, []);
+  // useEffect(() => {
+  //   const getJobs = async () => {
+  //     const { data } = await axios.get(API_BASE_URL+"/alljobs/");
+  //     setJobs(data);
+  //   };
+  //   getJobs();
 
+
+  // }, []);
 
   return (
     <div className="jobs-container">
@@ -85,51 +72,40 @@ const Jobs = () => {
           <input
             type="search"
             placeholder="Search here"
-            // onChange={(e) => setQuery(e.target.value)}
-            // value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            value={query}
           />
           <MdOutlineSearch size={20} />
         </div>
       </div>
       <div className="jobsCard-container" id="jobsCard-containerId">
-        {jobs
-          .map((job, index) => {
-            return (
-              <Link to="/jobsDetail" className="jobsCard-link">
-                <div className="jobsCard" key={index}>
-                  <div className="jobsCard-Title">
-                    <div className="jobsCardLeft-Top">
-                      {/* {icons.map((icons, index) => {
+        {jobsInfo.map((job, index) => {
+          return (
+            <Link to="/jobsDetail" className="jobsCard-link">
+              <div className="jobsCard" key={job.id}>
+                <div className="jobsCard-Title">
+                  <div className="jobsCard-Top">
+                    {icons.map((icons, index) => {
                         return icons.name === job.title ? icons.icon : "";
-                      })} */}
-                      {/* {job.jobIcon} */}
-                      <p>{job.title}</p>
-                    </div>
-                    <div className="jobsCardRight-Top">
-                      <FaChevronRight size={20} />
-                    </div>
-                  </div>
-                  <div className="jobCard-Description">
-                    <div className="jobsCardLeft-Bottom">
-                      <p className="jobsCard-time">
-                        <FaClock size={12} /> {job.jobTime}
-                      </p>
-                      <p className="jobsCard-location">
-                        <MdLocationOn size={13} /> {job.jobLocation}
-                      </p>
-                      <p className="jobsCard-amount">
-                        <FaRupeeSign size={12} /> {job.jobAmout}
-                      </p>
-                    </div>
-                    {/* <div className="jobsCardRight-Bottom">
-                      <img src={job.recruiter_profile_pic} alt="" />
-                      <p>{convertToK(job.recruiter_subscribers)}</p>
-                    </div> */}
+                      })}
+                    {/* {job.jobIcon} */}
                   </div>
                 </div>
-              </Link>
-            );
-          })}
+                <div className="jobCard-Description">
+                  <div className="jobsCard-Bottom">
+                    <div className="jobCard-title">
+                      <h1>{job.title}</h1>
+                    </div>
+                    <div className="jobCard-creator">
+                      <p>{job.creator}</p>
+                      <span>{job.rollNo}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

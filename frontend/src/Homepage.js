@@ -12,7 +12,7 @@ import {
   MdOutlinePalette,
   MdLocationOn,
 } from "react-icons/md";
-import RightImg from "./assets/homepage-img.jpg";
+import RightImg from "./assets/undraw_career_progress_ivdb.svg";
 import "./Homepage.css";
 import AuthContext from "./contexts/AuthContext";
 
@@ -42,8 +42,8 @@ const Homepage = () => {
           <img src={RightImg} alt="" />
         </div>
       </div>
-      <hr />
-      <div className="homepageBottom" id="homepageBottomId">
+      {/* <hr /> */}
+      {/* <div className="homepageBottom" id="homepageBottomId">
         <div className="homepageJobs">
           <h2 className="homepageJobsTitle">Featured Works</h2>
           <div className="homepageJobs-container">
@@ -151,7 +151,7 @@ const Homepage = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
