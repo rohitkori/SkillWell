@@ -110,6 +110,7 @@ html {
 .jobsCard:hover {
     backdrop-filter: blur(2px);
     transition: backdrop-filter .5s ease-in;
+    border-color : palevioletred    
 }
 .jobsCard-Title {
   display: flex;
