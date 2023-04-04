@@ -1,7 +1,7 @@
 import {React, useContext} from "react";
 import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
-import logo from "./assets/logo6.png";
+import logo from "./assets/logo7.png";
 import "./Navbar.css";
 import  AuthContext  from "./contexts/AuthContext";
 
