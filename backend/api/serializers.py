@@ -9,6 +9,8 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         token['username'] = user.username
         token['email'] = user.email
+        token['isFreelancer'] = user.isFreelancer
+        token['isRecruiter'] = user.isRecruiter
 
         return token
 
