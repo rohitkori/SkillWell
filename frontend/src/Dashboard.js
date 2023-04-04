@@ -66,7 +66,7 @@ const Dashboard = () => {
       icon: <FaReact size={100} />,
     },
   ];
-  const { user } = useContext(AuthContext);
+  const { user,logoutUser } = useContext(AuthContext);
   const api = useAxios();  
   const [userData, setUserData] = useState({});
   
@@ -137,9 +137,9 @@ const Dashboard = () => {
               </h1>
               <p>{userData.username}</p>
               {/* <p>alexanderhipp2003</p> */}
-              <Link style={{ textDecoration: "none" }}>
+              <div style={{ textDecoration: "none" }} onClick={logoutUser}>
                 <p style={{ color: "red" }}>Logout</p>
-              </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -167,11 +167,6 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="dashboard-recruiter">      
-        </div>
-        <div className="user-logout" onClick={logoutUser}>
-        <Button disabled={false} variant="elevated" >
-            LOGOUT
-          </Button>
         </div>
       </div>
     </div>
