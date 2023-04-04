@@ -10,6 +10,7 @@ import CreateJob from "./Jobs/CreateJob";
 import Error from "./404";
 import Dashboard from "./Dashboard";
 import Signup from "./pages/Signup";
+import EditProfile from "./pages/EditProfile";
 import { AuthProvider } from "./contexts/AuthContext";
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/jobsDetail" element={<JobsDetail />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/createJob" element={<CreateJob />} />
+              <Route path="/editProfile" element={<EditProfile />} />
             <Route path="/*" element={<Error />} />
             </Routes>
           </div>
