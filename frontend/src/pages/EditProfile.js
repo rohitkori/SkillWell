@@ -139,7 +139,7 @@ const EditProfile = () => {
                 }
               />
             </label>
-            {/* <label>
+            <label>
               Course Enrolled:
               <select
                 name="courses"
@@ -157,7 +157,7 @@ const EditProfile = () => {
                 <option value="PHD">PHD</option>
                 <option value="Other">Other</option>
               </select>
-            </label> */}
+            </label>
             {/* <label>
               Current Year:
               <select name="courses">

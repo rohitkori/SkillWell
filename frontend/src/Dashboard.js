@@ -31,32 +31,32 @@ const Dashboard = () => {
   const icons = [
     {
       id: 0,
-      name: "Web Development",
+      name: "Web_Development",
       icon: <FaReact size={100} />,
     },
     {
       id: 1,
-      name: "Video Editing",
+      name: "Video_Editing",
       icon: <MdOutlineSwitchVideo size={100} />,
     },
     {
       id: 2,
-      name: "App Development",
+      name: "App_Development",
       icon: <SiFlutter size={100} />,
     },
     {
       id: 3,
-      name: "Machine Learning",
+      name: "Machine_Learning",
       icon: <GiArtificialIntelligence size={100} />,
     },
     {
       id: 4,
-      name: "Poster Design",
+      name: "Poster_Design",
       icon: <FaPaintBrush size={100} />,
     },
     {
       id: 5,
-      name: "Graphic Design",
+      name: "Graphic_Design",
       icon: <FaFigma size={100} />,
     },
     {
@@ -68,16 +68,83 @@ const Dashboard = () => {
   const { user,logoutUser } = useContext(AuthContext);
   const api = useAxios();  
   const [userData, setUserData] = useState({});
-  
+  const [imagePreview, setImagePreview] = useState("")  
+  const imageLoadURL = 'http://localhost:8000';
+
   useEffect(() => {
     const fetchUser = async () => {
       const { data } = await api.get("/users/me/");
       setUserData(data);
+      setImagePreview(`${imageLoadURL}` + data.profile_photo);
+      console.log(`${imageLoadURL}` + data.profile_photo)
       console.log(data);
     };
     fetchUser();
+
     console.log(userData);
   }, []);
+
+  const FreelancerUser = () => {
+    return (
+      <div className="dashboard-freelancer">
+        <div className="dashboard-freelancerTop">
+          <div className="freelancer-skill">
+            <div className="freelancer-icon">
+              <FaReact size="50" />
+            </div>
+            <div className="freelancer-skillName">Web Developer</div>
+          </div>
+          <div className="freelancer-skill">
+            <div className="freelancer-icon">
+              <FaPhotoVideo size="50" />
+            </div>
+            <div className="freelancer-skillName">Video Editor</div>
+          </div>
+          <div className="freelancer-skill">
+            <div className="freelancer-icon">
+              <FaPaintBrush size="50" />
+            </div>
+            <div className="freelancer-skillName">Digital Designer</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  const RecruiterUser = () => {
+    return (
+      <div className="dashboard-recruiter">
+        <div className="dashboard-recruiter-cards">
+          {jobsInfo.map((job, index) => {
+            return (
+              <Link to="/jobsDetail" className="dashboard-jobsCard-link">
+                <div className="dashboard-jobsCard" key={job.id}>
+                  <div className="dashboard-jobsCard-Title">
+                    <div className="dashboard-jobsCard-Top">
+                      {icons.map((icons, index) => {
+                        return icons.name === job.category ? icons.icon : "";
+                      })}
+                    </div>
+                  </div>
+                  <div className="dashboard-jobsCard-Description">
+                    <div className="dashboard-jobsCard-Bottom">
+                      <div className="dashboard-jobsCard-title">
+                        <h1>{job.title}</h1>
+                      </div>
+                      <div className="dashboard-jobsCard-creator">
+                        <p>Show participants list</p>
+                        <span>Delete</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    )
+  }
   
   return (
     <div className="dashboard-container">
@@ -123,10 +190,10 @@ const Dashboard = () => {
             <div className="dashboard-img">
               <label>
                 <img
-                  src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+                  src={imagePreview}
                   alt=""
                 />
-                {userData.profile_pic}
+                {/* {userData.profile_pic} */}
               </label>
             </div>
             <div className="dashboard-intro">
@@ -135,7 +202,6 @@ const Dashboard = () => {
                 {/* Alex Hipp */}
               </h1>
               <p>{userData.username}</p>
-              {/* <p>alexanderhipp2003</p> */}
               <div style={{ textDecoration: "none" }} onClick={logoutUser}>
                 <p style={{ color: "red" }}>Logout</p>
               </div>
@@ -143,66 +209,8 @@ const Dashboard = () => {
           </div>
         </div>
         <hr />
-        {user === "freelancer" ? (
-          <div className="dashboard-freelancer">
-            <div className="dashboard-freelancerTop">
-              <div className="freelancer-skill">
-                <div className="freelancer-icon">
-                  <FaReact size="50" />
-                </div>
-                <div className="freelancer-skillName">Web Developer</div>
-              </div>
-              <div className="freelancer-skill">
-                <div className="freelancer-icon">
-                  <FaPhotoVideo size="50" />
-                </div>
-                <div className="freelancer-skillName">Video Editor</div>
-              </div>
-              <div className="freelancer-skill">
-                <div className="freelancer-icon">
-                  <FaPaintBrush size="50" />
-                </div>
-                <div className="freelancer-skillName">Digital Designer</div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
-        {user === "recruiter" ? (
-          <div className="dashboard-recruiter">
-            <div className="dashboard-recruiter-cards">
-              {jobsInfo.map((job, index) => {
-                return (
-                  <Link to="/jobsDetail" className="dashboard-jobsCard-link">
-                    <div className="dashboard-jobsCard" key={job.id}>
-                      <div className="dashboard-jobsCard-Title">
-                        <div className="dashboard-jobsCard-Top">
-                          {icons.map((icons, index) => {
-                            return icons.name === job.title ? icons.icon : "";
-                          })}
-                        </div>
-                      </div>
-                      <div className="dashboard-jobsCard-Description">
-                        <div className="dashboard-jobsCard-Bottom">
-                          <div className="dashboard-jobsCard-title">
-                            <h1>{job.title}</h1>
-                          </div>
-                          <div className="dashboard-jobsCard-creator">
-                            <p>Show participants list</p>
-                            <span>Delete</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
+        {user.isFreelancer ?(<FreelancerUser/>)  : null}
+        {user.isRecruiter ?  (<RecruiterUser/>): null}
       </div>
     </div>
   );

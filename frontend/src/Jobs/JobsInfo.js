@@ -2,7 +2,8 @@ const JobsInfo = [
   {
     id: 0,
     image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-    title: "Web Development",
+    category: "Web_Development",
+    title: "Web Developer",
     jobTime: "Full-time",
     jobLocation: "Remote",
     rollNo: "M22YT020",
@@ -11,7 +12,8 @@ const JobsInfo = [
   {
     id: 1,
     image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-    title: "Video Editing",
+    category: "Video_Editing",
+    title: "Video Editor",
     jobTime: "Part-time",
     jobLocation: "Remote",
     rollNo: "B21CS001",
@@ -20,7 +22,8 @@ const JobsInfo = [
   {
     id: 2,
     image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-    title: "App Development",
+    category: "App_Development",
+    title: "App Developer",
     jobTime: "Full-time",
     jobLocation: "Remote",
     rollNo: "P22EE054",
@@ -29,7 +32,7 @@ const JobsInfo = [
   // {
   //   id: 3,
   //   image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-  //   title: "Graphic Design",
+  //   category: "Graphic Design",
   //   jobTime: "Part-time",
   //   jobLocation: "On site",
   //   rollNo: "50,000 - 55,000",
@@ -38,7 +41,7 @@ const JobsInfo = [
   // {
   //   id: 4,
   //   image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-  //   title: "Poster Design",
+  //   category: "Poster Design",
   //   jobTime: "Full-time",
   //   jobLocation: "Remote",
   //   rollNo: "30,000 - 40,000",
@@ -47,7 +50,7 @@ const JobsInfo = [
   // {
   //   id: 5,
   //   image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-  //   title: "Machine Learning",
+  //   category: "Machine Learning",
   //   jobTime: "Full-time",
   //   jobLocation: "Remote",
   //   rollNo: "70,000 - 80,000",
@@ -56,7 +59,7 @@ const JobsInfo = [
   // {
   //   id: 6,
   //   image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-  //   title: "Video Editing",
+  //   category: "Video Editing",
   //   jobTime: "Full-time",
   //   jobLocation: "Remote",
   //   rollNo: "45,000 - 50,000",
@@ -65,7 +68,7 @@ const JobsInfo = [
   // {
   //   id: 7,
   //   image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-  //   title: "App Development",
+  //   category: "App Development",
   //   jobTime: "Full-time",
   //   jobLocation: "Remote",
   //   rollNo: "25,000 - 35,000",
@@ -74,7 +77,7 @@ const JobsInfo = [
   // {
   //   id: 8,
   //   image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-  //   title: "Graphic Design",
+  //   category: "Graphic Design",
   //   jobTime: "Full-time",
   //   jobLocation: "On site",
   //   rollNo: "40,000 - 45,000",

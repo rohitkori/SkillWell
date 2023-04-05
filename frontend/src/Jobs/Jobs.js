@@ -13,32 +13,32 @@ import "./Jobs.css";
 const icons = [
   {
     id: 0,
-    name: "Web Development",
+    name: "Web_Development",
     icon: <FaReact size={100} />,
   },
   {
     id: 1,
-    name: "Video Editing",
+    name: "Video_Editing",
     icon: <MdOutlineSwitchVideo size={100} />,
   },
   {
     id: 2,
-    name: "App Development",
+    name: "App_Development",
     icon: <SiFlutter size={100} />,
   },
   {
     id: 3,
-    name: "Machine Learning",
+    name: "Machine_Learning",
     icon: <GiArtificialIntelligence size={100} />,
   },
   {
     id: 4,
-    name: "Poster Design",
+    name: "Poster_Design",
     icon: <FaPaintBrush size={100} />,
   },
   {
     id: 5,
-    name: "Graphic Design",
+    name: "Graphic_Design",
     icon: <FaFigma size={100} />,
   },
   {
@@ -54,15 +54,15 @@ const Jobs = () => {
   const [jobs, setJobs] = useState([]);
 
 
-  // useEffect(() => {
-  //   const getJobs = async () => {
-  //     const { data } = await axios.get(API_BASE_URL+"/alljobs/");
-  //     setJobs(data);
-  //   };
-  //   getJobs();
+  useEffect(() => {
+    const getJobs = async () => {
+      const { data } = await axios.get(API_BASE_URL+"/alljobs/");
+      setJobs(data);
+    };
+    getJobs();
 
 
-  // }, []);
+  }, []);
 
   return (
     <div className="jobs-container">
@@ -86,7 +86,7 @@ const Jobs = () => {
                 <div className="jobsCard-Title">
                   <div className="jobsCard-Top">
                     {icons.map((icons, index) => {
-                        return icons.name === job.title ? icons.icon : "";
+                        return icons.name === job.category ? icons.icon : "";
                       })}
                   </div>
                 </div>
