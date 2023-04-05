@@ -31,32 +31,32 @@ const Dashboard = () => {
   const icons = [
     {
       id: 0,
-      name: "Web Development",
+      name: "Web_Development",
       icon: <FaReact size={100} />,
     },
     {
       id: 1,
-      name: "Video Editing",
+      name: "Video_Editing",
       icon: <MdOutlineSwitchVideo size={100} />,
     },
     {
       id: 2,
-      name: "App Development",
+      name: "App_Development",
       icon: <SiFlutter size={100} />,
     },
     {
       id: 3,
-      name: "Machine Learning",
+      name: "Machine_Learning",
       icon: <GiArtificialIntelligence size={100} />,
     },
     {
       id: 4,
-      name: "Poster Design",
+      name: "Poster_Design",
       icon: <FaPaintBrush size={100} />,
     },
     {
       id: 5,
-      name: "Graphic Design",
+      name: "Graphic_Design",
       icon: <FaFigma size={100} />,
     },
     {
@@ -122,7 +122,7 @@ const Dashboard = () => {
                   <div className="dashboard-jobsCard-Title">
                     <div className="dashboard-jobsCard-Top">
                       {icons.map((icons, index) => {
-                        return icons.name === job.title ? icons.icon : "";
+                        return icons.name === job.category ? icons.icon : "";
                       })}
                     </div>
                   </div>
