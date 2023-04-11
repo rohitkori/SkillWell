@@ -24,8 +24,7 @@ import { MdOutlineSwitchVideo } from "react-icons/md";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiFlutter } from "react-icons/si";
 import jobsInfo from "./Jobs/JobsInfo.js";
-
-// import { backendURL, imageLoadURL } from "../backendURL";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const icons = [
@@ -70,6 +69,7 @@ const Dashboard = () => {
   const [userData, setUserData] = useState({});
   const [imagePreview, setImagePreview] = useState("")  
   const imageLoadURL = 'http://localhost:8000';
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -82,7 +82,35 @@ const Dashboard = () => {
     fetchUser();
 
     console.log(userData);
+    console.log(user);
   }, []);
+
+  const RecruiterRegister = async () => {
+    const response = await api.post("/recruiter/", { about_me: "I am a recruiter" ,is_approved : "False"})
+    if (response.status === 200) {
+      console.log('Recruiter Registered');
+      const resp = await api.patch("/users/me/", { isRecruiter: "True" })
+      if (resp.status === 200) {
+        console.log('User Updated');
+        toast.success('Recruiter Registered');
+        logoutUser();
+      }
+    }
+  }
+
+  const FreelancerRegister = async () => {
+    const response = await api.post("/freelancer/", { about_me: "I am a freelancer", is_approved: "False" })
+    if (response.status === 200) {
+      console.log('Freelancer Registered');
+      const resp = await api.patch("/users/me/", { isFreelancer: "True" })
+      if (resp.status === 200) {
+        console.log('User Updated');
+        toast.success('Freelancer Registered');
+        logoutUser();
+      }
+    }
+  }
+
 
   const FreelancerUser = () => {
     return (
@@ -141,6 +169,43 @@ const Dashboard = () => {
               </Link>
             );
           })}
+        </div>
+      </div>
+    )
+  }
+
+  const RegisterAsRecruiter = () => {
+    return (
+      <div className="dashboard-registerAsRecruiter">
+        <div className="dashboard-registerAsRecruiter-Title">
+          <h1>Register as a Recruiter</h1>
+        </div>
+        <div className="dashboard-registerAsRecruiter-Description">
+          <p>
+            Register as a recruiter to post jobs and get access to our
+            freelancers.
+          </p>
+        </div>
+        <div className="dashboard-registerAsRecruiter-Button" onClick={RecruiterRegister} >
+          <button>Register</button>
+        </div>
+      </div>
+    )
+  }
+
+  const RegisterAsFreelancer = () => {
+    return (
+      <div className="dashboard-registerAsFreelancer">
+        <div className="dashboard-registerAsFreelancer-Title">
+          <h1>Register as a Freelancer</h1>
+        </div>
+        <div className="dashboard-registerAsFreelancer-Description">
+          <p> 
+            Register as a freelancer to get access to our jobs and apply for them.
+          </p>
+        </div>
+        <div className="dashboard-registerAsFreelancer-Button" onClick={FreelancerRegister}>
+          <button>Register</button>
         </div>
       </div>
     )
@@ -209,8 +274,8 @@ const Dashboard = () => {
           </div>
         </div>
         <hr />
-        {user.isFreelancer ?(<FreelancerUser/>)  : null}
-        {user.isRecruiter ?  (<RecruiterUser/>): null}
+        {user.isFreelancer ?(<FreelancerUser/>)  : <RegisterAsFreelancer/>}
+        {user.isRecruiter ?  (<RecruiterUser/>): (<RegisterAsRecruiter/>)}
       </div>
     </div>
   );

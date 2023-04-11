@@ -1,3 +1,4 @@
+import React, { useState, useContext } from "react";
 import {
   FaClock,
   FaRupeeSign,
@@ -8,9 +9,35 @@ import {
   MdLocationOn,
 } from "react-icons/md";
 import "./JobsDetail.css";
+import { useLocation } from "react-router-dom";
 import JobsInfo from "./JobsInfo";
+import { useEffect } from "react";
+import useAxios from "../utils/useAxios";
+import axios from "axios";
+import AuthContext from "../contexts/AuthContext";
+import { API_BASE_URL } from "../config";
 
 const JobsDetail = () => {
+  const [job, setJob] = useState({});
+  const location = useLocation();
+  const id = location.state.id;
+  const api = useAxios();
+  const Backend_URL = API_BASE_URL;
+
+  useEffect(() => {
+    console.log(id);
+    const fetchJobDetail = async () => {
+      const response = await axios.post(Backend_URL + '/alljobs/', { id: id });
+      if (response.status === 200) {
+        setJob(response.data)
+        console.log(response.data);
+      } else {
+        console.log('error');
+      }
+    }
+    fetchJobDetail();
+      
+  }, []);
   return (
     <div className="jobsDetail-container">
       <div>
@@ -18,7 +45,7 @@ const JobsDetail = () => {
           <div className="jobDetail-title">
             <div className="jobDetail-titleLeft">
               <MdOutlineMovieFilter size={45} />
-              <p>Video Editor</p>
+              <p>{job.category}</p>
             </div>
             <div className="jobDetail-titleRight">
               <div className="jobDetail-img">

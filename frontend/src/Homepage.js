@@ -32,10 +32,10 @@ const Homepage = () => {
             <br /> No more looking for chances. No more wasting of talent.
           </p>
           <div className="homepageButton">
-            <Link to="/talent/signup">
+            <Link to="/login">
               <button className="homepageButton-talent">Freelancer</button>
             </Link>
-            <Link to="/jobs/signup">
+            <Link to="/login">
               <button className="homepageButton-job">Post a Work</button>
             </Link>
           </div>

@@ -86,7 +86,7 @@ class Freelancer(models.Model):
 
 class Recruiter(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    about_me = models.TextField(max_length=500, null=True, blank=True)
+    about_me = models.TextField(max_length=500, null=True, blank=True, default="I am a recruiter")
     is_approved = models.BooleanField(default=False)
 
     def __str__(self):
@@ -94,6 +94,8 @@ class Recruiter(models.Model):
 
 class Job(models.Model):
     recruiter = models.ForeignKey(User, on_delete=models.CASCADE)
+    recruiter_name = models.CharField(max_length=250, null=True, blank=True)
+    recruiter_rollno = models.CharField(max_length=250, null=True, blank=True)
     category = models.CharField(max_length=250, choices=SKILL_CHOICES, default='Other')
     title = models.CharField(max_length=250)
     description = models.TextField(max_length=500,null=True, blank=True)
@@ -109,4 +111,7 @@ class Applicant(models.Model):
     is_selected = models.BooleanField(default=False)
     link = models.URLField(max_length=250, null=True, blank=True)
     description = models.TextField(max_length=500,null=True, blank=True)
+
+    def __str__(self):
+        return self.freelancer.email + self.job.title
 

@@ -5,6 +5,7 @@ import useAxios from "./../utils/useAxios";
 import AuthContext from "./../contexts/AuthContext";
 import "./CreateJob.css";
 import toast from "react-hot-toast";
+import { API_BASE_URL } from "../config";
 
 const CreateJob = () => {
   const [title, settitle] = useState("");
@@ -12,6 +13,8 @@ const CreateJob = () => {
   const [link, setLink] = useState("");
   const [category, setCategory] = useState("");
   const { user } = useContext(AuthContext);
+  const Backend_URL = API_BASE_URL;
+  const navigate = useNavigate();
 
   const api = useAxios();
   console.log(user);
@@ -26,10 +29,15 @@ const CreateJob = () => {
       link: link,
       category: category,
     };
-    const respone = await api.post("http://localhost:8000/api/job/", data);
-    if (respone.status === 201) {
-      console.log("Job created");
-      toast.success("Job created successfully");
+    const response = await api.post( Backend_URL + "/job/", data);
+    if (response.status === 201) {
+      const resp = await api.post(Backend_URL + "/recruiterdetails/", {id : response.data.id});
+      if (resp.status === 200) {
+        console.log(resp.data);
+        console.log("Job created");
+        toast.success("Job created successfully");
+        navigate("/dashboard");
+      }
     } else {
       console.log("Job not created");
       toast.error("Job not created");

@@ -26,13 +26,17 @@ const Signup = () => {
       e.target.confirm_password.value,
       e.target.contact.value
     );
-    registerUser(
-      e.target.email.value,
-      e.target.username.value,
-      e.target.contact.value,
-      e.target.password.value,
-      e.target.confirm_password.value,
-    );
+    if (e.target.email.value.split("@")[1] === "iitj.ac.in") {
+      registerUser(
+        e.target.email.value,
+        e.target.username.value,
+        e.target.contact.value,
+        e.target.password.value,
+        e.target.confirm_password.value,
+      );
+    } else {
+      toast.error("Please use your IITJ email address");
+    }  
   };
 
   // window.addEventListener("load", function () {
