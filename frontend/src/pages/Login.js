@@ -75,11 +75,11 @@ const Login = () => {
         <div className="login-notMemeber">
           <h1>Not a member?</h1>
           <div className="login-notMemberLink">
-            <Link to="/talent/signup" style={{ color: "#fff" }}>
+            <Link to="/signup" style={{ color: "#fff" }}>
               I want a work
             </Link>
             <p> | </p>
-            <Link to="/jobs/signup" style={{ color: "#fff" }}>
+            <Link to="/signup" style={{ color: "#fff" }}>
               I want to hire
             </Link>
           </div>
