@@ -10,6 +10,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from users.models import User, Freelancer, Recruiter, Job, Applicant
 from .serializers import MyTokenObtainPairSerializer ,UserSerializer, UserDetailSerializer, FreelancerSerializer, RecruiterSerializer, JobSerializer, ApplicantSerializer
+from rest_framework.decorators import api_view, permission_classes, action  
 
 # Create your views here.
 
@@ -83,11 +84,7 @@ class FreelancerViewSet(CreateModelMixin, GenericViewSet):
     def create(self,request):
         serializer = self.get_serializer_class()
         freelancer = Freelancer.objects.create(user=request.user,
-                                               skill1 = request.data['skill1'],
-                                                skill2 = request.data['skill2'],
-                                                skill3 = request.data['skill3'],
-                                                is_verified = request.data['is_verified'],
-                                               )
+                                                is_verified = False,)
         freelancer.save()
         return Response({
             'message': "Freelancer Profile Created Successfully"
@@ -158,6 +155,22 @@ class JobViewSet(viewsets.ModelViewSet):
     serializer_class = JobSerializer
     queryset = Job.objects.all()
     permission_classes = [IsAuthenticated,]
+
+class JobRecruiterDetails(APIView):
+    serializer_class = JobSerializer
+    queryset = Job.objects.all()
+    permission_classes = [IsAuthenticated,]
+
+    def post(self,request):
+        pk = request.data['id']
+        job = Job.objects.get(id=pk)
+        user = job.recruiter
+        job.recruiter_name = user.first_name + " " + user.last_name
+        job.recruiter_rollno = user.roll_no
+        job.save()
+
+        serializer = JobSerializer(job)
+        return Response(serializer.data, status=status.HTTP_200_OK)    
     
 
 class ApplicantViewSet(viewsets.ModelViewSet):
@@ -174,3 +187,12 @@ class AllJobsViewSet(APIView):
         jobs = Job.objects.all()
         serializer = JobSerializer(jobs, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def post(self, request):
+        id = request.data['id']
+        if Job.objects.filter(id=id).exists():
+            job = Job.objects.get(id=id)
+            serializer = JobSerializer(job)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else :
+            return Response({'message': 'Job does not exist'}, status=status.HTTP_404_NOT_FOUND)
