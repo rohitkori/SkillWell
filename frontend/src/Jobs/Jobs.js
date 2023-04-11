@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaReact, FaPaintBrush, FaFigma } from "react-icons/fa";
+import { FaReact, FaPaintBrush, FaFigma, FaChalkboard } from "react-icons/fa";
 import { MdOutlineSearch, MdOutlineSwitchVideo, } from "react-icons/md";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiFlutter } from "react-icons/si";
@@ -46,13 +46,18 @@ const icons = [
     name: "Photography",
     icon: <FaReact size={100} />,
   },
+  {
+    id: 7,
+    name: "Other",
+    icon: <FaChalkboard size={100} />,
+  },
 ];
 
 
 const Jobs = () => {
   const [query, setQuery] = useState("");
   const [jobs, setJobs] = useState([]);
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getJobs = async () => {
@@ -63,6 +68,10 @@ const Jobs = () => {
 
 
   }, []);
+
+  const handleClick = (id) => {
+    navigate("/jobdetail/", { state: { id: id } })
+  }
 
   return (
     <div className="jobs-container">
@@ -79,10 +88,9 @@ const Jobs = () => {
         </div>
       </div>
       <div className="jobsCard-container" id="jobsCard-containerId">
-        {jobsInfo.map((job, index) => {
+        {jobs.map((job, index) => {
           return (
-            <Link to="/jobsDetail" className="jobsCard-link">
-              <div className="jobsCard" key={job.id}>
+              <div className="jobsCard" key={job.id} onClick={() => {handleClick(job.id)}}>
                 <div className="jobsCard-Title">
                   <div className="jobsCard-Top">
                     {icons.map((icons, index) => {
@@ -102,7 +110,6 @@ const Jobs = () => {
                   </div>
                 </div>
               </div>
-            </Link>
           );
         })}
       </div>
