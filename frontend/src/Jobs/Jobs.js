@@ -104,8 +104,8 @@ const Jobs = () => {
                       <h1>{job.title}</h1>
                     </div>
                     <div className="jobCard-creator">
-                      <p>{job.creator}</p>
-                      <span>{job.rollNo}</span>
+                      <p>{job.recruiter_name}</p>
+                      <span>{job.recruiter_rollno}</span>
                     </div>
                   </div>
                 </div>

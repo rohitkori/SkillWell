@@ -101,7 +101,8 @@ class Job(models.Model):
     description = models.TextField(max_length=500,null=True, blank=True)
     link = models.URLField(max_length=250, null=True, blank=True)
     applicants = models.ManyToManyField(Freelancer, blank=True)
-
+    created_at = models.DateTimeField(auto_now_add=True,blank=True)       
+    
     def __str__(self):
         return self.title
 

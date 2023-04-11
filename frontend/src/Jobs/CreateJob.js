@@ -29,7 +29,8 @@ const CreateJob = () => {
       link: link,
       category: category,
     };
-    const response = await api.post( Backend_URL + "/job/", data);
+    if(user.isRecruiter)
+    {const response = await api.post( Backend_URL + "/job/", data);
     if (response.status === 201) {
       const resp = await api.post(Backend_URL + "/recruiterdetails/", {id : response.data.id});
       if (resp.status === 200) {
@@ -41,6 +42,9 @@ const CreateJob = () => {
     } else {
       console.log("Job not created");
       toast.error("Job not created");
+      }
+    } else {
+      toast.error("Please Register as Recruiter to create a job");
     }
   };
   return (

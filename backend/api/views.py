@@ -196,3 +196,16 @@ class AllJobsViewSet(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else :
             return Response({'message': 'Job does not exist'}, status=status.HTTP_404_NOT_FOUND)
+        
+class CheckApplicationView(APIView):
+    serializer_class = ApplicantSerializer
+    queryset = Applicant.objects.all()
+    permission_classes = [IsAuthenticated,]
+
+    def post(self, request):
+        job = request.data['job']
+        freelancer = request.data['freelancer']
+        if Applicant.objects.filter(job=job, freelancer=freelancer).exists():
+            return Response({'message': 'Application already exists'}, status=status.HTTP_200_OK)
+        else :
+            return Response({'message': 'Application does not exist'}, status=status.HTTP_404_NOT_FOUND)
