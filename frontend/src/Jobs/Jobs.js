@@ -13,32 +13,32 @@ import "./Jobs.css";
 const icons = [
   {
     id: 0,
-    name: "Web_Development",
+    name: "Web Development",
     icon: <FaReact size={100} />,
   },
   {
     id: 1,
-    name: "Video_Editing",
+    name: "Video Editing",
     icon: <MdOutlineSwitchVideo size={100} />,
   },
   {
     id: 2,
-    name: "App_Development",
+    name: "App Development",
     icon: <SiFlutter size={100} />,
   },
   {
     id: 3,
-    name: "Machine_Learning",
+    name: "Machine Learning",
     icon: <GiArtificialIntelligence size={100} />,
   },
   {
     id: 4,
-    name: "Poster_Design",
+    name: "Poster Design",
     icon: <FaPaintBrush size={100} />,
   },
   {
     id: 5,
-    name: "Graphic_Design",
+    name: "Graphic Design",
     icon: <FaFigma size={100} />,
   },
   {
@@ -101,7 +101,7 @@ const Jobs = () => {
                 <div className="jobCard-Description">
                   <div className="jobsCard-Bottom">
                     <div className="jobCard-title">
-                      <h1>{job.title}</h1>
+                      <h1>{job.category}</h1>
                     </div>
                     <div className="jobCard-creator">
                       <p>{job.recruiter_name}</p>

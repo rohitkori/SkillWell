@@ -79,12 +79,12 @@ const CreateJob = () => {
                 name="category"
                 onChange={(e) => setCategory(e.target.value)}
               >
-                <option value="Web_Development">Web Development</option>
-                <option value="App_Development">App Development</option>
-                <option value="Machine_Learning">Machine Learning</option>
-                <option value="Poster_Design">Poster Design</option>
-                <option value="Video_Editing">Video Editing</option>
-                <option value="Graphic_Design">Graphic Design</option>
+                <option value="Web Development">Web Development</option>
+                <option value="App Development">App Development</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="Poster Design">Poster Design</option>
+                <option value="Video Editing">Video Editing</option>
+                <option value="Graphic Design">Graphic Design</option>
                 <option value="Photography">Photography</option>
                 <option value="Other">Other</option>
               </select>

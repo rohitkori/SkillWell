@@ -63,12 +63,12 @@ class User(AbstractUser):
     
 
 SKILL_CHOICES = (
-    ('Web_Development', 'Web Development'),
-    ('App_Development', 'App Development'),
-    ('Machine_Learning', 'Machine Learning'),
-    ('Poster_Design', 'Poster Design'),
-    ('Video_Editing', 'Video Editing'),
-    ('Graphic_Design', 'Graphic Design'),
+    ('Web Development', 'Web Development'),
+    ('App Development', 'App Development'),
+    ('Machine Learning', 'Machine Learning'),
+    ('Poster Design', 'Poster Design'),
+    ('Video Editing', 'Video Editing'),
+    ('Graphic Design', 'Graphic Design'),
     ('Photography', 'Photography'),
     ('Other', 'Other'),
 )
