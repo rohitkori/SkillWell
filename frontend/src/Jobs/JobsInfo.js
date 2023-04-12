@@ -2,7 +2,7 @@ const JobsInfo = [
   {
     id: 0,
     image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-    category: "Web_Development",
+    category: "Web Development",
     title: "Web Developer",
     jobTime: "Full-time",
     jobLocation: "Remote",
@@ -12,7 +12,7 @@ const JobsInfo = [
   {
     id: 1,
     image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-    category: "Video_Editing",
+    category: "Video Editing",
     title: "Video Editor",
     jobTime: "Part-time",
     jobLocation: "Remote",
@@ -22,7 +22,7 @@ const JobsInfo = [
   {
     id: 2,
     image: "https://www.iisermohali.ac.in/images/faculty/prasad.jpg",
-    category: "App_Development",
+    category: "App Development",
     title: "App Developer",
     jobTime: "Full-time",
     jobLocation: "Remote",
