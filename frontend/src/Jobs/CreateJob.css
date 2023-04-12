@@ -50,6 +50,9 @@ html {
 border-bottom: 2px solid grey;
   color: #FFFFFF;
 }
+.create-job-form form label select option{
+    color: #000;
+}
 #recruiter-form, #freelacer-form{
   display: none;
 }

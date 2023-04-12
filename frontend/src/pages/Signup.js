@@ -39,29 +39,6 @@ const Signup = () => {
     }  
   };
 
-  // window.addEventListener("load", function () {
-  //   const recruiterCheckbox = document.querySelector("#recruiter-checkbox");
-  //   const freelancerCheckbox = document.querySelector("#freelancer-checkbox");
-  //   const recruiterDiv = document.querySelector("#recruiter-form");
-  //   const freelancerDiv = document.querySelector("#freelacer-form");
-  //   console.log(recruiterCheckbox);
-  //   console.log(freelancerCheckbox);
-  //   recruiterCheckbox.addEventListener("change", function () {
-  //     if (recruiterCheckbox.checked) {
-  //       recruiterDiv.style.display = "inline";
-  //     } else {
-  //       recruiterDiv.style.display = "none";
-  //     }
-  //   });
-  //   freelancerCheckbox.addEventListener("change", function () {
-  //     if (freelancerCheckbox.checked) {
-  //       freelancerDiv.style.display = "inline";
-  //     } else {
-  //       freelancerDiv.style.display = "none";
-  //     }
-  //   });
-  // });
-
   return (
     <div className="signup-mainContainer">
       <div className="signup-container">
