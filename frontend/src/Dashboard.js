@@ -16,6 +16,7 @@ import {
   FaPhotoVideo,
   FaPaintBrush,
   FaFigma,
+  FaChalkboard,
 } from "react-icons/fa";
 import "./Dashboard.css";
 import AuthContext from "./contexts/AuthContext";
@@ -63,11 +64,17 @@ const Dashboard = () => {
       name: "Photography",
       icon: <FaReact size={100} />,
     },
+    {
+      id: 7,
+      name: "Other",
+      icon: <FaChalkboard size={100} />,
+    },
   ];
   const { user,logoutUser } = useContext(AuthContext);
   const api = useAxios();  
   const [userData, setUserData] = useState({});
   const [imagePreview, setImagePreview] = useState("")  
+  const [myjobs, setMyJobs] = useState([])
   const imageLoadURL = 'http://localhost:8000';
   const navigate = useNavigate();
 
@@ -80,6 +87,15 @@ const Dashboard = () => {
       console.log(data);
     };
     fetchUser();
+
+    const getMyJobs = async () => {
+      const response = await api.post("/myjobs/", {recruiter: user.user_id});
+      if (response.status === 200) {
+        console.log(response.data);
+        setMyJobs(response.data)
+      }
+    };
+    getMyJobs();
 
     console.log(userData);
     console.log(user);
@@ -111,7 +127,6 @@ const Dashboard = () => {
     }
   }
 
-
   const FreelancerUser = () => {
     return (
       <div className="dashboard-freelancer">
@@ -139,13 +154,25 @@ const Dashboard = () => {
     )
   }
 
+  const deleteJob = async (id) => {
+    const response = await api.delete("/job/" + id + "/");
+    if (response.status === 204) {
+      console.log('Job Deleted');
+      toast.success('Job Deleted');
+      navigate('/dashboard')
+    } else {
+      toast.error('Job Not Deleted');
+    }
+  };
+
   const RecruiterUser = () => {
     return (
       <div className="dashboard-recruiter">
+        <h1>JOBS CREATED</h1>
         <div className="dashboard-recruiter-cards">
-          {jobsInfo.map((job, index) => {
+          {myjobs.map((job, index) => {
             return (
-              <Link to="/jobsDetail" className="dashboard-jobsCard-link">
+              <div className="dashboard-jobsCard-link">
                 <div className="dashboard-jobsCard" key={job.id}>
                   <div className="dashboard-jobsCard-Title">
                     <div className="dashboard-jobsCard-Top">
@@ -160,13 +187,13 @@ const Dashboard = () => {
                         <h1>{job.title}</h1>
                       </div>
                       <div className="dashboard-jobsCard-creator">
-                        <p>Show participants list</p>
-                        <span>Delete</span>
+                        <p >Show participants list</p>
+                        <span onClick={() => { deleteJob(job.id) }} >Delete</span>
                       </div>
                     </div>
                   </div>
                 </div>
-              </Link>
+               </div>
             );
           })}
         </div>
@@ -275,7 +302,8 @@ const Dashboard = () => {
         </div>
         <hr />
         {user.isFreelancer ?(<FreelancerUser/>)  : <RegisterAsFreelancer/>}
-        {user.isRecruiter ?  (<RecruiterUser/>): (<RegisterAsRecruiter/>)}
+        <hr/>
+        {user.isRecruiter ? (<RecruiterUser />) : (<RegisterAsRecruiter />)}
       </div>
     </div>
   );

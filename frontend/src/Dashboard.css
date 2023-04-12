@@ -212,6 +212,90 @@ html {
   margin: 0;
   color: red;
 }
+.dashboard-registerAsFreelancer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+}
+.dashboard-registerAsFreelancer h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+.dashboard-registerAsFreelancer p {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin: 0;
+}
+.dashboard-registerAsFreelancer button {
+  margin: 1rem 0 5rem;
+  background: transparent;
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 2rem 2rem 5rem 0;
+  cursor: pointer;
+}
+.dashboard-registerAsFreelancer button:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+.dashboard-registerAsFreelancer button:active {
+  background-color: #ffffff;
+  color: #000000;
+}
+.dashboard-registerAsRecruiter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+}
+.dashboard-registerAsRecruiter h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+.dashboard-registerAsRecruiter p {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin: 0;
+}
+.dashboard-registerAsRecruiter button {
+  margin: 1rem 0 5rem;
+  background: transparent;
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 2rem 2rem 5rem 0;
+  cursor: pointer;
+}
+.dashboard-registerAsRecruiter button:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+.dashboard-registerAsRecruiter button:active {
+  background-color: #ffffff;
+  color: #000000;
+}
 @media (max-width: 980px) {
   .profileEdit-mobile {
     display: flex;

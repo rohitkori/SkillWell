@@ -209,3 +209,17 @@ class CheckApplicationView(APIView):
             return Response({'message': 'Application already exists'}, status=status.HTTP_200_OK)
         else :
             return Response({'message': 'Application does not exist'}, status=status.HTTP_404_NOT_FOUND)
+        
+class MyJobsView(APIView):
+    serializer_class = JobSerializer
+    queryset = Job.objects.all()
+    permission_classes = [IsAuthenticated,]
+
+    def post(self,request):
+        recruiter = request.data['recruiter']
+        if Job.objects.filter(recruiter=recruiter).exists():
+            jobs = Job.objects.filter(recruiter=recruiter)
+            serializer = JobSerializer(jobs, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else :
+            return Response({'message': 'No jobs found'}, status=status.HTTP_404_NOT_FOUND)
