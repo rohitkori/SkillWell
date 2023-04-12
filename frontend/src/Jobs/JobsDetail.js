@@ -16,6 +16,7 @@ import useAxios from "../utils/useAxios";
 import axios from "axios";
 import AuthContext from "../contexts/AuthContext";
 import { API_BASE_URL } from "../config";
+import { toast } from "react-hot-toast";
 
 const JobsDetail = () => {
   const [job, setJob] = useState({});
@@ -23,6 +24,9 @@ const JobsDetail = () => {
   const id = location.state.id;
   const api = useAxios();
   const Backend_URL = API_BASE_URL;
+  const [date, setDate] = useState("");
+  const { user } = useContext(AuthContext);
+  const [showButton, setShowButton] = useState(true);
 
   useEffect(() => {
     console.log(id);
@@ -30,14 +34,39 @@ const JobsDetail = () => {
       const response = await axios.post(Backend_URL + '/alljobs/', { id: id });
       if (response.status === 200) {
         setJob(response.data)
+        setDate(response.data.created_at.slice(0,10))
         console.log(response.data);
       } else {
         console.log('error');
       }
     }
     fetchJobDetail();
+
+    const checkApplication = async  () => {
+      const response = await api.post('/checkapplication/', { job: id, freelancer: user.user_id });
+      if (response.status === 200) {
+        setShowButton(false);
+      }   
+    }
+    checkApplication();
       
   }, []);
+
+  const handleApply = async () => {
+    const data = {
+      job: job.id,
+      freelancer : user.user_id,
+    }
+    const response = await api.post("/applicant/", data);
+    if (response.status === 201) {
+      console.log('Applied');
+      toast.success('Applied successfully');
+    } else {
+      console.log('error');
+      toast.error('Error in applying')
+    }
+  };
+
   return (
     <div className="jobsDetail-container">
       <div>
@@ -59,17 +88,15 @@ const JobsDetail = () => {
               </div>
               <div className="jobDetail-info">
                 <h1>
-                  {/* {userData.youtube_name} */}
-                  Vijaya Rawat
+                {job.recruiter_name}
                 </h1>
                 <p>
-                  {/* {convertToK(userData.youtube_subscribers)} subscribers */}
-                  M22CS014
+                  {job.recruiter_rollno}
                 </p>
               </div>
             </div>
           </div>
-          <div className="jobDetail-details">
+          {/* <div className="jobDetail-details">
             <div className="jobDetail-1">
               <FaRupeeSign size={15} />
               <p className="jobsCard-amount">3,000 Per Project</p>
@@ -86,60 +113,15 @@ const JobsDetail = () => {
               <FaRegCalendar />
               <p className="jobsCard-start">ASAP</p>
             </div>
-          </div>
+          </div> */}
           {/* <p className="error-line">{error}</p> */}
-          <div className="jobDetail-button">
-            <button className="">Easy Apply</button>
-          </div>
-          {/* {user && user.talent ? (
-            <div className="jobDetail-button">
-              <Popup
-                trigger={<button className="">Easy Apply</button>}
-                modal
-                nested
-              >
-                {(close) => (
-                  <div className="popForm-container">
-                    <form onSubmit={handleSubmit}>
-                      <div className="workToDo-title">
-                        <h1>Here's a task that you need to complete:</h1>
-                        <p>{jobDetail.task_description}</p>
-                        <br />
-                        <p>
-                          <b> Task Link : </b>{" "}
-                          <a href={jobDetail.task_link} target="_blank">
-                            {jobDetail.task_link}
-                          </a>
-                        </p>
-                      </div>
-                      <div className="workLink">
-                        <h1>Submit your completed task here as a link</h1>
-                        <input
-                          type="text"
-                          placeholder="e.g. Unlisted Youtube Link or Doc Link or Image Link"
-                          onChange={(e) => setTaskLink(e.target.value)}
-                        />
-                      </div>
-                      <div className="pop-button">
-                        <button
-                          onClick={() => {
-                            close();
-                            applyForJob();
-                          }}
-                        >
-                          Apply Now
-                        </button>
-                      </div>
-                    </form>
-                  </div>
-                )}
-              </Popup>
-            </div>
-          ) : (
-            <div className="loginToApply">
-              <h2>Please Login as a Talent to Apply for this job</h2>
-            </div>
-          )} */}
+          {showButton ? (
+                <div className="jobDetail-button" onClick={handleApply}>
+                  <button className="">Easy Apply</button>
+                </div>): (
+                <div className="jobDetail-button">
+                  <button className="">Already Applied</button>
+                </div>)}
         </div>
         <hr />
         <div className="jobDetail-bottom">
@@ -175,7 +157,7 @@ const JobsDetail = () => {
             </p>
           </div>
           <div className="jobPosted">
-            <p>Posted on: 11 March, 2023</p>
+            <p>{date}</p>
           </div>
         </div>
       </div>
