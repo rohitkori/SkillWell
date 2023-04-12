@@ -3,11 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import "./EditProfile.css";
 import useAxios from "../utils/useAxios";
 import AuthContext from "../contexts/AuthContext";
+import toast from "react-hot-toast";
 
 const EditProfile = () => {
   const { user } = useContext(AuthContext);
   const api = useAxios();
   const [userData, setUserData] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -29,6 +31,8 @@ const EditProfile = () => {
     const response = await api.patch("/users/me/", userData);
     if (response.status === 200) {
       console.log("Success");
+      toast.success("Profile updated successfully");
+      navigate('/dashboard');
     } else {
       console.log("Error");
     }
@@ -151,6 +155,7 @@ const EditProfile = () => {
                   }))
                 }
               >
+                <option value="none" selected disabled hidden >Select your course</option>
                 <option value="B.Tech">B.Tech</option>
                 <option value="M.Tech">M.Tech</option>
                 <option value="MBA">MBA</option>
