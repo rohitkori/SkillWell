@@ -31,32 +31,32 @@ const Dashboard = () => {
   const icons = [
     {
       id: 0,
-      name: "Web_Development",
+      name: "Web Development",
       icon: <FaReact size={100} />,
     },
     {
       id: 1,
-      name: "Video_Editing",
+      name: "Video Editing",
       icon: <MdOutlineSwitchVideo size={100} />,
     },
     {
       id: 2,
-      name: "App_Development",
+      name: "App Development",
       icon: <SiFlutter size={100} />,
     },
     {
       id: 3,
-      name: "Machine_Learning",
+      name: "Machine Learning",
       icon: <GiArtificialIntelligence size={100} />,
     },
     {
       id: 4,
-      name: "Poster_Design",
+      name: "Poster Design",
       icon: <FaPaintBrush size={100} />,
     },
     {
       id: 5,
-      name: "Graphic_Design",
+      name: "Graphic Design",
       icon: <FaFigma size={100} />,
     },
     {
@@ -75,6 +75,7 @@ const Dashboard = () => {
   const [userData, setUserData] = useState({});
   const [imagePreview, setImagePreview] = useState("")  
   const [myjobs, setMyJobs] = useState([])
+  const [jobDelete, setJobDelete] = useState(false)
   const imageLoadURL = 'http://localhost:8000';
   const navigate = useNavigate();
 
@@ -89,17 +90,27 @@ const Dashboard = () => {
     fetchUser();
 
     const getMyJobs = async () => {
+      setMyJobs([]);
       const response = await api.post("/myjobs/", {recruiter: user.user_id});
-      if (response.status === 200) {
-        console.log(response.data);
-        setMyJobs(response.data)
+      try {
+        if (response.status === 200) {
+          console.log(response.data);
+          setMyJobs(response.data)
+        } else {
+          console.log('No Jobs Found');
+          setMyJobs([]);
+        }
+      } catch {
+        console.log('No Jobs Found');
+        setMyJobs([]);
       }
+      
     };
     getMyJobs();
 
     console.log(userData);
     console.log(user);
-  }, []);
+  }, [jobDelete]);
 
   const RecruiterRegister = async () => {
     const response = await api.post("/recruiter/", { about_me: "I am a recruiter" ,is_approved : "False"})
@@ -159,6 +170,7 @@ const Dashboard = () => {
     if (response.status === 204) {
       console.log('Job Deleted');
       toast.success('Job Deleted');
+      setJobDelete(!jobDelete);
       navigate('/dashboard')
     } else {
       toast.error('Job Not Deleted');
@@ -184,7 +196,7 @@ const Dashboard = () => {
                   <div className="dashboard-jobsCard-Description">
                     <div className="dashboard-jobsCard-Bottom">
                       <div className="dashboard-jobsCard-title">
-                        <h1>{job.title}</h1>
+                        <h1>{job.category}</h1>
                       </div>
                       <div className="dashboard-jobsCard-creator">
                         <p >Show participants list</p>
