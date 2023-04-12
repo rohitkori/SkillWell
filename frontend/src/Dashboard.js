@@ -41,7 +41,7 @@ const Dashboard = () => {
     },
     {
       id: 2,
-      name: "App_Development",
+      name: "App Development",
       icon: <SiFlutter size={100} />,
     },
     {
@@ -154,21 +154,10 @@ const Dashboard = () => {
     )
   }
 
-  const deleteJob = async (id) => {
-    const response = await api.delete("/job/" + id + "/");
-    if (response.status === 204) {
-      console.log('Job Deleted');
-      toast.success('Job Deleted');
-      navigate('/dashboard')
-    } else {
-      toast.error('Job Not Deleted');
-    }
-  };
-
   const RecruiterUser = () => {
     return (
       <div className="dashboard-recruiter">
-        <h1>JOBS CREATED</h1>
+        {/* <h1>JOBS</h1> */}
         <div className="dashboard-recruiter-cards">
           {myjobs.map((job, index) => {
             return (
@@ -184,7 +173,7 @@ const Dashboard = () => {
                   <div className="dashboard-jobsCard-Description">
                     <div className="dashboard-jobsCard-Bottom">
                       <div className="dashboard-jobsCard-title">
-                        <h1>{job.title}</h1>
+                        <h1>{job.category}</h1>
                       </div>
                       <div className="dashboard-jobsCard-creator">
                         <p >Show participants list</p>
@@ -200,6 +189,17 @@ const Dashboard = () => {
       </div>
     )
   }
+
+  const deleteJob = async (id) => {
+    const response = await api.delete("/job/" + id + "/");
+    if (response.status === 204) {
+      console.log('Job Deleted');
+      toast.success('Job Deleted');
+      navigate('/dashboard')
+    } else {
+      toast.error('Job Not Deleted');
+    }
+  };
 
   const RegisterAsRecruiter = () => {
     return (
@@ -293,8 +293,11 @@ const Dashboard = () => {
                 {userData.first_name} {userData.last_name}
                 {/* Alex Hipp */}
               </h1>
-              <p>{userData.username}</p>
-              <div style={{ textDecoration: "none" }} onClick={logoutUser}>
+              <p>Username: {userData.username}</p>
+              <div onClick={navigate("/editProfile")} style={{cursor:"pointer"}}>
+                <p style={{textDecoration:"underline"}}>Edit Profile</p>
+              </div>
+              <div style={{ textDecoration: "none",cursor:"pointer" }} onClick={logoutUser}>
                 <p style={{ color: "red" }}>Logout</p>
               </div>
             </div>
