@@ -214,16 +214,7 @@ const Dashboard = () => {
     )
   }
 
-  const deleteJob = async (id) => {
-    const response = await api.delete("/job/" + id + "/");
-    if (response.status === 204) {
-      console.log('Job Deleted');
-      toast.success('Job Deleted');
-      navigate('/dashboard')
-    } else {
-      toast.error('Job Not Deleted');
-    }
-  };
+ 
 
   const RegisterAsRecruiter = () => {
     return (
