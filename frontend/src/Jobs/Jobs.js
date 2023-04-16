@@ -88,7 +88,14 @@ const Jobs = () => {
         </div>
       </div>
       <div className="jobsCard-container" id="jobsCard-containerId">
-        {jobs.map((job, index) => {
+        {jobs
+          .filter(
+            (job) =>
+              job.category.toLowerCase().includes(query.toLowerCase()) ||
+              job.recruiter_name.toLowerCase().includes(query.toLowerCase()) ||
+              job.recruiter_rollno.toLowerCase().includes(query.toLowerCase())
+          )
+          .map((job, index) => {
           return (
               <div className="jobsCard" key={job.id} onClick={() => {handleClick(job.id)}}>
                 <div className="jobsCard-Title">

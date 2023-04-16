@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+html {
+  font-size: 10px;
+}
+.applicant-container {
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+  display:flex; 
+  flex-direction:column; 
+  justify-content:space-between;
+}
+#applicant-titleId {
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2%;
+}
+.applicant-title {
+  color: #ffffff;
+}
+.applicant-title-h1 {
+  padding: 2.5rem 0 0 0;
+  font-size: 3rem;
+}
+
+#applicantCard-containerId {
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2% 5rem 2%;
+}
+.applicantCard-container {
+  display: grid;
+  grid-template-columns: minmax(auto, 333px) minmax(auto, 333px) minmax(
+      auto,
+      333px
+    );
+  gap: 3rem;
+  padding-bottom: 5rem;
+  background-color: #000000;
+}
+.applicantCard {
+  background: #000;
+  border-radius: 5px;
+  box-shadow: rgba(255, 255, 255, 0.52) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.52) 0px 1px 6px 0px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.5rem;
+  text-decoration: none;
+  margin-top: 2rem;
+  /* margin: 20px 25px 20px 0; */
+  gap: 2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.applicantCard-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.applicantCard-detail {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  line-height: 1.5rem;
+  justify-content: start;
+}
+.applicantCard-detail p {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  /* letter-spacing: 0.09rem; */
+  font-weight: 500;
+}
+.applicantCard-skill {
+  font-size: 0.8rem;
+}
+@media (max-width: 930px) {
+  html {
+    font-size: 62.5%;
+  }
+  .applicantCard-container {
+    grid-template-columns: 48% 48%;
+  }
+  #applicant-titleId {
+    padding: 0 5%;
+  }
+  #applicantCard-containerId {
+    padding: 0 5%;
+  }
+}
+@media (max-width: 580px) {
+  .applicantCard-container {
+    grid-template-columns: auto;
+  }
+}

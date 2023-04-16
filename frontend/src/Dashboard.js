@@ -188,7 +188,7 @@ const Dashboard = () => {
                         <h1>{job.category}</h1>
                       </div>
                       <div className="dashboard-jobsCard-creator">
-                        <p >Show participants list</p>
+                        <p  onClick={() => navigate('/applicants/',{ state: { id: job.id } } )}>Show participants list</p>
                         <span onClick={() => { deleteJob(job.id) }} >Delete</span>
                       </div>
                     </div>
