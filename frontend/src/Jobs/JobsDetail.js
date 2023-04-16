@@ -85,7 +85,7 @@ const JobsDetail = () => {
     }
     checkApplication();
       
-  }, []);
+  }, [showButton]);
 
   const handleApply = async () => {
     const data = {
@@ -95,6 +95,7 @@ const JobsDetail = () => {
     const response = await api.post("/applicant/", data);
     if (response.status === 201) {
       console.log('Applied');
+      setShowButton(false);
       toast.success('Applied successfully');
     } else {
       console.log('error');

@@ -166,18 +166,6 @@ const Dashboard = () => {
     )
   }
 
-  const deleteJob = async (id) => {
-    const response = await api.delete("/job/" + id + "/");
-    if (response.status === 204) {
-      console.log('Job Deleted');
-      toast.success('Job Deleted');
-      setJobDelete(!jobDelete);
-      navigate('/dashboard')
-    } else {
-      toast.error('Job Not Deleted');
-    }
-  };
-
   const RecruiterUser = () => {
     return (
       <div className="dashboard-recruiter">
@@ -214,7 +202,17 @@ const Dashboard = () => {
     )
   }
 
- 
+  const deleteJob = async (id) => {
+    const response = await api.delete("/job/" + id + "/");
+    if (response.status === 204) {
+      console.log('Job Deleted');
+      toast.success('Job Deleted');
+      setJobDelete(!jobDelete);
+      navigate('/dashboard')
+    } else {
+      toast.error('Job Not Deleted');
+    }
+  };
 
   const RegisterAsRecruiter = () => {
     return (
@@ -309,7 +307,7 @@ const Dashboard = () => {
                 {/* Alex Hipp */}
               </h1>
               <p>Username: {userData.username}</p>
-              <div onClick={navigate("/editProfile")} style={{cursor:"pointer"}}>
+              <div onClick={()=>{navigate("/editProfile")}} style={{cursor:"pointer"}}>
                 <p style={{textDecoration:"underline"}}>Edit Profile</p>
               </div>
               <div style={{ textDecoration: "none",cursor:"pointer" }} onClick={logoutUser}>

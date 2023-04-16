@@ -78,7 +78,8 @@ const CreateJob = () => {
               <select
                 name="category"
                 onChange={(e) => setCategory(e.target.value)}
-              >
+              > 
+                <option value="none" selected disabled hidden >Select an option</option>
                 <option value="Web Development">Web Development</option>
                 <option value="App Development">App Development</option>
                 <option value="Machine Learning">Machine Learning</option>
