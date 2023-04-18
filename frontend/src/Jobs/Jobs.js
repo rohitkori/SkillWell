@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaReact, FaPaintBrush, FaFigma, FaChalkboard } from "react-icons/fa";
-import { MdOutlineSearch, MdOutlineSwitchVideo, } from "react-icons/md";
+import { MdOutlineSearch, MdOutlineSwitchVideo, MdOutlineMonochromePhotos } from "react-icons/md";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiFlutter } from "react-icons/si";
 import { CgNotes } from "react-icons/cg";
@@ -44,7 +44,7 @@ const icons = [
   {
     id: 6,
     name: "Photography",
-    icon: <FaReact size={100} />,
+    icon: <MdOutlineMonochromePhotos size={100} />,
   },
   {
     id: 7,
@@ -88,7 +88,14 @@ const Jobs = () => {
         </div>
       </div>
       <div className="jobsCard-container" id="jobsCard-containerId">
-        {jobs.map((job, index) => {
+        {jobs
+          .filter(
+            (job) =>
+              job.category.toLowerCase().includes(query.toLowerCase()) ||
+              job.recruiter_name.toLowerCase().includes(query.toLowerCase()) ||
+              job.recruiter_rollno.toLowerCase().includes(query.toLowerCase())
+          )
+          .map((job, index) => {
           return (
               <div className="jobsCard" key={job.id} onClick={() => {handleClick(job.id)}}>
                 <div className="jobsCard-Title">

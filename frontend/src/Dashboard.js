@@ -18,12 +18,14 @@ import {
   FaFigma,
   FaChalkboard,
 } from "react-icons/fa";
+import { HiOutlinePencilAlt } from "react-icons/hi";
 import "./Dashboard.css";
 import AuthContext from "./contexts/AuthContext";
 import useAxios from "./utils/useAxios";
 import { MdOutlineSwitchVideo } from "react-icons/md";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiFlutter } from "react-icons/si";
+import Spinner from "./Spinner";
 import jobsInfo from "./Jobs/JobsInfo.js";
 import toast from "react-hot-toast";
 
@@ -76,17 +78,21 @@ const Dashboard = () => {
   const [userData, setUserData] = useState({});
   const [imagePreview, setImagePreview] = useState("")  
   const [myjobs, setMyJobs] = useState([])
+  const [mySkills, setMySkills] = useState([])
   const [jobDelete, setJobDelete] = useState(false)
+  const [loading, setLoading] = useState(false)
   const imageLoadURL = 'http://localhost:8000';
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     const fetchUser = async () => {
+      setLoading(true);
       const { data } = await api.get("/users/me/");
       setUserData(data);
       setImagePreview(`${imageLoadURL}` + data.profile_photo);
       console.log(`${imageLoadURL}` + data.profile_photo)
       console.log(data);
+      setLoading(false);
     };
     fetchUser();
 
@@ -108,6 +114,24 @@ const Dashboard = () => {
       
     };
     getMyJobs();
+
+    const getMySkills = async () => {
+      setMySkills([]);
+      const response = await api.get("/skills/", { freelancer: user.user_id });
+      try {
+        if (response.status === 200) {
+          console.log(response.data);
+          setMySkills(response.data);
+        } else {
+          console.log('No Skills Found');
+          setMySkills([]);
+        }
+      } catch {
+        console.log('No Skills Found');
+        setMySkills([]);
+      }
+    };
+    getMySkills();
 
     console.log(userData);
     console.log(user);
@@ -139,11 +163,34 @@ const Dashboard = () => {
     }
   }
 
+  function editSkills() {
+    navigate("/edit-skills");
+  }
+
   const FreelancerUser = () => {
     return (
       <div className="dashboard-freelancer">
+        <div className="dashboard-freelancerAdd" onClick={editSkills}>
+          Edit Skills
+        </div>
         <div className="dashboard-freelancerTop">
-          <div className="freelancer-skill">
+          {mySkills.length === 0 ? (
+            <div className="dashboard-freelancerTop">No Skills Added</div>
+          ) : (
+            <div className="dashboard-freelancerTop">
+              {mySkills.map((skill) => (
+                <div className="freelancer-skill">
+                  <div className="freelancer-icon">
+                    {icons.map((icons, index) => {
+                      return icons.name === mySkills.name ? icons.icon : "";
+                    })}
+                  </div>
+                  <div className="freelancer-skillName">{mySkills.name}</div>
+                </div>
+              ))}
+            </div>
+          )}
+          {/* <div className="freelancer-skill">
             <div className="freelancer-icon">
               <FaReact size="50" />
             </div>
@@ -160,23 +207,11 @@ const Dashboard = () => {
               <FaPaintBrush size="50" />
             </div>
             <div className="freelancer-skillName">Digital Designer</div>
-          </div>
+          </div> */}
         </div>
       </div>
-    )
+    );
   }
-
-  const deleteJob = async (id) => {
-    const response = await api.delete("/job/" + id + "/");
-    if (response.status === 204) {
-      console.log('Job Deleted');
-      toast.success('Job Deleted');
-      setJobDelete(!jobDelete);
-      navigate('/dashboard')
-    } else {
-      toast.error('Job Not Deleted');
-    }
-  };
 
   const RecruiterUser = () => {
     return (
@@ -200,7 +235,7 @@ const Dashboard = () => {
                         <h1>{job.category}</h1>
                       </div>
                       <div className="dashboard-jobsCard-creator">
-                        <p >Show participants list</p>
+                        <p  onClick={() => navigate('/applicants/',{ state: { id: job.id } } )}>Show participants list</p>
                         <span onClick={() => { deleteJob(job.id) }} >Delete</span>
                       </div>
                     </div>
@@ -215,11 +250,14 @@ const Dashboard = () => {
   }
 
   const deleteJob = async (id) => {
+    setLoading(true);
     const response = await api.delete("/job/" + id + "/");
     if (response.status === 204) {
       console.log('Job Deleted');
       toast.success('Job Deleted');
+      setJobDelete(!jobDelete);
       navigate('/dashboard')
+      setLoading(false);
     } else {
       toast.error('Job Not Deleted');
     }
@@ -264,6 +302,7 @@ const Dashboard = () => {
   
   return (
     <div className="dashboard-container">
+    {loading ? <Spinner /> : 
       <div>
         <div className="dashboard-title">
           <div className="dashboard-titleLeft">
@@ -305,10 +344,7 @@ const Dashboard = () => {
           <div className="dashboard-titleRight">
             <div className="dashboard-img">
               <label>
-                <img
-                  src={imagePreview}
-                  alt=""
-                />
+                <img src={imagePreview} alt="" />
                 {/* {userData.profile_pic} */}
               </label>
             </div>
@@ -318,20 +354,28 @@ const Dashboard = () => {
                 {/* Alex Hipp */}
               </h1>
               <p>Username: {userData.username}</p>
-              <div onClick={navigate("/editProfile")} style={{cursor:"pointer"}}>
-                <p style={{textDecoration:"underline"}}>Edit Profile</p>
+              <div
+                onClick={() => {
+                  navigate("/editProfile");
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                <p style={{ textDecoration: "underline" }}>Edit Profile</p>
               </div>
-              <div style={{ textDecoration: "none",cursor:"pointer" }} onClick={logoutUser}>
+              <div
+                style={{ textDecoration: "none", cursor: "pointer" }}
+                onClick={logoutUser}
+              >
                 <p style={{ color: "red" }}>Logout</p>
               </div>
             </div>
           </div>
         </div>
         <hr />
-        {user.isFreelancer ?(<FreelancerUser/>)  : <RegisterAsFreelancer/>}
-        <hr/>
-        {user.isRecruiter ? (<RecruiterUser />) : (<RegisterAsRecruiter />)}
-      </div>
+        {user.isFreelancer ? <FreelancerUser /> : <RegisterAsFreelancer />}
+        <hr />
+        {user.isRecruiter ? <RecruiterUser /> : <RegisterAsRecruiter />}
+      </div>}
     </div>
   );
 };

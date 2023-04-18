@@ -15,11 +15,11 @@ router.register("job", JobViewSet, basename="job")
 router.register("applicant", ApplicantViewSet, basename="applicant")
 
 urlpatterns = [
-    path(r'',include(router.urls)), 
+    path(r'', include(router.urls)),
     path('login/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('alljobs/', AllJobsViewSet.as_view(), name='alljobs'),
     path('recruiterdetails/', JobRecruiterDetails.as_view(), name='recruiterdetails'),
     path('checkapplication/', CheckApplicationView.as_view(), name='checkapplication'),
     path('myjobs/', MyJobsView.as_view(), name='myjobs'),
-]   
+]
