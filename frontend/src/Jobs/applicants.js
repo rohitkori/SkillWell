@@ -23,7 +23,7 @@ const Applicants = () => {
   useEffect(() => {
     const getApplicant = async () => {
       try {
-        const response = await api.get(`/applicant/`);
+        const response = await api.get(`/applicant/proposal/`);
         setApplicantData(response.data.filter ((data) => data.job === jobId));
         console.log(response.data.filter((data) => data.job === jobId))
         setCheck(true)

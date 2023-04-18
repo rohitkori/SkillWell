@@ -183,6 +183,20 @@ class ApplicantViewSet(viewsets.ModelViewSet):
     queryset = Applicant.objects.all()
     permission_classes = [IsAuthenticated,]
 
+    @action(detail=False, methods=['get'], permission_classes=[IsAuthenticated])
+    def proposal(self, request):
+        applicants = Applicant.objects.all()
+        for applicant in applicants:
+            user = applicant.freelancer
+            if user.first_name and user.last_name:
+                applicant.freelancer_name = user.first_name + " " + user.last_name
+            elif user.first_name:
+                applicant.freelancer_name = user.first_name
+            elif user.last_name:
+                applicant.freelancer_name = user.last_name    
+            applicant.save()
+        serializer= ApplicantSerializer(applicants, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class AllJobsViewSet(APIView):
     serializer_class = JobSerializer
