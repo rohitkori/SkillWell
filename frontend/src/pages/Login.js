@@ -4,11 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import AuthContext from "../contexts/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
-
+import Spinner from "../Spinner";
 const Login = () => {
   const { loginUser, logoutUser} = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,13 +17,13 @@ const Login = () => {
     const password = e.target.password.value;
    
     const myPromise = new Promise((resolve, reject) => {
-                  
+                  setLoading(true);
         loginUser(email, password)
-        
-            .catch((err)=>{
-                reject(err)
-            })
-          
+        .catch((err)=>{
+          reject(err)
+        })
+        setLoading(false);
+      
           
     })                    
     
@@ -45,6 +46,7 @@ const Login = () => {
 
   return (
     <div className="login-mainContainer">
+    {loading?<Spinner/>:""}
     <div className="login-container">
       <div className="login-formContainer">
         <div className="login-heading">
