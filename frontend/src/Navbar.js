@@ -44,6 +44,12 @@ const Navbar = () => {
                 <Link to="/createJob" style={{ textDecoration: "none" }}>
                   <li>Post a Work</li>
                 </Link>
+                <Link to="/freelancers" style={{ textDecoration: "none" }}>
+                  <li>Freelancers</li>
+                </Link>
+                <Link to="/recruiters" style={{ textDecoration: "none" }}>
+                  <li>Recruiters</li>
+                </Link>
               </ul>
             </div>
           </div>
