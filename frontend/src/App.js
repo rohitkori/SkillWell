@@ -15,6 +15,7 @@ import Applicant from "./Jobs/applicants";
 import Profile from "./pages/Profile";
 import { AuthProvider } from "./contexts/AuthContext";
 import { Toaster } from "react-hot-toast";
+import EditSkills from "./pages/EditSkills";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
               <Route path="/editProfile" element={<EditProfile />} />
               <Route path="/applicants" element={<Applicant />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/edit-skills" element={<EditSkills />} />
               <Route path="/*" element={<Error />} />
             </Routes>
           </div>
