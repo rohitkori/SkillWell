@@ -13,7 +13,8 @@ import Signup from "./pages/Signup";
 import EditProfile from "./pages/EditProfile";
 import Applicant from "./Jobs/applicants";
 import Profile from "./pages/Profile";
-import People from "./pages/People";
+import Freelancer from "./pages/Freelancers";
+import Recruiter from "./pages/Recruiters";
 import { AuthProvider } from "./contexts/AuthContext";
 import { Toaster } from "react-hot-toast";
 
@@ -35,7 +36,8 @@ function App() {
               <Route path="/editProfile" element={<EditProfile />} />
               <Route path="/applicants" element={<Applicant />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/people" element={<People />} />
+              <Route path="/freelancers" element={<Freelancer />} />
+              <Route path="/recruiters" element={<Recruiter />} />
               <Route path="/*" element={<Error />} />
             </Routes>
           </div>

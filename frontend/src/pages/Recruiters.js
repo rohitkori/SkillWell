@@ -8,11 +8,10 @@ import {
     FaRupeeSign,
     FaUserAlt,
   } from "react-icons/fa";
-import "./People.css";
+import "./Recruiters.css";
 
-const People = () => {
-    const [people, setPeople] = useState([]);
-    const [show, setShow] = useState(false);
+const Recruiter = () => {
+    const [recruiter, setrecruiter] = useState([]);
     const backendURL = API_BASE_URL;
     const navigate = useNavigate();
     
@@ -21,29 +20,30 @@ const People = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setPeople(data);
+                setrecruiter(data);
             })
             .catch(err => console.log(err));
     }, []);
 
     return (
-        <div className="people-container">
+        <div className="recruiter-container">
           <div>
-            <div className="people-title" id="people-titleId">
-              <h1 className="people-title-h1">USERS</h1>
+            <div className="recruiter-title" id="recruiter-titleId">
+              <h1 className="recruiter-title-h1">USERS</h1>
             </div>
-            <div className="peopleCard-container" id='peopleCard-containerId'>
-            {people.map((user, index) => {
+            <div className="recruiterCard-container" id='recruiterCard-containerId'>
+            {recruiter.filter((user) => user.isRecruiter === true)
+              .map((user, index) => {
               return (
-                <div className="peopleCard" key={index} onClick={() => navigate('/profile?id=' + user.id)}>
-                  <div className="peopleCard-left">
+                <div className="recruiterCard" key={index} onClick={() => navigate('/profile?id=' + user.id)}>
+                  <div className="recruiterCard-left">
                     {user.profile_photo ? (<img src={"http://localhost:8000" + user.profile_photo} alt="" />)
                         : (<FaUserAlt size={25} />)}
-                    <div className="peopleCard-detail">
-                      <p className="peopleCard-name">{user.first_name + " " + user.last_name}</p>
+                    <div className="recruiterCard-detail">
+                      <p className="recruiterCard-name">{user.first_name + " " + user.last_name}</p>
                     </div>
                   </div>
-                  <div className="peopleCard-right">
+                  <div className="recruiterCard-right">
                     <FaChevronRight />
                   </div>
                 </div>
@@ -55,4 +55,4 @@ const People = () => {
       )
 }
 
-export default People;
+export default Recruiter;
