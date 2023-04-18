@@ -118,11 +118,11 @@ class Applicant(models.Model):
     link = models.URLField(max_length=250, null=True, blank=True)
     description = models.TextField(max_length=500, null=True, blank=True)
 
-    def save(self, *args, **kwargs):
-        if self.freelancer.first_name and self.freelancer.last_name:
-            self.freelancer_name = self.freelancer.first_name + " " + self.freelancer.last_name
+    # def save(self, *args, **kwargs):
+    #     if self.freelancer.first_name and self.freelancer.last_name:
+    #         self.freelancer_name = self.freelancer.first_name + " " + self.freelancer.last_name
 
-        super(Applicant, self).save(*args, **kwargs)
+    #     super(Applicant, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.freelancer.email + self.job.title
