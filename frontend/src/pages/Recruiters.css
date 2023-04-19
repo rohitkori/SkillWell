@@ -3,15 +3,6 @@
 html {
   font-size: 10px;
 }
-img {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-    justify-content: center;
-    align-items: center; 
-}
 .recruiter-container {
   background-color: #000000;
   margin: 0;
@@ -76,6 +67,15 @@ img {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.recruiterCard-left img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  justify-content: center;
+  align-items: center; 
 }
 .recruiterCard-detail {
   display: flex;
