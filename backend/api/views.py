@@ -70,6 +70,28 @@ class UserViewSet(CreateModelMixin, GenericViewSet):
         else:
             return Response(data, status=status.HTTP_200_OK)
 
+    
+    @action(methods=['get', 'patch'], detail=False)
+    def skills(self, request):
+        serializer = FreelancerSerializer
+        if request.method == 'PATCH':
+            email = request.user
+            user = User.objects.filter(email=email).first()
+            freelancer = Freelancer.objects.filter(user=user).first()
+            data = serializer(freelancer, data=request.data, partial=True)
+            data.is_valid(raise_exception=True)
+            data.save()
+            return Response({
+                'message': "Freelancer Profile Updated Successfully"
+            },
+                status=status.HTTP_200_OK
+            )
+        else:
+            email = request.user
+            user = User.objects.filter(email=email).first()
+            freelancer = Freelancer.objects.filter(user=user).first()
+            data = serializer(freelancer).data
+            return Response(data, status=status.HTTP_200_OK)
 
 class FreelancerViewSet(CreateModelMixin, GenericViewSet):
     serializer_class = FreelancerSerializer
