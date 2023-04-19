@@ -45,12 +45,12 @@ const EditProfile = () => {
   };
 
   return (
-    <div className="signup-mainContainer">
-      <div className="signup-container">
-        <div className="signup-header">
-          <h1>Sign Up</h1>
+    <div className="editProfile-mainContainer">
+      <div className="editProfile-container">
+        <div className="editProfile-header">
+          <h1>Edit Profile</h1>
         </div>
-        <div className="signup-form">
+        <div className="editProfile-form">
           <form onSubmit={handleSubmit}>
             <label>
               Username:
@@ -88,14 +88,6 @@ const EditProfile = () => {
                 required
               />
             </label>
-            {/* <label>
-                  Password:
-                  <input type="password" name="password" required />
-                </label>
-                <label>
-                  Confirm Password:
-                  <input type="password" name="confirm_password" required />
-                </label> */}
             <label>
               First Name:
               <input
@@ -124,17 +116,6 @@ const EditProfile = () => {
                 }
               />
             </label>
-            {/* <label>
-              Gender:
-              <select name="gender" defaultValue={userData.gender}>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Notsay" selected>
-                  Notsay
-                </option>
-                <option value="Other">Other</option>
-              </select>
-            </label> */}
             <label>
               Roll Number:
               <input
@@ -169,19 +150,6 @@ const EditProfile = () => {
                 <option value="Other">Other</option>
               </select>
             </label>
-            {/* <label>
-              Current Year:
-              <select name="courses">
-                <option value="1">1st Year</option>
-                <option value="2">2nd Year</option>
-                <option value="3">3rd Year</option>
-                <option value="4">4th Year</option>
-                <option value="5">5th Year</option>
-                <option value="6">Graduated</option>
-                <option value="7">Faculty/Staff</option>
-                <option value="8">NA</option>
-              </select>
-            </label> */}
             <label>
               Profile Photo
               <input
@@ -197,21 +165,7 @@ const EditProfile = () => {
                 accept="image/*"
               />
             </label>
-            {/* <div id="freelacer-form">
-                  <label>
-                    Your Skill 1*:
-                    <input type="text" name="skill1" required />
-                  </label>
-                  <label>
-                    Your Skill 2:
-                    <input type="text" name="skill2" />
-                  </label>
-                  <label>
-                    Your Skill 3:
-                    <input type="text" name="skill3" />
-                  </label>
-                </div> */}
-            <div className="signup-submit">
+            <div className="editProfile-submit">
               <input type="submit" />
             </div>
           </form>

@@ -8,12 +8,12 @@ import useAxios from "../utils/useAxios";
 const EditSkills = () => {
   const navigate = useNavigate();
   const api = useAxios();
-  const [skill1, setSkill1] = useState("Select");
-  const [skill2, setSkill2] = useState("Select");
-  const [skill3, setSkill3] = useState("Select");
+  const [skill1, setSkill1] = useState(null);
+  const [skill2, setSkill2] = useState(null);
+  const [skill3, setSkill3] = useState(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (skill1 !== "Select" && skill2 !== "Select" && skill3 !== "Select") {
+    if (skill1) {
       console.log(skill1, skill2, skill3);
       const response = await api.patch("/users/skills/", {
         skill1, skill2, skill3
