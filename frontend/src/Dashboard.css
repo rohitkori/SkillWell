@@ -152,6 +152,12 @@ html {
   background-color: rgb(38, 38, 38);
   gap: 5rem 0;
 }
+.dashboard-freelancerNoSkills{
+  text-align: center;
+  font-size: 1.2rem;
+  color: grey;
+
+}
 .dashboard-freelancerTop .freelancer-skill {
   display: flex;
   flex-direction: column;
