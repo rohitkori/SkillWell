@@ -78,6 +78,9 @@ class UserViewSet(CreateModelMixin, GenericViewSet):
             email = request.user
             user = User.objects.filter(email=email).first()
             freelancer = Freelancer.objects.filter(user=user).first()
+            freelancer.skill1=None
+            freelancer.skill2=None
+            freelancer.skill3=None
             data = serializer(freelancer, data=request.data, partial=True)
             data.is_valid(raise_exception=True)
             data.save()
