@@ -28,6 +28,7 @@ import { SiFlutter } from "react-icons/si";
 import Spinner from "./Spinner";
 import jobsInfo from "./Jobs/JobsInfo.js";
 import toast from "react-hot-toast";
+import Default from "./assets/default.jpeg";
 
 const Dashboard = () => {
   const icons = [
@@ -89,7 +90,11 @@ const Dashboard = () => {
       setLoading(true);
       const { data } = await api.get("/users/me/");
       setUserData(data);
-      setImagePreview(`${imageLoadURL}` + data.profile_photo);
+      if (data.profile_photo === null) {
+        setImagePreview(Default);
+      } else {
+        setImagePreview(`${imageLoadURL}` + data.profile_photo);
+      }
       console.log(`${imageLoadURL}` + data.profile_photo);
       console.log(data);
       setLoading(false);
