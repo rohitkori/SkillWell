@@ -25,6 +25,7 @@ import { MdOutlineSwitchVideo } from "react-icons/md";
 import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiFlutter } from "react-icons/si";
 import toast from "react-hot-toast";
+import Default from "../assets/default.jpeg";
 
 const Profile = () => {
     const icons = [
@@ -88,8 +89,11 @@ const Profile = () => {
                 const data = response.data;
                 const profileUser = data.filter((user) => user.id == id);
                 setUserData(profileUser[0]);
-                  setImagePreview(`${imageLoadURL}` + profileUser[0].profile_photo);
-                  console.log(`${imageLoadURL}` + profileUser[0].profile_photo)
+                if (profileUser[0].profile_photo === null) {
+                  setImagePreview(Default);
+                } else {
+                  setImagePreview(`${imageLoadURL}` + data.profile_photo);
+                }console.log(`${imageLoadURL}` + profileUser[0].profile_photo)
                 console.log(profileUser[0]);
                 console.log(typeof(id),  id)
             } else {
