@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://172.31.2.78:3000',
+    'https://skillwell.vercel.app',
 ]
 
 AUTH_USER_MODEL = 'users.User'
