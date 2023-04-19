@@ -9,6 +9,7 @@ const EditProfile = () => {
   const { user } = useContext(AuthContext);
   const api = useAxios();
   const [userData, setUserData] = useState({});
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,6 +17,7 @@ const EditProfile = () => {
       const response = await api.get("/users/me/");
       if (response.status === 200) {
         setUserData(response.data);
+        setImage(response.data.profile_photo)
         console.log(response.data);
       } else {
         console.log("Error");
@@ -28,6 +30,10 @@ const EditProfile = () => {
     e.preventDefault();
     console.log(userData);
     // console.log(e.target.username.value);
+    if (image === userData.profile_photo) {
+      userData.profile_photo = null;
+      console.log("Same image")
+    }
     const response = await api.patch("/users/me/", userData);
     if (response.status === 200) {
       console.log("Success");

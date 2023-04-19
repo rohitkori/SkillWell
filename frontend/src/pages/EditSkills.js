@@ -1,19 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./EditSkills.css";
 import { toast } from "react-hot-toast";
+import useAxios from "../utils/useAxios";
+
 
 const EditSkills = () => {
   const navigate = useNavigate();
+  const api = useAxios();
   const [skill1, setSkill1] = useState("Select");
   const [skill2, setSkill2] = useState("Select");
   const [skill3, setSkill3] = useState("Select");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (skill1 !== "Select" && skill2 !== "Select" && skill3 !== "Select") {
       console.log(skill1, skill2, skill3);
-      toast.success("Successfully Edited Skills");
-      navigate("/dashboard");
+      const response = await api.patch("/users/skills/", {
+        skill1, skill2, skill3
+      })
+      if (response.status === 200) {
+        toast.success("Successfully Edited Skills");
+        navigate("/dashboard");
+      } else {
+        toast.error("Error in editing skills");
+      }
+      
     } else {
       toast.error("Please select all the skills");
     }

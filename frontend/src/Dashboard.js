@@ -117,7 +117,7 @@ const Dashboard = () => {
 
     const getMySkills = async () => {
       setMySkills([]);
-      const response = await api.get("/skills/", { freelancer: user.user_id });
+      const response = await api.get("/users/skills/");
       try {
         if (response.status === 200) {
           console.log(response.data);
@@ -178,16 +178,32 @@ const Dashboard = () => {
             <div className="dashboard-freelancerTop">No Skills Added</div>
           ) : (
             <div className="dashboard-freelancerTop">
-              {mySkills.map((skill) => (
+              {/* {mySkills.map((skill) => ( */}
                 <div className="freelancer-skill">
                   <div className="freelancer-icon">
                     {icons.map((icons, index) => {
-                      return icons.name === mySkills.name ? icons.icon : "";
+                      return icons.name === mySkills.skill1 ? icons.icon : "";
                     })}
                   </div>
-                  <div className="freelancer-skillName">{mySkills.name}</div>
+                  <div className="freelancer-skillName">{mySkills.skill1}</div>
                 </div>
-              ))}
+                <div className="freelancer-skill">
+                  <div className="freelancer-icon">
+                    {icons.map((icons, index) => {
+                      return icons.name === mySkills.skill2 ? icons.icon : "";
+                    })}
+                  </div>
+                  <div className="freelancer-skillName">{mySkills.skill2}</div>
+                </div>
+                <div className="freelancer-skill">
+                  <div className="freelancer-icon">
+                    {icons.map((icons, index) => {
+                      return icons.name === mySkills.skill3 ? icons.icon : "";
+                    })}
+                  </div>
+                  <div className="freelancer-skillName">{mySkills.skill3}</div>
+                </div>
+              {/* ))} */}
             </div>
           )}
           {/* <div className="freelancer-skill">

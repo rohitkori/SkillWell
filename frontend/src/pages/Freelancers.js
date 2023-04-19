@@ -12,7 +12,6 @@ import "./Freelancers.css";
 
 const People = () => {
     const [people, setPeople] = useState([]);
-    const [show, setShow] = useState(false);
     const backendURL = API_BASE_URL;
     const navigate = useNavigate();
     
@@ -30,7 +29,7 @@ const People = () => {
         <div className="people-container">
           <div>
             <div className="people-title" id="people-titleId">
-              <h1 className="people-title-h1">USERS</h1>
+              <h1 className="people-title-h1">Freelancers</h1>
             </div>
             <div className="peopleCard-container" id='peopleCard-containerId'>
             {people.filter((user) => user.isFreelancer === true)

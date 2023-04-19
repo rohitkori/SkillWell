@@ -29,7 +29,7 @@ const Recruiter = () => {
         <div className="recruiter-container">
           <div>
             <div className="recruiter-title" id="recruiter-titleId">
-              <h1 className="recruiter-title-h1">USERS</h1>
+              <h1 className="recruiter-title-h1">Recruiters</h1>
             </div>
             <div className="recruiterCard-container" id='recruiterCard-containerId'>
             {recruiter.filter((user) => user.isRecruiter === true)

@@ -7,6 +7,10 @@ img {
     width: 30%;
     height: 30%;
     border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    justify-content: center;
+    align-items: center; 
 }
 .people-container {
   background-color: #000000;
@@ -84,6 +88,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: start;
+  font-size: 2rem;
   /* letter-spacing: 0.09rem; */
   font-weight: 500;
 }
