@@ -1,4 +1,4 @@
-from users.models import User, Freelancer, Recruiter, Job, Applicant
+from users.models import User, Freelancer, Recruiter, Job, Applicant, Chat
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
@@ -49,4 +49,9 @@ class JobSerializer(serializers.ModelSerializer):
 class ApplicantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Applicant
+        fields = '__all__'
+
+class ChatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Chat
         fields = '__all__'

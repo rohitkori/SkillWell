@@ -247,6 +247,8 @@ const Profile = () => {
             <hr/>
             <RecruiterUser/>
           </div>
+          <div className="chat" onClick={()=> {navigate('/chat/', {state: {receiver: id}})
+                  }}>chat</div>
         </div>
       );
 

@@ -1,7 +1,7 @@
 from rest_framework.routers import DefaultRouter
 from rest_framework import routers
 from django.urls import path, include
-from .views import UserViewSet, MyTokenObtainPairView, FreelancerViewSet, RecruiterViewSet, JobViewSet, ApplicantViewSet, AllJobsViewSet, JobRecruiterDetails, CheckApplicationView, MyJobsView
+from .views import UserViewSet, MyTokenObtainPairView, FreelancerViewSet, RecruiterViewSet, JobViewSet, ApplicantViewSet, AllJobsViewSet, JobRecruiterDetails, CheckApplicationView, MyJobsView, ChatViewSet, GetSendChatView, getReceivedChatView
 
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
@@ -13,6 +13,7 @@ router.register("freelancer", FreelancerViewSet, basename="freelancer")
 router.register("recruiter", RecruiterViewSet, basename="recruiter")
 router.register("job", JobViewSet, basename="job")
 router.register("applicant", ApplicantViewSet, basename="applicant")
+router.register("chat", ChatViewSet, basename="chat")
 
 urlpatterns = [
     path(r'', include(router.urls)),
@@ -22,4 +23,7 @@ urlpatterns = [
     path('recruiterdetails/', JobRecruiterDetails.as_view(), name='recruiterdetails'),
     path('checkapplication/', CheckApplicationView.as_view(), name='checkapplication'),
     path('myjobs/', MyJobsView.as_view(), name='myjobs'),
+    path('getsendchat/', GetSendChatView.as_view(), name='getsendchat'),
+    path('getreceivechat/', getReceivedChatView.as_view(), name='getreceivedchat'),
+    
 ]

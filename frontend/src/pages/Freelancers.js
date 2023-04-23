@@ -25,7 +25,8 @@ const People = () => {
             .catch(err => console.log(err));
     }, []);
 
-    return (
+  return (
+      <>
         <div className="people-container">
           <div>
             <div className="people-title" id="people-titleId">
@@ -47,11 +48,13 @@ const People = () => {
                     <FaChevronRight />
                   </div>
                 </div>
+              
               );
               })}
             </div>
             </div>
-          </div>
+      </div>
+      </>
       )
 }
 

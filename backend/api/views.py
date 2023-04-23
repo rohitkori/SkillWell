@@ -7,8 +7,8 @@ from rest_framework.response import Response  # Import this for Response
 from rest_framework import status, viewsets  # Import this for Status
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from users.models import User, Freelancer, Recruiter, Job, Applicant
-from .serializers import MyTokenObtainPairSerializer, UserSerializer, UserDetailSerializer, FreelancerSerializer, RecruiterSerializer, JobSerializer, ApplicantSerializer
+from users.models import User, Freelancer, Recruiter, Job, Applicant, Chat 
+from .serializers import MyTokenObtainPairSerializer, UserSerializer, UserDetailSerializer, FreelancerSerializer, RecruiterSerializer, JobSerializer, ApplicantSerializer, ChatSerializer
 from rest_framework.decorators import api_view, permission_classes, action
 
 # Create your views here.
@@ -270,3 +270,38 @@ class MyJobsView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             return Response({'message': 'No jobs found'}, status=status.HTTP_404_NOT_FOUND)
+
+class ChatViewSet(viewsets.ModelViewSet):
+    queryset = Chat.objects.all()
+    serializer_class = ChatSerializer
+    permission_classes = [IsAuthenticated,]
+
+class GetSendChatView(APIView):
+    serializer_class = ChatSerializer
+    queryset = Chat.objects.all()
+    permission_classes = [IsAuthenticated,]
+
+    def post(self, request):
+        sender = request.data['sender']
+        receiver = request.data['receiver']
+        if Chat.objects.filter(sender=sender, receiver=receiver).exists():
+            chats = Chat.objects.filter(sender=sender, receiver=receiver)
+            serializer = ChatSerializer(chats, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({'message': 'No chats found'}, status=status.HTTP_404_NOT_FOUND)
+        
+class getReceivedChatView(APIView):
+    serializer_class = ChatSerializer
+    queryset = Chat.objects.all()
+    permission_classes = [IsAuthenticated,]
+
+    def post(self, request):
+        sender = request.data['sender']
+        receiver = request.data['receiver']
+        if Chat.objects.filter(sender=sender, receiver=receiver).exists():
+            chats = Chat.objects.filter(sender=sender, receiver=receiver)
+            serializer = ChatSerializer(chats, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        else:
+            return Response({'message': 'No chats found'}, status=status.HTTP_404_NOT_FOUND)
