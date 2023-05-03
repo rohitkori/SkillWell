@@ -1,7 +1,7 @@
 import { React, useState, useEffect, useContext, useDeferredValue } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL, IMAGE_URL } from "../config";
 import {
     FaChevronRight,
     FaClock,
@@ -12,7 +12,8 @@ import "./Freelancers.css";
 
 const People = () => {
     const [people, setPeople] = useState([]);
-    const backendURL = API_BASE_URL;
+  const backendURL = API_BASE_URL;
+  const imageUrl = IMAGE_URL;
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -37,7 +38,7 @@ const People = () => {
               return (
                 <div className="peopleCard" key={index} onClick={() => navigate('/profile?id=' + user.id)}>
                   <div className="peopleCard-left">
-                    {user.profile_photo ? (<img src={"http://localhost:8000" + user.profile_photo} alt="" />)
+                    {user.profile_photo ? (<img src={imageUrl + user.profile_photo} alt="" />)
                         : (<FaUserAlt size={25} />)}
                     <div className="peopleCard-detail">
                       <p className="peopleCard-name">{user.first_name + " " + user.last_name}</p>

@@ -1,7 +1,7 @@
 import { React, useState, useEffect, useContext, useDeferredValue } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL, IMAGE_URL } from "../config";
 import {
     FaChevronRight,
     FaClock,
@@ -12,7 +12,8 @@ import "./Recruiters.css";
 
 const Recruiter = () => {
     const [recruiter, setrecruiter] = useState([]);
-    const backendURL = API_BASE_URL;
+  const backendURL = API_BASE_URL;
+  const imageURL = IMAGE_URL;
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -37,7 +38,7 @@ const Recruiter = () => {
               return (
                 <div className="recruiterCard" key={index} onClick={() => navigate('/profile?id=' + user.id)}>
                   <div className="recruiterCard-left">
-                    {user.profile_photo ? (<img src={"http://localhost:8000" + user.profile_photo} alt="" />)
+                    {user.profile_photo ? (<img src={imageURL + user.profile_photo} alt="" />)
                         : (<FaUserAlt size={25} />)}
                     <div className="recruiterCard-detail">
                       <p className="recruiterCard-name">{user.first_name + " " + user.last_name}</p>
