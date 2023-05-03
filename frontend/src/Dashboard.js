@@ -29,6 +29,7 @@ import Spinner from "./Spinner";
 import jobsInfo from "./Jobs/JobsInfo.js";
 import toast from "react-hot-toast";
 import Default from "./assets/default.jpeg";
+import { API_BASE_URL, IMAGE_URL } from "./config";
 
 const Dashboard = () => {
   const icons = [
@@ -82,7 +83,7 @@ const Dashboard = () => {
   const [mySkills, setMySkills] = useState([]);
   const [jobDelete, setJobDelete] = useState(false);
   const [loading, setLoading] = useState(false);
-  const imageLoadURL = "http://localhost:8000";
+  const imageLoadURL = IMAGE_URL;
   const navigate = useNavigate();
 
   useEffect(() => {
