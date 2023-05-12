@@ -26,6 +26,7 @@ import { GiArtificialIntelligence } from "react-icons/gi";
 import { SiFlutter } from "react-icons/si";
 import toast from "react-hot-toast";
 import Default from "../assets/default.jpeg";
+import { API_BASE_URL, IMAGE_URL } from "../config";
 
 const Profile = () => {
     const icons = [
@@ -76,7 +77,7 @@ const Profile = () => {
     const [userData, setUserData] = useState({});
     const [imagePreview, setImagePreview] = useState("")  
     const [jobs, setJobs] = useState([])
-    const imageLoadURL = 'http://localhost:8000';
+    const imageLoadURL = IMAGE_URL ;
     const [searchParams, setSearchParams] = useSearchParams();
     
     const navigate = useNavigate();
