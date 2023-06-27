@@ -2,7 +2,7 @@ name: Docker-CI
 
 on: [push, pull_request]
 
-job:
+jobs:
   build:
     runs-on: ubuntu-latest
 
