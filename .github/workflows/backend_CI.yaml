@@ -1,0 +1,39 @@
+name: Tests
+
+on: [push, pull_request]
+
+env:
+  DJANGO_SECRET_KEY: "dcyz)+52d)n1f3d6dsf&g0p6a($(v4&rvu=9u3u6fib9=kzy$8"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Setup environment variables
+        run: |
+          cp .env.example .env
+      - name: Install dependencies
+        working-directory: ./backend
+        run: |
+          sudo apt-get install libpq-dev 
+          pip3 install pipenv
+      - name: Linting
+        working-directory: ./backend
+        run: |
+          pipenv install --dev
+          source "$(pipenv --venv)"/bin/activate
+          flake8 .
+      - name: Migrations
+        working-directory: ./backend
+        run: |
+          source "$(pipenv --venv)"/bin/activate
+          python manage.py makemigrations student
+          python manage.py migrate student
+          python manage.py makemigrations
+          python manage.py migrate

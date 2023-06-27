@@ -1,0 +1,14 @@
+name: Docker-CI
+
+on: [push, pull_request]
+
+job:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: |
+          cp .env.example .env
+          docker-compose up --build
