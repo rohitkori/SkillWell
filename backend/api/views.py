@@ -70,7 +70,6 @@ class UserViewSet(CreateModelMixin, GenericViewSet):
         else:
             return Response(data, status=status.HTTP_200_OK)
 
-    
     @action(methods=['get', 'patch'], detail=False)
     def skills(self, request):
         serializer = FreelancerSerializer
@@ -78,9 +77,9 @@ class UserViewSet(CreateModelMixin, GenericViewSet):
             email = request.user
             user = User.objects.filter(email=email).first()
             freelancer = Freelancer.objects.filter(user=user).first()
-            freelancer.skill1=None
-            freelancer.skill2=None
-            freelancer.skill3=None
+            freelancer.skill1 = None
+            freelancer.skill2 = None
+            freelancer.skill3 = None
             data = serializer(freelancer, data=request.data, partial=True)
             data.is_valid(raise_exception=True)
             data.save()
@@ -95,6 +94,7 @@ class UserViewSet(CreateModelMixin, GenericViewSet):
             freelancer = Freelancer.objects.filter(user=user).first()
             data = serializer(freelancer).data
             return Response(data, status=status.HTTP_200_OK)
+
 
 class FreelancerViewSet(CreateModelMixin, GenericViewSet):
     serializer_class = FreelancerSerializer
@@ -218,10 +218,11 @@ class ApplicantViewSet(viewsets.ModelViewSet):
             elif user.first_name:
                 applicant.freelancer_name = user.first_name
             elif user.last_name:
-                applicant.freelancer_name = user.last_name    
+                applicant.freelancer_name = user.last_name
             applicant.save()
-        serializer= ApplicantSerializer(applicants, many=True)
+        serializer = ApplicantSerializer(applicants, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 class AllJobsViewSet(APIView):
     serializer_class = JobSerializer
