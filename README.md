@@ -9,7 +9,45 @@ The best creative talent on campus is just a click away with our platform. Conne
 - [Technologies](#technologies)
 
 ## ScreenShots
-![Homepage](./ScreenShots/Homepage.png "Homepage")
+<div style="display: flex; flex-direction: column;" align="center">
+   <img src="./ScreenShots/Homepage.png"/>
+   <h2>Homepage</span>
+<!-- ![Homepage](./ScreenShots/Homepage.png "Homepage") -->
+</div>
+<div style="display: flex; flex-direction: row;">
+   <div width="40%" align="center">
+      <img src="./ScreenShots/RecruiterDashboard.png" />
+      <h2>Recruiter Dashboard</h2>
+   </div>
+   <div width="40%" align="center">
+      <img src="./ScreenShots/FreelancerDashboard.png" />
+      <h2>Freelancer Dashboard</h2>
+   </div>
+</div>
+<div style="display: flex; flex-direction: row;">
+   <img src="./ScreenShots/WorksPage.png" />
+   <h2>Works Page</h2>
+</div>
+<div style="display: flex; flex-direction: row;">
+   <div width="40%" align="center">
+      <img src="./ScreenShots/WorkDetailsPage.png" />
+      <h2>Work Details Page</h2>
+   </div>
+   <div width="40%" align="center">
+      <img src="./ScreenShots/WorkApplied.png" />
+      <h2>Work Applied</h2>
+   </div>
+</div>
+<div style="display: flex; flex-direction: row;">
+   <div width="40%" align="center">
+      <img src="./ScreenShots/RecruitersPage.png" />
+      <h2>Recruiters Page</h2>
+   </div>
+   <div width="40%" align="center">
+      <img src="./ScreenShots/FreelancerPage.png" />
+      <h2>Freelancers Page</h2>
+   </div>
+</div>
 
 ## Installation
 
