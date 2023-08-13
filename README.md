@@ -28,7 +28,7 @@ The best creative talent on campus is just a click away with our platform. Conne
    <img src="./ScreenShots/WorksPage.png" />
    <h2>Works Page</h2>
 </div>
-<div style="display: flex; flex-direction: row;">
+<div style="display: flex; flex-direction: row;" align="center">
    <div width="40%" align="center">
       <img src="./ScreenShots/WorkDetailsPage.png" />
       <h2>Work Details Page</h2>
