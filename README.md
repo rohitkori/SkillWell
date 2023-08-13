@@ -3,9 +3,13 @@ The best creative talent on campus is just a click away with our platform. Conne
 
 ## Table of Contents
 
+- [ScreenShots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies](#technologies)
+
+## ScreenShots
+![Homepage](./ScreenShots/Homepage.png "Homepage")
 
 ## Installation
 
