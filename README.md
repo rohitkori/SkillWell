@@ -9,11 +9,16 @@ The best creative talent on campus is just a click away with our platform. Conne
 - [Technologies](#technologies)
 
 ## ScreenShots
-<div style="display: flex; flex-direction: column;" align="center">
-   <img src="./ScreenShots/Homepage.png"/>
-   <h2>Homepage</span>
-<!-- ![Homepage](./ScreenShots/Homepage.png "Homepage") -->
-</div>
+<table>
+   <tr>
+      <td>
+         <div style="display: flex; flex-direction: column;" align="center">
+            <img src="./ScreenShots/Homepage.png"/>
+            <h2>Homepage</span>
+         </div>
+      </td>
+   </tr>
+</table>
 <table>
    <tr>
       <td>
