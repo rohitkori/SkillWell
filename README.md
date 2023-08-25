@@ -3,9 +3,80 @@ The best creative talent on campus is just a click away with our platform. Conne
 
 ## Table of Contents
 
+- [ScreenShots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies](#technologies)
+
+## ScreenShots
+<table>
+   <tr>
+      <td>
+         <div style="display: flex; flex-direction: column;" align="center">
+            <img src="./ScreenShots/Homepage.png"/>
+            <h2>Homepage</span>
+         </div>
+      </td>
+   </tr>
+</table>
+<table>
+   <tr>
+      <td>
+         <div align="center">
+            <img src="./ScreenShots/RecruiterDashboard.png" />
+            <h2>Recruiter Dashboard</h2>
+         </div>
+      </td>
+      <td>
+         <div align="center">
+            <img src="./ScreenShots/FreelancerDashboard.png" />
+            <h2>Freelancer Dashboard</h2>
+         </div>
+      </td>
+   </tr>
+</table>
+<table>
+   <tr>
+      <td>
+         <div style="display: flex; flex-direction: row;" align="center">
+            <img src="./ScreenShots/WorksPage.png" />
+            <h2>Works Page</h2>
+         </div>
+      </td>
+   </tr>
+</table>
+<table>
+   <tr>
+      <td>
+         <div align="center">
+            <img src="./ScreenShots/WorkDetailsPage.png" />
+            <h2>Work Details Page</h2>
+         </div>
+      </td>
+      <td>
+         <div align="center">
+            <img src="./ScreenShots/WorkApplied.png" />
+            <h2>Work Applied</h2>
+         </div>
+      </td>
+   </tr>
+</table>
+<table>
+   <tr>
+      <td>
+         <div align="center">
+            <img src="./ScreenShots/RecruitersPage.png" />
+            <h2>Recruiters Page</h2>
+         </div>
+      </td>
+      <td>
+         <div align="center">
+            <img src="./ScreenShots/FreelancerPage.png" />
+            <h2>Freelancers Page</h2>
+         </div>
+      </td>
+   </tr>
+</table>
 
 ## Installation
 
