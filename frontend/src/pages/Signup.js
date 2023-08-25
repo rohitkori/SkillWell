@@ -1,21 +1,12 @@
 import React from "react";
 import "./Signup.css";
 import AuthContext from "../contexts/AuthContext";
-import { useState, useContext } from "react";
-import axios from "axios";
-import { API_BASE_URL } from "../config";
+import { useContext } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
   const { registerUser } = useContext(AuthContext);
-  const navigate = useNavigate();
 
-  const baseURL = API_BASE_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,7 +44,7 @@ const Signup = () => {
               <input
                 type="text"
                 name="username"
-                onChange={(e) => setUsername(e.target.value)}
+                // onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </label>
@@ -62,7 +53,7 @@ const Signup = () => {
               <input
                 type="text"
                 name="email"
-                onChange={(e) => setEmail(e.target.value)}
+                // onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </label>
