@@ -1,0 +1,414 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+html {
+  font-size: 10px;
+}
+.dashboard-container {
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.dashboard-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2%;
+}
+.dashboard-titleLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  font-size: 2rem;
+  margin: 0 0 0 2rem;
+}
+.dashboard-titleLeft p {
+  margin: 0;
+}
+.dashboard-titleLeft span {
+  margin: 0;
+  font-weight: 200;
+  color: grey;
+}
+.social-media {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  margin: 1rem 0 0;
+  gap: 2rem;
+}
+.dashboard-titleRight {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  margin: 0 2rem 0 0;
+}
+.dashboard-img img {
+  display: flex;
+  margin: 5rem 0;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px dotted #ffffff;
+  cursor: pointer;
+}
+.dashboard-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin: 5rem auto;
+  justify-content: center;
+  padding: 0 2rem;
+}
+.dashboard-intro h1 {
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+  margin: 0;
+}
+.dashboard-intro p {
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: grey;
+  margin: 0;
+}
+.dashboard-titleRight {
+  margin: auto 0;
+}
+.dashboard-container hr {
+  border: 1px solid grey;
+  opacity: 0.5;
+}
+.dashboard-details {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2%;
+  justify-content: space-between;
+}
+.dashboard-detailsLeft {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 3rem 0;
+  justify-content: start;
+  gap: 2rem;
+}
+.dashboard-freelancer {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2%;
+  gap: 0px;
+}
+.dashboard-freelancerAdd{
+  background-color: rgba(38, 38, 38, 0.2);
+  border: 1px solid rgb(38, 38, 38);
+  margin: 1rem 0 5rem;
+  padding: .5rem 1rem;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+.dashboard-freelancerAdd:hover{
+  background-color: rgb(38, 38, 38, 0.5);
+}
+/* .dashboard-freelancerAdd-div{
+  cursor: pointer;
+  width: fit-content;
+} */
+.dashboard-freelancerTop {
+  width: 100%;
+  display: grid;
+  /* grid-template-columns: auto auto auto; */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* grid-auto-columns: minmax(0, 1fr); */
+  /* grid-auto-flow: column; */
+  margin: 5rem 0 0;
+  padding: 5rem 1rem;
+  background-color: rgb(38, 38, 38);
+  gap: 5rem 0;
+}
+.dashboard-freelancerNoSkills{
+  text-align: center;
+  font-size: 1.2rem;
+  color: grey;
+
+}
+.dashboard-freelancerTop .freelancer-skill {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  /* margin: 0 0 0 2rem; */
+}
+.dashboard-freelancerTop .freelancer-skill .freelancer-skillName {
+  margin: 0;
+  font-size: 2rem;
+}
+.dashboard-recruiter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2%;
+}
+.dashboard-recruiter-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  margin: 5rem 0;
+  padding: 5rem 0;
+  gap: 2rem 1rem;
+}
+.dashboard-jobsCard-link {
+  background-color: rgb(38, 38, 38);
+  position: relative;
+  backdrop-filter: blur(5px);
+  /* border-radius: 16px; */
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border: 1px solid #000;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  box-sizing: border-box;
+  padding: 5rem 2rem;
+  text-decoration: none;
+  cursor: pointer;
+  height: 100%;
+}
+.dashboard-jobsCard-Title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-jobsCard-Bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard-jobsCard-Bottom p {
+  font-weight: 100;
+  margin: 0;
+}
+.dashboard-jobsCard-title h1{
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+.dashboard-jobsCard-creator{
+  text-align: center;
+}
+
+.dashboard-jobsCard-creator p{
+  /* font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+   */
+  /* background: #fff; */
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 6px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  /* color: #000; */
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 1.5rem 0  ;
+  cursor: pointer;
+}
+.dashboard-jobsCard-creator span{
+  font-size: 1.5rem;
+  font-weight: 400;
+  /* margin: 0; */
+  color: red;
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 6px 0px;
+  border: 1px solid #ffffff;
+  /* font-family: Arial; */
+  /* color: #000; */
+  /* font-size: 1.5rem; */
+  /* font-weight: 600; */
+  padding: 0.2rem 2.2rem;
+  text-decoration: none;
+  margin-top: 5rem;
+  /* margin: 1.5rem 0  ; */
+  cursor: pointer;
+}
+.dashboard-registerAsFreelancer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+}
+.dashboard-registerAsFreelancer h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+.dashboard-registerAsFreelancer p {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin: 0;
+}
+.dashboard-registerAsFreelancer button {
+  margin: 1rem 0 5rem;
+  background: transparent;
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 2rem 2rem 5rem 0;
+  cursor: pointer;
+}
+.dashboard-registerAsFreelancer button:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+.dashboard-registerAsFreelancer button:active {
+  background-color: #ffffff;
+  color: #000000;
+}
+.dashboard-registerAsRecruiter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+}
+.dashboard-registerAsRecruiter h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+.dashboard-registerAsRecruiter p {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin: 0;
+}
+.dashboard-registerAsRecruiter button {
+  margin: 1rem 0 5rem;
+  background: transparent;
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 2rem 2rem 5rem 0;
+  cursor: pointer;
+}
+.dashboard-registerAsRecruiter button:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+.dashboard-registerAsRecruiter button:active {
+  background-color: #ffffff;
+  color: #000000;
+}
+@media (max-width: 980px) {
+  .profileEdit-mobile {
+    display: flex;
+    background: transparent;
+    border-radius: 5px;
+    box-shadow: none;
+    border: none;
+    /* font-family: Arial; */
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  .profileEdit {
+    display: none;
+  }
+  .talentProfile-img img {
+    margin: 5rem 0 2rem 0;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px dotted #ffffff;
+    cursor: pointer;
+  }
+  .talentProfile-details {
+    display: flex;
+    flex-direction: column;
+  }
+  .talentProfile-detailsLeft {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* padding: 0 5%; */
+  }
+  .talentProfile-detailsRight {
+    width: 100%;
+    /* padding: 0 5%; */
+  }
+  .talentProfile-videoContainer-videos iframe {
+    width: 100%;
+    height: 30vh;
+  }
+}
+@media (max-width: 580px) {
+  .talentProfile-titleRight {
+    margin: 1rem auto;
+  }
+  .talentProfile-title {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2%;
+  }
+}

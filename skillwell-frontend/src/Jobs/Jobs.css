@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+html {
+  font-size: 10px;
+}
+.jobs-container {
+  background: url(../assets/works-bg3.jpg);
+  background-size: cover;
+  /* background: url(../assets/works-bg2.jpg) no-repeat center center fixed; */
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+#jobs-titleId {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 2%;
+  align-items: start;
+  justify-content: start;
+}
+.jobs-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+}
+.jobs-search {
+  /* margin: 1rem auto; */
+  /* padding: 0 0 1.5rem 0; */
+  width: 100%;
+  max-width: 500px;
+  border-radius: 0.5rem;
+  letter-spacing: 0.15rem;
+  cursor: pointer;
+  background-color: transparent;
+  color: #ffffff;
+}
+.jobs-search input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  width: 100%;
+  color: #ffffff;
+  letter-spacing: 0.15rem;
+}
+.jobs-search input::-webkit-search-cancel-button {
+  position: relative;
+  right: 10px;
+}
+.jobs-search input::placeholder {
+  color: #fff;
+  letter-spacing: 0.2rem;
+  opacity: 0.8;
+}
+.jobs-search input:focus {
+  outline: none;
+  color: #ffffff;
+  letter-spacing: 0.1rem;
+}
+#jobsCard-containerId {
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 2% 5rem;
+}
+.jobsCard-container {
+  display: grid;
+  /* grid-template-columns: minmax(auto, 333px) minmax(auto, 333px) minmax(
+      auto,
+      333px
+    ); */
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 5rem 2rem;
+  padding-bottom: 5rem;
+}
+.jobs-title {
+  color: #ffffff;
+}
+.jobs-title-h1 {
+  padding: 2.5rem 0 0 0;
+  font-size: 3rem;
+}
+.jobsCard-link {
+  text-decoration: none;
+}
+.jobsCard {
+  position: relative;
+  background: rgba(5, 5, 89, 0.321);
+  backdrop-filter: blur(5px);
+  border-radius: 16px;
+  /* box-shadow: rgba(0, 0, 0) 0px 2px 4px 0px,
+    rgba(0, 0, 0) 0px 1px 6px 0px; */
+box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border: 1px solid #000;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  box-sizing: border-box;
+  padding: 5rem 2rem;
+  text-decoration: none;
+  /* margin-top: 2rem; */
+  /* margin: 20px 25px 20px 0; */
+  cursor: pointer;
+  height: 100%;
+}
+.jobsCard:hover {
+    backdrop-filter: blur(2px);
+    transition: backdrop-filter .5s ease-in;
+    border-color : blue    
+}
+.jobsCard-Title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.jobsCard-Top {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  /* margin: 0.5rem 0 1rem 0; */
+}
+
+.jobsCardRight-Top {
+  display: flex;
+  justify-content: end;
+}
+.jobsCard-Bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.jobsCard-Bottom p {
+  font-weight: 100;
+  margin: 0;
+}
+.jobCard-title h1{
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+.jobCard-creator{
+  text-align: center;
+}
+
+.jobCard-creator p{
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+}
+.jobCard-creator span{
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  color: gray;
+}
+.jobsCardRight-Bottom {
+  border: 1px solid #ffffff;
+  border-radius: 10%;
+  height: fit-content;
+}
+.jobsCardRight-Bottom img {
+  display: flex;
+  margin: auto;
+  width: 5rem;
+  height: 4rem;
+  border-top-right-radius: 10%;
+  border-top-left-radius: 10%;
+  object-fit: cover;
+  object-position: center;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+.jobsCardRight-Bottom p {
+  text-align: center;
+  font-size: 1rem;
+}
+@media (max-width: 930px) {
+  html {
+    font-size: 62.5%;
+  }
+  .jobsCard-container {
+    grid-template-columns: 48% 48%;
+  }
+  #jobs-titleId {
+    padding: 0 5%;
+  }
+  #jobsCard-containerId {
+    padding: 0 5%;
+  }
+}
+@media (max-width: 580px) {
+  .jobsCard-container {
+    grid-template-columns: auto;
+  }
+}

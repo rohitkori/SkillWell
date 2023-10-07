@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+html {
+  font-size: 10px;
+}
+.editProfile-mainContainer{
+      margin: 0;
+      padding: 0;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background-color: #000;
+  background-image: url(https://media0.giphy.com/media/O1A7W9ipgqOpq/giphy.gif?cid=ecf05e476czcvg5btq1ejmbepw02gv7awpgz48cl7sngq2go&rid=giphy.gif&ct=g);
+  background-repeat: no-repeat;
+  background-position: 90% 45%;
+  color: #fff;
+}
+.editProfile-container{
+        box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 5rem 2% 0 2%;
+  /* color:#FFFFFF; */
+  font-size: 2rem;
+  /* text-align: start; */
+   display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+.editProfile-formContainer{
+  width: 100%;
+  max-width: 500px;
+}
+.editProfile-form{
+    box-sizing: border-box;
+  /* margin: auto; */
+  width: 50%;
+  color:#fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.editProfile-form form{
+    display: flex;
+    flex-direction: column;
+}
+
+.editProfile-form form label{
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.editProfile-form form label input, .editProfile-form form label select{
+    width: 100%;
+    /* max-width: 500px; */
+    padding: 0 0 2rem 0;
+    background-color: transparent;
+    border: none;
+border-bottom: 2px solid grey;
+  color: #FFFFFF;
+}
+.editProfile-form form label select option {
+  color: #000;
+}
+#recruiter-form, #freelacer-form{
+  display: none;
+}
+#recruiter-form label, #freelacer-form label{
+  display: flex;
+  margin: 1rem 0;
+}
+.editProfile-submit input{
+  margin: 1rem 0 5rem;
+    background: transparent;
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 2rem 2rem 5rem 0;
+  cursor: pointer;
+}

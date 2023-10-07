@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+html {
+  font-size: 10px;
+}
+.homepage-container {
+  /* background-image: url(https://images.unsplash.com/photo-1504316509664-33973cde1b8a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80); */
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-color: #000;
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+/* .homepage-container hr {
+  border: 0.05rem solid black;
+  width: 99%;
+} */
+#homepageTopId {
+  box-sizing: border-box;
+  /* margin: 0 2%; */
+  justify-content: center;
+  max-width: 1000px;
+  padding: 0 1%;
+}
+
+.homepageTop {
+  display: flex;
+  flex-direction: row;
+}
+
+.homepage-left {
+  width: 50%;
+  margin: 3rem 0 0 0;
+}
+.homepage-left h1 {
+  font-weight: 500;
+}
+.homepage-right img {
+  width: 40rem;
+  height: 40rem;
+  /* margin: 5rem 0 0 0; */
+  border-radius: 5px;
+}
+.homepageTitle {
+  font-size: 3.7rem;
+  font-weight: 300;
+  color: #fff;
+  line-height: 4rem;
+  width: 70%;
+  padding-bottom: 1rem;
+  margin: 0;
+}
+.homepageDescription {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 2rem;
+}
+.homepageButton button {
+  background: transparent;
+  border-radius: 5px;
+  /* box-shadow: 1px 0.5px 2px 1px #ffffff; */
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 2rem 2rem 5rem 0;
+  cursor: pointer;
+    transition: background-color .5s ease-out;
+}
+.homepageButton button:hover {
+  text-decoration: none;
+  background-color: rgba(128, 128, 128, 0.499);
+    transition: background-color .5s ease-out;
+}
+#homepageBottomId {
+  box-sizing: border-box;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 0 5rem 0;
+  padding: 0 1%;
+}
+
+.homepageBottom {
+  display: flex;
+  flex-direction: column;
+}
+.homepageBottom h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.homepageJobs-container {
+  display: grid;
+  /* grid-template-columns: minmax(auto, 333px) minmax(auto, 333px) minmax(
+      auto,
+      333px
+    ); */
+    grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.homepageJobs {
+  color: #ffffff;
+  margin: 5rem 0 0 0;
+}
+.homepageJobsCard {
+  background: transparent;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+    box-shadow: rgba(0, 0, 0) 0px 2px 5px 0px,
+    rgba(0, 0, 0) 0px 1px 12px 0px;
+  border: 1px inset;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 2rem;
+  text-decoration: none;
+  margin-top: 2rem;
+  /* margin: 20px 25px 20px 0; */
+  cursor: pointer;
+    transition: backdrop-filter .5s ease-out;
+}
+.homepageJobsCard:hover {
+    backdrop-filter: blur(2px);
+    transition: backdrop-filter .5s ease-in;
+}
+.homepageCard-Title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.homepageJobsCardLeft-Top {
+  display: flex;
+  align-items: center;
+  /* margin: 0.5rem 0 1rem 0; */
+}
+.homepageJobsCardLeft-Top p {
+  padding-left: 0.5rem;
+}
+.homepageJobsCardRight-Top {
+  display: flex;
+  justify-content: end;
+  padding: 0;
+}
+.homepageJobsCardLeft-Bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+}
+.homepageJobsCard-timeDiv,
+.homepageJobsCard-locationDiv,
+.homepageJobsCard-amountDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 100;
+  padding: 0;
+}
+.homepageJobsCard-timeDiv p,
+.homepageJobsCard-locationDiv p,
+.homepageJobsCard-amountDiv p {
+  padding: 0;
+}
+.homepageJobsCardLeft-Bottom p {
+  padding-left: 0.5rem;
+  font-weight: 100;
+  padding: 0 0 0 0.5rem;
+  margin: 0;
+}
+.homepageTalent-container {
+  display: grid;
+  grid-template-columns: minmax(auto, 333px) minmax(auto, 333px) minmax(
+      auto,
+      333px
+    );
+  gap: 2rem;
+}
+.homepageTalent {
+  color: #ffffff;
+  margin: 5rem 0;
+}
+.homepageTalentCard {
+  background: #000;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem;
+  text-decoration: none;
+  margin-top: 2rem;
+  /* margin: 20px 25px 20px 0; */
+  gap: 2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.homepageTalent-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.homepageTalent-detail {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  line-height: 1.5rem;
+  justify-content: start;
+}
+.homepageTalent-detail p {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  letter-spacing: 0.09rem;
+  font-weight: 500;
+}
+.homepageTalent-skill {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 930px) {
+  html {
+    font-size: 62.5%;
+  }
+  .homepage-right {
+    display: none;
+  }
+  .homepage-left {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+  }
+  .homepage-left h1 {
+    text-align: center;
+    font-weight: 500;
+  }
+  .homepage-left p {
+    text-align: center;
+  }
+  .homepageTitle {
+    width: 100%;
+  }
+  .homepageButton {
+    display: flex;
+    margin: auto;
+  }
+  .homepageButton button {
+    padding: 1.2rem;
+  }
+}
+@media (max-width: 780px) {
+  .homepageJobs-container {
+    grid-template-columns: 48% 48%;
+  }
+  .homepageTalent-container {
+    grid-template-columns: 48% 48%;
+  }
+}
+@media (max-width: 580px) {
+  .homepageJobs-container {
+    grid-template-columns: auto;
+  }
+  .homepageTalent-container {
+    grid-template-columns: auto;
+  }
+}
+@media (max-width: 400px) {
+  .homepage-left {
+    width: 90%;
+    margin: 5rem 0 0 0;
+  }
+  .homepageButton {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  .homepageButton button {
+    margin: 10% auto;
+    padding: 1.2rem 5rem;
+    width: 100%;
+  }
+}

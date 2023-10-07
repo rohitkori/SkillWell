@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+html {
+  font-size: 10px;
+}
+.editSkills-mainContainer {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background-color: #000;
+  background-image: url(https://64.media.tumblr.com/31120ea605854471d6fddd6c04c6e71a/tumblr_msvqr707oC1rjatglo1_r1_500.gifv);
+  background-repeat: no-repeat;
+  background-position: 90% 45%;
+  color: #fff;
+}
+.editSkills-container {
+  box-sizing: border-box;
+  max-width: 1000px;
+  margin: auto;
+  padding: 5rem 2% 0 2%;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+.editSkills-formContainer {
+  width: 100%;
+  max-width: 500px;
+}
+.editSkills-form {
+  box-sizing: border-box;
+  width: 50%;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.editSkills-form form {
+  display: flex;
+  flex-direction: column;
+}
+.editSkills-form form label {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+.editSkills-form form label select {
+  background-color: transparent;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  color: #ffffff;
+}
+.editSkills-form form label select option {
+  background-color: #000;
+  color: #fff;
+}
+.editSkills-submit input {
+  margin: 1rem 0 5rem;
+  background: transparent;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.52) 0px 2px 4px 0px,
+    rgba(0, 0, 0, 0.52) 0px 1px 12px 0px;
+  border: 1px solid #ffffff;
+  font-family: Arial;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.2rem;
+  text-decoration: none;
+  margin: 2rem 2rem 5rem 0;
+  cursor: pointer;
+}
