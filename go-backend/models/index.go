@@ -30,7 +30,22 @@ func InitDB(cfg Config) {
   
     //mysql dsn
     dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", cfg.User, cfg.Password, cfg.Host, cfg.Port, cfg.DBName)
-    db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+    db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
+        DisableForeignKeyConstraintWhenMigrating: true,
+      })
+
+    // for auto-migration of tables in database
+    db.AutoMigrate(&User{},&Skill{}, &Freelancer{}, &Recruitor{})
+
+    // fmt.Println(db.Migrator().CurrentDatabase()) 
+    
+    // create foreign key constraints
+    // db.Migrator().CreateConstraint(&Freelancer{}, "Skills")
+    // db.Migrator().CreateConstraint(&Freelancer{}, "User")
+    // db.Migrator().CreateConstraint(&Recruitor{}, "User")
+
+    // fmt.Println(db.Migrator().HasConstraint(&Freelancer{}, "User"))
+    // fmt.Println(db.Migrator().HasConstraint(&Recruitor{}, "User"))
 
     if err != nil {
         panic(err)
