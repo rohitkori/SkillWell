@@ -1,125 +1,73 @@
-// // PATH: go-auth/main.go
-
-// package main
-
-// import (
-//     "go-backend/models"
-//     "go-backend/routes"
-//     "log"
-//     "os"
-
-//     "github.com/gin-gonic/gin"
-//     "github.com/joho/godotenv"
-// )
-
-// func main() {
-//     // Create a new gin instance
-//     r := gin.Default()
-
-//     // Load .env file and Create a new connection to the database
-//     err := godotenv.Load()
-//     if err != nil {
-//         log.Fatal("Error loading .env file")
-//     }
-//     config := models.Config{
-//         Host:     os.Getenv("DB_HOST"),
-//         Port:     os.Getenv("DB_PORT"),
-//         User:     os.Getenv("DB_USER"),
-//         Password: os.Getenv("DB_PASSWORD"),
-//         DBName:   os.Getenv("DB_NAME"),
-//         SSLMode:  os.Getenv("DB_SSLMODE"),
-//     }
-
-//     // Initialize DB
-//     models.InitDB(config)
-
-//     // Load the routes
-//     routes.AuthRoutes(r)
-
-//     // Run the server
-//     r.Run(":8080")
-// }
-
-
-
-
-
-
 package main
 
 import (
-	"fmt"
-	"net/http"
+    "fmt"
+    "log"
+    "net/http"
 
-	"github.com/gorilla/websocket"
+    "github.com/gorilla/websocket"
 )
 
+// We'll need to define an Upgrader
+// this will require a Read and Write buffer size
 var upgrader = websocket.Upgrader{
-	CheckOrigin: func(r *http.Request) bool {
-		return true
-	},
+    ReadBufferSize:  1024,
+  WriteBufferSize: 1024,
+
+  // We'll need to check the origin of our connection
+  // this will allow us to make requests from our React
+  // development server to here.
+  // For now, we'll do no checking and just allow any connection
+  CheckOrigin: func(r *http.Request) bool { return true },
 }
 
-var clients = make(map[*websocket.Conn]bool)
-var broadcast = make(chan Message)
+// define a reader which will listen for
+// new messages being sent to our WebSocket
+// endpoint
+func reader(conn *websocket.Conn) {
+    for {
+    // read in a message
+        messageType, p, err := conn.ReadMessage()
+        if err != nil {
+            log.Println(err)
+            return
+        }
+    // print out that message for clarity
+        fmt.Println(string(p))
 
-type Message struct {
-	Username string `json:"username"`
-	Message  string `json:"message"`
+        if err := conn.WriteMessage(messageType, p); err != nil {
+            log.Println(err)
+            return
+        }
+
+    }
+}
+
+// define our WebSocket endpoint
+func serveWs(w http.ResponseWriter, r *http.Request) {
+    fmt.Println(r.Host)
+
+  // upgrade this connection to a WebSocket
+  // connection
+    ws, err := upgrader.Upgrade(w, r, nil)
+    if err != nil {
+        log.Println(err)
+  }
+  // listen indefinitely for new messages coming
+  // through on our WebSocket connection
+    reader(ws)
+}
+
+func setupRoutes() {
+  http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Simple Server")
+  })
+  // mape our `/ws` endpoint to the `serveWs` function
+    http.HandleFunc("/ws", serveWs)
 }
 
 func main() {
-	http.HandleFunc("/", homePage)
-	http.HandleFunc("/ws", handleConnections)
-
-	go handleMessages()
-
-	fmt.Println("Server started on :8080")
-	err := http.ListenAndServe(":8080", nil)
-	if err != nil {
-		panic("Error starting server: " + err.Error())
-	}
-}
-
-func homePage(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to the Chat Room!")
-}
-
-func handleConnections(w http.ResponseWriter, r *http.Request) {
-	conn, err := upgrader.Upgrade(w, r, nil)
-    fmt.Println("handleConnections")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	defer conn.Close()
-
-	clients[conn] = true
-
-	for {
-		var msg Message
-		err := conn.ReadJSON(&msg)
-		if err != nil {
-			fmt.Println(err)
-			delete(clients, conn)
-			return
-		}
-
-		broadcast <- msg
-	}
-}
-
-func handleMessages() {
-	for {
-		msg := <-broadcast
-
-		for client := range clients {
-			err := client.WriteJSON(msg)
-			if err != nil {
-				fmt.Println(err)
-				client.Close()
-				delete(clients, client)
-			}
-		}
-	}
+    fmt.Println("Chat App v0.01")
+    setupRoutes()
+    http.ListenAndServe(":8080", nil)
 }
