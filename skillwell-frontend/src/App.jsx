@@ -17,9 +17,11 @@ import Freelancer from "./pages/Freelancers";
 import Recruiter from "./pages/Recruiters";
 import { AuthProvider } from "./contexts/AuthContext";
 import EditSkills from "./pages/EditSkills";
+import { connect } from './api/index.jsx';
 import { Toaster } from "react-hot-toast";
 
 function App() {
+  connect();
   return (
     <>
       <Router>
