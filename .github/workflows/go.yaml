@@ -3,11 +3,7 @@
 
 name: Go
 
-on:
-  push:
-    branches: ["go+vite"]
-  pull_request:
-    branches: ["go+vite"]
+on: [push]
 
 jobs:
   build:
