@@ -1,21 +1,17 @@
-import React, { useEffect } from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import AuthContext from "../contexts/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import Spinner from "../Spinner";
-import { connect,  sendMsg } from "../api";
 
 const Login = () => {
   const { loginUser, logoutUser} = useContext(AuthContext);
   const [email, setEmail] = useState("");
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
 
   const handleSubmit = (e) => {
-    sendMsg("Hello World");
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;

@@ -17,6 +17,7 @@ import Freelancer from "./pages/Freelancers";
 import Recruiter from "./pages/Recruiters";
 import { AuthProvider } from "./contexts/AuthContext";
 import EditSkills from "./pages/EditSkills";
+import Chat from './pages/Chat.jsx';
 import { connect } from './api/index.jsx';
 import { Toaster } from "react-hot-toast";
 
@@ -42,6 +43,7 @@ function App() {
               <Route path="/freelancers" element={<Freelancer />} />
               <Route path="/recruiters" element={<Recruiter />} />
               <Route path="/edit-skills" element={<EditSkills />} />
+              <Route path="/chat" element={<Chat />} />
               <Route path="/*" element={<Error />} />
             </Routes>
           </div>
