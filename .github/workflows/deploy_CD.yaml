@@ -37,18 +37,22 @@ jobs:
           # service_account_key: $GCP_SA_KEY # accessing secrets this way does not work
           # export_default_credentials: true
 
-      - name: Deploy to GCE
-        run: |
-          # Your deployment script or commands go here
-          # e.g., scp, rsync, or any other deployment method
+      # - name: Deploy to GCE
+      #   run: |
+      #     # Your deployment script or commands go here
+      #     # e.g., scp, rsync, or any other deployment method
 
-          # Example: Copy files to GCE using gcloud compute scp
-          gcloud compute scp --zone=${{ secrets.GCP_ZONE }} --recurse ./your-app/* ${{ secrets.GCP_INSTANCE_NAME }}:/var/www/html
+      #     # Example: Copy files to GCE using gcloud compute scp
+      #     gcloud compute scp --zone=${{ secrets.GCP_ZONE }} --recurse ./your-app/* ${{ secrets.GCP_INSTANCE_NAME }}:/var/www/html
 
-          # Restart your application or any other necessary steps
+      #     # Restart your application or any other necessary steps
 
-      - name: Build Docker Container
-        run: |
-          gcloud compute ssh --zone=your-instance-zone your-instance-name --command "cd skillwell && cp .env.example .env && sudo docker-compose up -d --build"
+      - name: SSH into the VM 
+        run:
+          gcloud compute ssh ${{ secrets.GCP_INSTANCE_NAME}} --zone=${{ secrets.GCP_ZONE }} --command "pwd"
+
+      # - name: Build Docker Container
+      #   run: |
+      #     gcloud compute ssh --zone=your-instance-zone your-instance-name --command "cd skillwell && cp .env.example .env && sudo docker-compose up -d --build"
 
 # Add any additional steps or adjustments based on your deployment process.
