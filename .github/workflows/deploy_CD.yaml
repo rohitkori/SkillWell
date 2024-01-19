@@ -18,8 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - name: Build the Docker image
+        run: |
+          cp .env.example .env
+          docker-compose up --build -d
 
       
       - name: Authenticate to Google Cloud
@@ -49,7 +52,7 @@ jobs:
 
       - name: SSH into the VM 
         run:
-          gcloud compute ssh ${{ secrets.GCP_INSTANCE_NAME}} --zone=${{ secrets.GCP_ZONE }} --command "git clone https://github.com/rohitkori/SkillWell.git && cd SkillWell && cp .env.example .env && sudo docker-compose up -d --build"
+          gcloud compute ssh ${{ secrets.GCP_INSTANCE_NAME}} --zone=${{ secrets.GCP_ZONE }} --command "cd SkillWell && git pull origin main && sudo docker-compose down && sudo docker-compose up -d --build"
 
       # - name: Build Docker Container
       #   run: |
