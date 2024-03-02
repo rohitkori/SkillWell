@@ -1,11 +1,15 @@
 package main
 
 import (
-    "fmt"
-    "log"
-    "net/http"
+	"fmt"
+	"go-backend/model"
+	"log"
+	"net/http"
+	"os"
 
-    "github.com/gorilla/websocket"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/gorilla/websocket"
+	"github.com/joho/godotenv"
 )
 
 var upgrader = websocket.Upgrader{
@@ -76,7 +80,25 @@ func setupRoutes() {
 }
 
 func main() {
+
+    err := godotenv.Load()
+
+    if err != nil {
+        log.Fatal("Error loading .env file")
+    }
+
+    config := model.Config{
+        Host:     os.Getenv("DB_HOST"),
+        Port:     os.Getenv("DB_PORT"),
+        User:     os.Getenv("DB_USER"),
+        Password: os.Getenv("DB_PASSWORD"),
+        DBName:   os.Getenv("DB_NAME"),
+    }
+
+    model.InitDB(config)  
+
     fmt.Println("Hello World")
+
     setupRoutes()
     log.Fatal(http.ListenAndServe(":8080", nil))
 }
