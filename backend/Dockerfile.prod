@@ -3,9 +3,8 @@ FROM python:3.8-alpine AS base
 ENV PYROOT /pyroot
 ENV PYTHONUSERBASE $PYROOT
 
-# Build Container
-# ARG BUILD_DEPS="gcc python3-dev musl-dev postgresql-dev jpeg-dev zlib-dev libjpeg libffi-dev openjdk8"
-# RUN apk --no-cache add ${BUILD_DEPS}
+# Build ContainerARG BUILD_DEPS="gcc python3-dev musl-dev postgresql-dev jpeg-dev zlib-dev libjpeg libffi-dev openjdk8"
+RUN apk --no-cache add ${BUILD_DEPS}
 RUN pip install --upgrade pip
 # RUN pip install celery
 RUN pip install pipenv
