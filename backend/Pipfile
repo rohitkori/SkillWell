@@ -24,9 +24,6 @@ django-extensions = "*"
 djangorestframework-simplejwt = "*"
 django-import-export = "*"
 psycopg2-binary = "*"
-pysocks = "*"
-sendgrid = "*"
-dj-rest-auth = "*"
 flake8 = "*"
 
 [dev-packages]
