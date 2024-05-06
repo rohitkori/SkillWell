@@ -2,14 +2,25 @@ package main
 
 import (
 	"fmt"
-	"go-backend/model"
-	"log"
+    "go-backend/model"
+    "log"
 	"net/http"
 	"os"
+	// "context"
+    "time"
+
+
+    "go-backend/routes"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/websocket"
 	"github.com/joho/godotenv"
+    "github.com/itsjamie/gin-cors"
+
+
+	// "go.mongodb.org/mongo-driver/mongo"
+	// "go.mongodb.org/mongo-driver/mongo/options"
+    "github.com/gin-gonic/gin"
 )
 
 var upgrader = websocket.Upgrader{
@@ -74,31 +85,73 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 }
 
 
-func setupRoutes() {
-    http.HandleFunc("/", homePage)
-    http.HandleFunc("/ws", wsEndpoint)
-}
+// func setupRoutes() {
+//     http.HandleFunc("/", homePage)
+//     http.HandleFunc("/ws", wsEndpoint)
+// }
+
+// var collection *mongo.Collection
+// var ctx = context.TODO()
+
 
 func main() {
 
-    err := godotenv.Load()
+    r := gin.Default()
+    
+    err:= godotenv.Load()
 
     if err != nil {
         log.Fatal("Error loading .env file")
     }
 
+
+    // //establishing mongo db connection    
+    // mongo_uri := os.Getenv("MONGO_URI")
+
+    // clientOptions := options.Client().ApplyURI(mongo_uri)
+	// client, err := mongo.Connect(ctx, clientOptions)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	// err = client.Ping(ctx, nil)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
+
+	// collection = client.Database("skillwell").Collection("tasks")
+
+
+    // res, err := collection.InsertOne(context.Background(), bson.M{"hello": "world"})
+    // if err != nil {
+    //     log.Fatal(err)
+    // }
+    // fmt.Println(res.InsertedID)
+    // id := res.InsertedID
+
     config := model.Config{
-        Host:     os.Getenv("DB_HOST"),
-        Port:     os.Getenv("DB_PORT"),
-        User:     os.Getenv("DB_USER"),
-        Password: os.Getenv("DB_PASSWORD"),
-        DBName:   os.Getenv("DB_NAME"),
+        Host:     os.Getenv("SQL_DB_HOST"),
+        Port:     os.Getenv("SQL_DB_PORT"),
+        User:     os.Getenv("SQL_DB_USER"),
+        Password: os.Getenv("SQL_DB_PASSWORD"),
+        DBName:   os.Getenv("SQL_DB_NAME"),
     }
 
     model.InitDB(config)  
 
     fmt.Println("Hello World")
 
-    setupRoutes()
+    // setupRoutes()
+    r.Use(cors.Middleware(cors.Config{
+        Origins: "http://localhost:5173",
+        Methods: "GET, PUT, POST, DELETE",
+        RequestHeaders: "Origin, Authorization, Content-Type",
+        ExposedHeaders: "",
+        MaxAge: 50 * time.Second,
+        Credentials: true,
+        ValidateHeaders: false,
+    }))
+    routes.AuthRoutes(r)
+    r.Run(":8080")
     log.Fatal(http.ListenAndServe(":8080", nil))
 }
