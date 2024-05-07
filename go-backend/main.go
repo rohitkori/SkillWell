@@ -143,7 +143,7 @@ func main() {
 
     // setupRoutes()
     r.Use(cors.Middleware(cors.Config{
-        Origins: "http://localhost:5173",
+        Origins: "http://localhost:3000",
         Methods: "GET, PUT, POST, DELETE",
         RequestHeaders: "Origin, Authorization, Content-Type",
         ExposedHeaders: "",

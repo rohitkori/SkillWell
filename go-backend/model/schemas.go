@@ -10,7 +10,7 @@ type User struct {
 	gorm.Model
 	ID          uint `json:"id"`
 	Username    string `json:"username"`
-	Email	    string `gorm:"type:varchar(100);uniqueIndex json:"email"`
+	Email	    string `gorm:"type:varchar(100);uniqueIndex" json:"email"`
 	Password    string `json:"password"`
 	Gender      string `json:"gender"`
 	Contact     string `json:"contact"`
@@ -23,7 +23,7 @@ type User struct {
 type Freelancer struct {
 	gorm.Model
 	ID          uint `json:"id"`
-	UserEmail	User `gorm:"foreignKey:Email"`
+	UserID      uint `gorm:"foreignKey:ID" json:"userId"` 
 	Skills      []string `gorm:"type:json" json:"skills"`
 	IsVerified  bool `json:"isVerified"`
 	CreatedAt    time.Time      
@@ -34,7 +34,7 @@ type Freelancer struct {
 type Recruiter struct {
 	gorm.Model
 	ID          uint `json:"id"`
-	UserEmail		User `gorm:"foreignKey:Email"`
+	UserID      uint `gorm:"foreignKey:ID" json:"userId"` 
 	Company     string `json:"company"`
 	IsApproved  bool `json:"isApproved"`
 	CreatedAt    time.Time      
@@ -44,7 +44,7 @@ type Recruiter struct {
 type Job struct {
 	gorm.Model
 	ID          uint `json:"id"`
-	RecruiterEmail User `gorm:"foreignKey:Email"`
+	RecruiterID uint `gorm:"foreignKey:ID" json:"recruiterId"`
 	Title       string `json:"title"`
 	Description string `json:"description"`
 	Applicants []string `gorm:"type:json" json:"applicants"`
@@ -57,8 +57,8 @@ type Job struct {
 type Chat struct {
 	gorm.Model
 	ID          uint `json:"id"`
-	SenderEmail User `gorm:"foreignKey:Email"`
-	ReceiverEmail User `gorm:"foreignKey:Email"`
+	SenderID uint `gorm:"foreignKey:ID" json:"senderId"`
+	ReceiverID uint `gorm:"foreignKey:ID" json:"receiverId"`
 	Message     string `json:"message"`
 	SentAt	  time.Time 
 }
