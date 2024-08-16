@@ -16,11 +16,15 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/joho/godotenv"
     "github.com/itsjamie/gin-cors"
+    "go-backend/controllers"
 
 
 	// "go.mongodb.org/mongo-driver/mongo"
 	// "go.mongodb.org/mongo-driver/mongo/options"
     "github.com/gin-gonic/gin"
+   swaggerfiles "github.com/swaggo/files"
+   ginSwagger "github.com/swaggo/gin-swagger"
+
 )
 
 var upgrader = websocket.Upgrader{
