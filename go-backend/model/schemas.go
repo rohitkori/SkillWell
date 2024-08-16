@@ -20,11 +20,27 @@ type User struct {
 	UpdatedAt    time.Time
 }
 
+type Skill struct {
+	gorm.Model
+	ID          uint `json:"id"`
+	SkillName   string `json:"skillName"`
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
+}
+
+type UserSkill struct {
+	gorm.Model
+	ID          uint `json:"id"`
+	UserID      uint `gorm:"foreignKey:ID" json:"userId"`
+	SkillID     uint `gorm:"foreignKey:ID" json:"skillId"`
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
+}
+
 type Freelancer struct {
 	gorm.Model
 	ID          uint `json:"id"`
 	UserID      uint `gorm:"foreignKey:ID" json:"userId"` 
-	Skills      []string `gorm:"type:json" json:"skills"`
 	IsVerified  bool `json:"isVerified"`
 	CreatedAt    time.Time      
 	UpdatedAt    time.Time
@@ -35,7 +51,7 @@ type Recruiter struct {
 	gorm.Model
 	ID          uint `json:"id"`
 	UserID      uint `gorm:"foreignKey:ID" json:"userId"` 
-	Company     string `json:"company"`
+	About     string `json:"about"`
 	IsApproved  bool `json:"isApproved"`
 	CreatedAt    time.Time      
 	UpdatedAt    time.Time
@@ -47,10 +63,18 @@ type Job struct {
 	RecruiterID uint `gorm:"foreignKey:ID" json:"recruiterId"`
 	Title       string `json:"title"`
 	Description string `json:"description"`
-	Applicants []string `gorm:"type:json" json:"applicants"`
 	IsOpen      bool `json:"is_open"`
-	SelectedApplicants []string `gorm:"type:json" json:"selectedApplicants"`
 	CreatedAt    time.Time      
+	UpdatedAt    time.Time
+}
+
+type Application struct {
+	gorm.Model
+	ID          uint `json:"id"`
+	JobID       uint `gorm:"foreignKey:ID" json:"jobId"`
+	FreelancerID uint `gorm:"foreignKey:ID" json:"freelancerId"`
+	IsSelected  bool `json:"isSelected"`
+	CreatedAt    time.Time
 	UpdatedAt    time.Time
 }
 
