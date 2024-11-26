@@ -87,6 +87,11 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // if token is not present, redirect to login page
+    if (!localStorage.getItem("authTokens")) {
+      navigate("/login");
+    }
+
     const fetchUser = async () => {
       setLoading(true);
       const { data } = await api.get("/users/me/");

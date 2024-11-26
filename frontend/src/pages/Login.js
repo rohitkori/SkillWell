@@ -5,6 +5,24 @@ import "./Login.css";
 import AuthContext from "../contexts/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import Spinner from "../Spinner";
+import { client_secret, client_id, redirect_url } from "../config";
+
+const generateRandomString = (length) => {
+  let result = "";
+  let characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
+const SSO_LOGIN_CLIENT_URL = "http://localhost:5173/landing";
+const RESPONSE_TYPE = "code";
+const SCOPE = "openid profile email";
+const STATE = generateRandomString(16);
+
 const Login = () => {
   const { loginUser, logoutUser} = useContext(AuthContext);
   const [email, setEmail] = useState("");
@@ -43,6 +61,9 @@ const Login = () => {
     )
 };
 
+const handleSSOLogin = () => {
+  window.location.href = `${SSO_LOGIN_CLIENT_URL}?client_id=${client_id}&redirect_url=${redirect_url}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}&state=${STATE}`;
+};
 
   return (
     <div className="login-mainContainer">
@@ -73,7 +94,13 @@ const Login = () => {
             // onClick={userCheck}
             value="Login"
           />
-        </form>
+          </form>
+          <input
+            type="submit"
+            className="form-submit"
+            onClick={handleSSOLogin}
+            value="SSO Login"
+          />
         <div className="login-notMemeber">
           <h1>Not a member?</h1>
           <div className="login-notMemberLink">

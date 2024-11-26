@@ -24,9 +24,26 @@ const useAxios = () => {
 
     if (!isExpired) return req;
 
+    const refreshTokenDecoded = jwt_decode(authTokens.refresh);
+    const isRefreshExpired = dayjs.unix(refreshTokenDecoded.exp).diff(dayjs()) < 1;  // this means the refresh token is expired
+
+    if (isRefreshExpired) {
+      localStorage.removeItem('authTokens');
+      setUser(null);
+      setAuthTokens(null);
+      return req;
+    }
+
     const response = await axios.post(`${baseURL}/login/refresh/`, {
       refresh: authTokens.refresh,
     });
+    console.log("hello line 30")
+    if (response.status !== 200) {
+      localStorage.removeItem('authTokens');
+      setUser(null);
+      setAuthTokens(null);
+      return req;
+    }
 
     localStorage.setItem('authTokens', JSON.stringify(response.data));
 
